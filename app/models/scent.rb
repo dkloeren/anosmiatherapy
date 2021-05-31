@@ -1,0 +1,2 @@
+class Scent < ApplicationRecord
+end
