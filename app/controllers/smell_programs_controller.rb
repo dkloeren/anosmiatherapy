@@ -1,0 +1,2 @@
+class SmellProgramsController < ApplicationController
+end
