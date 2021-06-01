@@ -17,9 +17,10 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% if @navbar_title.present? %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
-
     <%= yield %>
   </body>
 </html>

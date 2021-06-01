@@ -1,0 +1,12 @@
+<div class="container">
+  <p>
+  <%= current_user.first_name %>
+  </p>
+  <p>
+  <%= current_user.last_name %>
+  </p>
+  <p>
+  <%= current_user.email %>
+  </p>
+  <%= cl_image_tag current_user.avatar.key %>
+</div>
