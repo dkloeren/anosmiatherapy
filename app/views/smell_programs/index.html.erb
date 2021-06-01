@@ -1,0 +1,37 @@
+<div class="container dashboard">
+
+  <div id="greeting">
+    <p>Good evening,  Jim. It’s Wednesday, May 19</p>
+    <hr class=“solid”>
+  </div>
+
+  <div class="d-flex">
+    <div class="d-flex, justify-content-center" id="dashboard-image">
+      <%= image_tag('dashboard_image', size: "100x100", alt: "dashboard_image") %>
+    </div>
+
+    <div id="quote">
+      <div id="quote-content"><p>What’s in a name? That which we call a rose by any other name would smell as sweet.</p></div>
+      <div id="quote-author"><p>William Shakespear</p></div>
+    </div>
+  </div>
+
+  <div>
+    <h2>Current Training</h2>
+  </div>
+</div>
+
+<div class="current-training">
+  <div class="flex-tiles">
+    <%= render "training_tile", locals: {side: "left", training_id: 1}  %>
+    <%= render "training_tile", locals: {side: "right", training_id: 2} %>
+  </div>
+  <div class="flex-tiles">
+    <%= render "training_tile", locals: {side: "left", training_id: 3}  %>
+    <%= render "training_tile", locals: {side: "right", training_id: 4}%>
+  </div>
+</div>
+
+<div class="container flex-tiles " id="btn-start-training">
+    <%= link_to "Start Straining", smell_programs_path, class: 'btn-main', id: "btn-start-training" %>
+</div>
