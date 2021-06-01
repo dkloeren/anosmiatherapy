@@ -1,1 +1,28 @@
 // Specific CSS for your home-page
+h2 {
+  font-family: 'Keroine TRIAL', 'sans-serif';
+  color: #210908;
+  display: flex;
+  justify-content: center;
+}
+
+p, a {
+  font-family: 'PT sans', 'sans-serif';
+  color: #210908;
+  display: flex;
+  justify-content: center;
+  // padding: 15px;
+}
+
+.landing-page {
+  background: #FFF4ED;
+  padding: 30px;
+}
+
+.landing-details {
+  padding: 20px;
+}
+
+.landing-btn {
+  padding: 15px;
+}
