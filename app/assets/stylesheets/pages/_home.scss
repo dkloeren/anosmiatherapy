@@ -1,12 +1,10 @@
 // Specific CSS for your home-page
-h2 {
-  font-family: 'Keroine TRIAL', 'sans-serif';
-  color: #210908;
+.landing-details > h2 {
   display: flex;
   justify-content: center;
 }
 
-p, a {
+.landing-desc > p, .landing-btn > a {
   font-family: 'PT sans', 'sans-serif';
   color: #210908;
   display: flex;
@@ -25,16 +23,13 @@ p, a {
   margin-top: 100px;
 }
 
-.landing-btn-1 {
-  padding: 15px;
-}
-
-.landing-btn-2 {
-  padding: 15px;
-}
-
-hr {
-  border-top: 1.5px solid black;
+.landing-btn {
+  &.btn-1 {
+    padding: 15px;
+  }
+  &.btn-2 {
+    padding: 15px;
+  }
 }
 
 .text-desc {

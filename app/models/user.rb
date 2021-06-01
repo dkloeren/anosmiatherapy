@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :smell_programs
   has_many :smell_entries, through: :smell_programs
   has_many :scents, through: :smell_programs
-  has_one_attached :photo
+  has_one_attached :avatar
 end

@@ -13,12 +13,17 @@
             Treatment intended to relieve or heal a disorder.</p>
           </div>
         <!-- </div> -->
-  <div class="landing-btn-1">
-    <a href="#" class="btn-main">Learn more</a>
+  <div class="landing-btn btn-1">
+    <%= link_to "Learn more", "#",  class: "btn-main" %>
   </div>
-  <div class="landing-btn-2">
-    <a href="#" class="btn-main">Login</a>
-    <a href="#" class="btn-main">Sign up</a>
+  <div class="landing-btn btn-2">
+    <% if user_signed_in? %>
+      <%= link_to "Dashboard", dashboard_path,  class: "btn-main" %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete,  class: "btn-main" %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path,  class: "btn-main" %>
+      <%= link_to "Sign up", new_user_registration_path,  class: "btn-main" %>
+    <% end %>
    </div>
   </div>
 </div>

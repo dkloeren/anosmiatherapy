@@ -13,11 +13,6 @@ CATEGORIES = %w[fruits spice vegetables]
 RATING = [1,2,3,4,5]
 
 10.times do
-  # User
-  User.create!(first_name: Faker::Name.first_name, last_name:Faker::Name.last_name , email: Faker::Internet.email, password: "111111")
-  file = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['sports']))
-  User.last.photo.attach(io: file, filename: "avatar", content_type: 'image/jpg')
-
   #Scent
   category = CATEGORIES.sample
   case category
@@ -29,17 +24,24 @@ RATING = [1,2,3,4,5]
     food = Faker::Food.vegetables
   end
   Scent.create!(name: food, category: category)
-
-  # file = URI.open(Faker::LoremFlickr.image(size: "300x300"))
-  file = URI.open("https://picsum.photos/200/300?random=1")
+  file = URI.open(Faker::LoremFlickr.image(size: "300x300"))
+  # file = URI.open("https://picsum.photos/200/300?random=1")
   Scent.last.photo.attach(io: file, filename: food, content_type: 'image/jpg')
-
-  SmellProgram.create!(scent: Scent.last, user: User.last, status: [1,2,3].sample)
-
-  SmellEntry.create!(strength_rating: RATING.sample, accuracy_rating: RATING.sample, smell_program: SmellProgram.last)
-
-  SmellEntry.create!(strength_rating: RATING.sample, accuracy_rating: RATING.sample, smell_program: SmellProgram.last)
-
-  # file = URI.open(IMAGES[index])
-  # costume.photo.attach(io: file, filename: name, content_type: 'image/jpg')
 end
+
+10.times do
+  # User
+  User.create!(first_name: Faker::Name.first_name, last_name:Faker::Name.last_name , email: Faker::Internet.email, password: "111111")
+  file = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['sports']))
+  User.last.avatar.attach(io: file, filename: "avatar", content_type: 'image/jpg')
+
+  i = 0
+  4.times do
+    i += 1
+    SmellProgram.create!(scent: Scent.find(i), user: User.last, status: 0)
+    SmellEntry.create!(strength_rating: RATING.sample, accuracy_rating: RATING.sample, smell_program: SmellProgram.last)
+    SmellEntry.create!(strength_rating: RATING.sample, accuracy_rating: RATING.sample, smell_program: SmellProgram.last)
+    SmellEntry.create!(strength_rating: RATING.sample, accuracy_rating: RATING.sample, smell_program: SmellProgram.last)
+  end
+end
+
