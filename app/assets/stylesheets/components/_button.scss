@@ -1,16 +1,26 @@
 .btn-main {
-  margin: 8px 24px;
-  border-radius: 7px;
+  padding: 16px 24px;
+  margin: 15px;
+  border-radius: 5px;
   text-align: center;
   font-weight: bold;
-  border-color: #2B2B2B;
-  border-width: 2px;
-  background: #FCE0CF;
+  border: #210908;
+  border-width: 5px;
+  background: #eadace;
   color: #210908;
+  box-shadow: 0.5px 0.5px 0px 0px #210908;
+}
+
+a:hover {
+  text-decoration: none;
+  transition: 0.5s 20%;
+  background: #210908;
+  color: #eadace;
 }
 
 .btn-submit {
-  margin: 8px 24px;
+  padding: 16px 24px;
+  margin: 15px;
   border-radius: 7px;
   text-align: center;
   font-weight: bold;

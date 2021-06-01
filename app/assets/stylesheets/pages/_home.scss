@@ -11,18 +11,41 @@ p, a {
   color: #210908;
   display: flex;
   justify-content: center;
-  // padding: 15px;
+  text-align: center;
+  font-size: 14px;
 }
 
-.landing-page {
+.container {
   background: #FFF4ED;
   padding: 30px;
+  height: 100vh;
 }
 
 .landing-details {
-  padding: 20px;
+  margin-top: 100px;
 }
 
-.landing-btn {
+.landing-btn-1 {
   padding: 15px;
 }
+
+.landing-btn-2 {
+  padding: 15px;
+}
+
+hr {
+  border-top: 1.5px solid black;
+}
+
+.text-desc {
+  font-size: 10px;
+  font-weight: bold;
+  text-align: left;
+  justify-content: left;
+  margin: 15px;
+  // font-family: 'Roboto', sans-serif;
+}
+
+// .landing-desc {
+//   width: 50%;
+// }
