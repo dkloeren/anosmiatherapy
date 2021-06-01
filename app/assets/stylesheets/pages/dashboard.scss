@@ -1,0 +1,92 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#greeting {
+  p  {
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+#quote {
+  position: relative;
+  margin-bottom: 20px;
+
+  #quote-content {
+    padding: 8px;
+    text-align: left;
+    justify: true;
+    font-size: 14px;
+  }
+  #quote-author {
+    // text-align: right;
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    font-size: 12px;
+  }
+
+}
+#dashboard_image {
+
+}
+
+.flex-tiles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.current_training {
+  width: 100%;
+}
+
+.training-tile {
+  flex-grow: 1;
+  height:150px;
+  margin: 0 4px 0 0;
+  padding: 24px;
+  background-color: white;
+
+  &.left {
+    margin: 0 4px 0 0;
+  }
+
+  &.right {
+    margin: 0 0 0 4px;
+  }
+}
+
+
+#menu {
+
+}
+
+.menu-tile {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  background-color: $purple;
+
+  > div {
+    flex-grow: 1;
+    align-self: center;
+  }
+}
+
+.menu-tile p {
+  color: white;
+
+}
+
+#btn-start-training {
+  padding: 10px 15px 10px 15px;
+}
