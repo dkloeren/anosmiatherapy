@@ -15,7 +15,7 @@ RATING = [1,2,3,4,5]
 10.times do
   # User
   User.create!(first_name: Faker::Name.first_name, last_name:Faker::Name.last_name , email: Faker::Internet.email, password: "111111")
-  file = URI.open(Faker::LoremFlickr.image(size: "50x60", search_terms: ['sport']))
+  file = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['sports']))
   User.last.photo.attach(io: file, filename: "avatar", content_type: 'image/jpg')
 
   #Scent
@@ -29,9 +29,10 @@ RATING = [1,2,3,4,5]
     food = Faker::Food.vegetables
   end
   Scent.create!(name: food, category: category)
-  file = URI.open(Faker::LoremFlickr.image(size: "50x60", search_terms: [category]))
-  Scent.last.photo.attach(io: file, filename: food, content_type: 'image/jpg')
 
+  # file = URI.open(Faker::LoremFlickr.image(size: "300x300"))
+  file = URI.open("https://picsum.photos/200/300?random=1")
+  Scent.last.photo.attach(io: file, filename: food, content_type: 'image/jpg')
 
   SmellProgram.create!(scent: Scent.last, user: User.last, status: [1,2,3].sample)
 
