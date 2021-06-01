@@ -6,13 +6,39 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-CATEGORIES = %w[fruity spicy etheral]
+
+require 'open-uri'
+
+CATEGORIES = %w[fruits spice vegetables]
 RATING = [1,2,3,4,5]
 
 10.times do
+  # User
   User.create!(first_name: Faker::Name.first_name, last_name:Faker::Name.last_name , email: Faker::Internet.email, password: "111111")
-  Scent.create!(name: Faker::Coffee.blend_name, category: Faker::Coffee.origin)
+  file = URI.open(Faker::LoremFlickr.image(size: "50x60", search_terms: ['sport']))
+  User.last.photo.attach(io: file, filename: "avatar", content_type: 'image/jpg')
+
+  #Scent
+  category = CATEGORIES.sample
+  case category
+  when "fruits"
+    food = Faker::Food.fruits
+  when "spice"
+    food = Faker::Food.spice
+  when "vegetables"
+    food = Faker::Food.vegetables
+  end
+  Scent.create!(name: food, category: category)
+  file = URI.open(Faker::LoremFlickr.image(size: "50x60", search_terms: [category]))
+  Scent.last.photo.attach(io: file, filename: food, content_type: 'image/jpg')
+
+
   SmellProgram.create!(scent: Scent.last, user: User.last, status: [1,2,3].sample)
+
   SmellEntry.create!(strength_rating: RATING.sample, accuracy_rating: RATING.sample, smell_program: SmellProgram.last)
+
   SmellEntry.create!(strength_rating: RATING.sample, accuracy_rating: RATING.sample, smell_program: SmellProgram.last)
+
+  # file = URI.open(IMAGES[index])
+  # costume.photo.attach(io: file, filename: name, content_type: 'image/jpg')
 end
