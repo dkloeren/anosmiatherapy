@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'pages#profile', as: 'profile'
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
+  get '/info', to: 'pages#info', as: 'info'
   resources :scents, only: []
 
   resources :smell_programs, only: [:index] do
