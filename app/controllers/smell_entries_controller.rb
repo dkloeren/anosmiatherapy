@@ -11,6 +11,8 @@ class SmellEntriesController < ApplicationController
   def new
     # 1. Evaluating one scent's strength
     # 2. Evaluating one scent's accuracy
+    @smell_program.status = "pause"
+    @smell_program.save
     set_next_program
   end
 
