@@ -6,16 +6,13 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile', as: 'profile'
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
 
-  get '/smell_entries/instructions', to: 'smell_entries#instructions', as: 'instructions'
-
   resources :scents, only: []
 
   resources :smell_programs, only: [:index] do
-    resources :smell_entries, only: [:new]
+    resources :smell_entries, only: [:new, :create, :start]
   end
 
   resources :smell_entries, only: []
-
 
   ##### TEST PAGE ###
   get '/test', to: 'pages#test', as: 'test'
