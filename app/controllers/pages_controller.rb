@@ -6,6 +6,9 @@ class PagesController < ApplicationController
     #   redirect_to dashboard_path
     # end
   end
+  def countdown
+
+  end
 
   def dashboard
     @greeting = set_greeting

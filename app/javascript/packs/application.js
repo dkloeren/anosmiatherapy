@@ -23,8 +23,22 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+// import { initCountdown } from '../components/init_countdown';
+// import { startTimer} from '../components/init_countdown';
+import {startChrono} from '../components/init_countdown';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  const btnTimer = document.getElementById("btn-start-training")
+  if (btnTimer) {
+    const chrono = document.getElementById("starting_chrono")
+    btnTimer.addEventListener("click",(e) => {
+      e.preventDefault()
+      chrono.innerHTML = ""
+      startChrono()
+    })
+  }
+
 });
