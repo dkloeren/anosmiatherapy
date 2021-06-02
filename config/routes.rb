@@ -14,5 +14,10 @@ Rails.application.routes.draw do
   end
 
   resources :smell_entries, only: []
+
+
+  ##### TEST PAGE ###
+  get '/test', to: 'pages#test', as: 'test'
+
 end
 
