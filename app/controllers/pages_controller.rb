@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :info]
 
 
   def home
@@ -25,6 +25,10 @@ class PagesController < ApplicationController
   end
 
   def profile
+  end
+
+  def info
+    @navbar_title = "Information"
   end
 
   private
