@@ -32,6 +32,14 @@
   </div>
 </div>
 
-<div class="container flex-tiles " id="btn-start-training">
-    <%= link_to "Start Training", smell_programs_path, class: 'btn-main', id: "btn-start-training" %>
+<div class="container flex-tiles " id="btn-start-training-session">
+  <% if @next_program.present? %>
+    <%= link_to "Start Training", new_smell_program_smell_entry_path(@next_program),
+    class: 'btn-main', id: "btn-start-training-session" %>
+  <% else %>
+    <div class="btn-main btn-start-training-session">
+      <p>You have completed this training session</p>
+    </div>
+    <%= link_to "Reset", dashboard_path(reset: true) %>
+  <% end %>
 </div>
