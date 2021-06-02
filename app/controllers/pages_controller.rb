@@ -3,6 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+  def countdown
+
+  end
 
   def dashboard
     @greeting = set_greeting
