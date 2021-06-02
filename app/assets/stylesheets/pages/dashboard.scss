@@ -68,6 +68,7 @@
   margin: 0 4px 0 0;
   padding: 24px;
   background-color: white;
+  font-size: 12px;
 
   &.left {
     margin: 0 4px 0 0;
@@ -101,7 +102,17 @@
 
 }
 
-#btn-start-training {
+#btn-start-training-session {
+  padding: 10px 15px 10px 15px;
+  // position: absolute;
+  // height: 100px;
+  // width: 100px;
+  // border-radius: 50%;
+  // bottom: 210px;
+  // left: 220px;
+}
+
+#btn-start-training-counter {
   padding: 10px 15px 10px 15px;
   // position: absolute;
   // height: 100px;

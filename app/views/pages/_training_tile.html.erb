@@ -1,3 +1,5 @@
  <div class="training-tile <%= locals[:side] %>" id=training-1>
    <p>info about training <%= locals[:training_id] %></p>
+   <p>Scent: <%= @active_trainings[locals[:training_id].to_i - 1].scent.name %></p>
+   <p>Training-sessions: <%= @active_trainings[locals[:training_id].to_i - 1].smell_entries.length %></p>
  </div>

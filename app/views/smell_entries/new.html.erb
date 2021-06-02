@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container-evaluation">
   <div class="new-header">
     <h2>Training</h2>
@@ -54,3 +55,11 @@
   </div>
 
 </div>
+
+<h2>HALLO</h2>
+<% if @next_program.present?  %>
+  <%= link_to "Next", new_smell_program_smell_entry_path(@next_program) %>
+<% else %>
+  <%= link_to "back to Dashboard", dashboard_path %>
+<% end %>
+
