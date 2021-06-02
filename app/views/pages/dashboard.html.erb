@@ -33,5 +33,8 @@
 </div>
 
 <div class="container flex-tiles " id="btn-start-training">
-    <%= link_to "Start Training", smell_programs_path, class: 'btn-main', id: "btn-start-training" %>
+    <%= link_to "Start Training", new_smell_program_smell_entry_path(
+    @active_trainings[0],
+    remaining_program_ids: @remaining_program_ids),
+    class: 'btn-main', id: "btn-start-training" %>
 </div>

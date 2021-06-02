@@ -1,0 +1,8 @@
+<h2>HALLO</h2>
+<% if @remaining_program_ids == 0 %>
+  <%= link_to "back to Dashboard", dashboard_path %>
+<% else %>
+  <%= link_to "Next", new_smell_program_smell_entry_path(
+  SmellProgram.find(@next_program_id),
+  remaining_program_ids: @remaining_program_ids)%>
+<% end %>

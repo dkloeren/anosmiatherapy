@@ -11,10 +11,15 @@ class PagesController < ApplicationController
     @greeting = set_greeting
 
     # 4 open smell training programs
-    @current_trainings = SmellProgram.where(user: current_user).where(status: 0)
+    @active_trainings = SmellProgram.where(user: current_user).where(status: 0)
+    @remaining_program_ids = []
+    @active_trainings.each do |training|
+      @remaining_program_ids << training.id
+    end
   end
 
   def profile
+
   end
 
   private
