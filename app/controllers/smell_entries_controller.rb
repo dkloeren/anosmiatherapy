@@ -1,4 +1,18 @@
 class SmellEntriesController < ApplicationController
+  def new
+    @entry = SmellEntry.new
+    @smell_program = SmellProgram.find(params["smell_program_id"])
+    # raise
+  end
+
+  def create
+    @entry = SmellEntry.new(entry_params)
+    @entry.user = current_user
+
+    if @entry.save
+      redirect_to dashboard_path(@entry)
+      # check redirect path later
+
   before_action :set_scent, only: [:show]
   before_action :set_program
 
@@ -28,10 +42,16 @@ class SmellEntriesController < ApplicationController
       else
         redirect_to dashboard_path
       end
+
     else
       render :new
     end
   end
+
+  private
+
+  def entry_params
+    params.require(:smell_entry).permit(:strength_rating, :accuracy_rating)
 
   def show
   end

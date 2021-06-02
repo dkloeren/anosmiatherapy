@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :scents, only: []
 
   resources :smell_programs, only: [:index] do
+    resources :smell_entries, only: [:new, :create]
+  end
     resources :smell_entries, only: [:new, :create, :start]
   end
 

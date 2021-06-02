@@ -1,6 +1,65 @@
+<<<<<<< HEAD
+<div class="container-evaluation">
+  <div class="new-header">
+    <h2>Training</h2>
+      <hr class="d-solid">
+      <img src="">
+  </div>
+<!--   <div id="form-wrapper">
+    <form action="/p/quote.php" method="GET">
+    <h1 id="form-title">Enter rating</h1>
+      <div id="rating-slider">
+        <%#= f.input :strength_rating, :collection => 0..5 %>
+        <%#= f.button :submit %>
+        <%# end %>
+      <div id="smell-amount-pos"></div>
+      </div>
+      </form>
+      <button type="submit">Submit</button>
+  </div>
+
+  <div id="form-wrapper">
+    <form action="/p/quote.php" method="GET">
+      <div id="rating-slider">
+        <%#= simple_form_for [@smell_program, @entry] do |f| %>
+        <%#= f.input :accuracy_rating %>
+        <%#= f.button :submit %>
+        <%# end %>
+      <div id="smell-amount-pos"></div>
+      </div>
+      </form>
+      <button type="submit">Submit</button>
+  </div>
+</div> -->
+
+
+<!-- html code below of the rating slider -->
+  <div id="form-wrapper">
+    <form action="/p/quote.php" method="GET">
+      <h1 id="form-title">Enter strength rating</h1>
+      <div id="rating-slider">
+        <input type="radio" name="smell-amount" id="1" value="1" required>
+        <label for="1" data-smell-amount="1"></label>
+        <input type="radio" name="smell-amount" id="2" value="2" required>
+        <label for="2" data-smell-amount="2"></label>
+        <input type="radio" name="smell-amount" id="3" value="3" required>
+        <label for="3" data-dsmell-amount="3"></label>
+        <input type="radio" name="smell-amount" id="4" value="4" required>
+        <label for="4" data-smell-amount="4"></label>
+        <input type="radio" name="smell-amount" id="5" value="5" required>
+        <label for="5" data-smell-amount="5"></label>
+        <div id="smell-amount-pos"></div>
+      </div>
+    </form>
+    <button type="submit">Submit</button>
+  </div>
+
+</div>
+
 <h2>HALLO</h2>
 <% if @next_program.present?  %>
   <%= link_to "Next", new_smell_program_smell_entry_path(@next_program) %>
 <% else %>
   <%= link_to "back to Dashboard", dashboard_path %>
 <% end %>
+
