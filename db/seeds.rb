@@ -55,8 +55,6 @@ IMAGES = {
   "bergamot" => "https://goddesswitchcraft.com/wp-content/uploads/2019/02/Bergamot-Fruit.jpg",
   "lemon" => "https://images.unsplash.com/photo-1608322368735-b6b6ec262af7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
   "grapefruit" => "https://images.unsplash.com/photo-1557656806-534427e2fe2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-
-
 }
 
 # 2 add a category if the new scent

@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   def ini_programs
     # creating empty programs with the 4 initial seeds
-    [ Scent.find(1), Scent.find(2), Scent.find(3), Scent.find(4) ].each do |scent|
+    Scent.all[0..4].each do |scent|
       SmellProgram.create!(user: self, scent: scent, status: 1)
     end
   end
