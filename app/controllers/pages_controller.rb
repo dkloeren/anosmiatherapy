@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
+
   def home
     # if user_signed_in?
     #   redirect_to dashboard_path
@@ -11,10 +12,16 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @active_trainings = SmellProgram.where(user: current_user).where(status: ["pause", "ready"])
+    if params[:reset]
+      @active_trainings.each do |program|
+        program.status = "ready"
+        program.save
+      end
+    end
     @greeting = set_greeting
+    @next_program = SmellProgram.where(user: current_user).find_by(status: "ready")
 
-    # 4 open smell training programs
-    @current_trainings = SmellProgram.where(user: current_user).where(status: 0)
   end
 
   def profile
@@ -35,9 +42,7 @@ class PagesController < ApplicationController
     end
   end
 
-
   def test
-
   end
 
 end

@@ -3,7 +3,7 @@ class SmellProgram < ApplicationRecord
   belongs_to :user
   has_many :smell_entries, dependent: :destroy
 
-  enum status: [:active, :completed]
+  enum status: [:pending, :ready, :pause, :completed]
 
   validates :scent_id, :user_id, :status, presence: true
   validates :user_id, uniqueness: { scope: :scent_id,
