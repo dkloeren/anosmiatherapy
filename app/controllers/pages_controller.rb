@@ -7,6 +7,9 @@ class PagesController < ApplicationController
     #   redirect_to dashboard_path
     # end
   end
+  def countdown
+
+  end
 
   def dashboard
     @active_trainings = SmellProgram.where(user: current_user).where(status: ["pause", "ready"])
