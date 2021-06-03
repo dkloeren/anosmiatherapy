@@ -7,9 +7,14 @@ class SmellEntriesController < ApplicationController
     @navbar_title = "Training"
   end
 
+
   def new
     @entry = SmellEntry.new
+
+    # form
     @authenticity_token = form_authenticity_token
+
+    # dynamic Sceen loading
     @navbar_title = "Evaluation"
     prepare_next_program
     if @next_program
@@ -21,6 +26,7 @@ class SmellEntriesController < ApplicationController
     @smell_program.status = "ready"
     @smell_program.save
   end
+
 
   def create
     @entry = SmellEntry.new(entry_params)
