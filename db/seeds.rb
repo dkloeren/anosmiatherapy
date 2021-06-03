@@ -88,7 +88,7 @@ CHANGE = [ 0, 0, 0, 1, 1]
 
 User.all.each do |user|
   Scent.all.each do |scent|
-    SmellProgram.create!(scent: scent, user: user, status: 0)
+    SmellProgram.create!(scent: scent, user: user, status: "ready")
     strength = INITIAL.sample
     accuracy = INITIAL.sample
     10.times do
