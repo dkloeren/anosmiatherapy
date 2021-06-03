@@ -12,7 +12,11 @@ class SmellEntriesController < ApplicationController
     @authenticity_token = form_authenticity_token
     @navbar_title = "Evaluation"
     if @next_program
+      prepare_next_program
       @link_name = "Next: #{@next_program.scent.name}"
+      # undo forcast
+      @smell_program.status = "ready"
+      @smell_program.save
     else
       @link_name = "Finish Training"
     end
