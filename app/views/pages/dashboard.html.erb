@@ -34,7 +34,9 @@
 
 <div class="container flex-tiles " id="btn-start-training-session">
   <% if @next_program.present? %>
-    <%= link_to "Start Training", new_smell_program_smell_entry_path(@next_program),
+
+    <%= link_to "Start Training", start_smell_program_smell_entries_path(@next_program),
+    # <%= link_to "Start Training", new_smell_program_smell_entry_path(@next_program),
     class: 'btn-main', id: "btn-start-training-session" %>
   <% else %>
     <div class="btn-main btn-start-training-session">

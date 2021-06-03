@@ -58,14 +58,13 @@
 }
 
 .current_training {
-  // width: 100%;
+  width: 100vw;
   position: relative;
 }
 
 .training-tile {
   flex-grow: 1;
   height:150px;
-  margin: 0 4px 0 0;
   padding: 24px;
   background-color: white;
   font-size: 12px;
@@ -77,11 +76,6 @@
   &.right {
     margin: 0 0 0 4px;
   }
-}
-
-
-#menu {
-
 }
 
 .menu-tile {
@@ -99,7 +93,6 @@
 
 .menu-tile p {
   color: white;
-
 }
 
 #btn-start-training-session {
