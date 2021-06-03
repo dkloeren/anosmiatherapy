@@ -1,14 +1,13 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :info]
 
-
   def home
     if user_signed_in?
       redirect_to dashboard_path
     end
   end
-  def countdown
 
+  def countdown
   end
 
   def dashboard
@@ -21,7 +20,6 @@ class PagesController < ApplicationController
     end
     @greeting = set_greeting
     @next_program = SmellProgram.where(user: current_user).find_by(status: "ready")
-
   end
 
   def profile
@@ -48,5 +46,4 @@ class PagesController < ApplicationController
 
   def test
   end
-
 end
