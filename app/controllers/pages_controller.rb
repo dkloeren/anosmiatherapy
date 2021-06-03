@@ -20,6 +20,7 @@ class PagesController < ApplicationController
     end
     @greeting = set_greeting
     @next_program = SmellProgram.where(user: current_user).find_by(status: "ready")
+
   end
 
   def profile

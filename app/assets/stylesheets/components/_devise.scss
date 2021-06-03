@@ -1,0 +1,37 @@
+#devise-warning, #devise-info {
+
+  // background: $btn-dark-submit;
+  // color: $background ;
+  background: #E67E22;
+  color: $btn-dark-submit ;
+  border-radius: 10px;
+}
+
+
+.container-sign-up {
+  margin: 0px;
+  padding: 0px;
+  padding-left: 36px;
+
+  > form {
+    margin: 0;
+    padding: 0;
+  }
+
+  .form-inputs {
+    // margin-right: 24px;
+    // padding: 24px;
+  }
+}
+
+.form-center {
+  margin:auto;
+  padding: 0px;
+}
+
+.btn-form-submit {
+  background-color: #210908;
+  color: $background;
+  // width: 200px;
+  // height: 1.3em;
+}
