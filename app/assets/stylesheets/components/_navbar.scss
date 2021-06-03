@@ -4,13 +4,15 @@
   background: #FFF4ED;
   margin: 24px 0 0 0;
   padding: 0;
+
+  // width: 100%;
   width: 100vw
 }
 
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #FFF4ED;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -37,4 +39,17 @@
 
 #navbar-separator{
   margin: 0;
+}
+
+.dropdown-menu {
+  padding: 0;
+
+}
+.dropdown-item {
+  background: #FFF4ED;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

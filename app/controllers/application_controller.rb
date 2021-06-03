@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :avatar])
   end
 
-
   def navbar_title
     key = "#{params[:controller]}\##{params[:action]}"
     username = user_signed_in? ? "#{current_user.first_name.humanize} #{current_user.last_name.humanize}" : "Profile"

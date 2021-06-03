@@ -65,19 +65,22 @@ RATING = [1,2,3,4,5]
 CATEGORIES.each do |category|
   case category
   when "citrus"
-    scent = ["orange", "bergamot", "lemon", "grapefruit"].sample
+    scents = ["orange", "bergamot", "lemon", "grapefruit"].sample(4)
   when "herbal"
-    scent = ["thyme", "rosemary", "sage", "teatree"].sample
+    scents = ["thyme", "rosemary", "sage", "teatree"].sample(4)
   when "woody"
-    scent = ["cedar", "palosanto", "oud", "santal"].sample
+    scents = ["cedar", "palosanto", "oud", "santal"].sample(4)
   when "floral"
-    scent = ["lavender", "patchouli", "rose", "ylang-ylang"].sample
+    scents = ["lavender", "patchouli", "rose", "ylang-ylang"].sample(4)
   when "spicy"
-    scent = ["black-pepper", "ginger", "cinnamon", "cardamom"].sample
+    scents = ["black-pepper", "ginger", "cinnamon", "cardamom"].sample(4)
   end
-  Scent.create!(name: scent, category: category)
-  file = URI.open(IMAGES[scent])
-  Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+
+  scents.each do |scent|
+    Scent.create!(name: scent, category: category)
+    file = URI.open(IMAGES[scent])
+    Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+  end
 end
 
 
@@ -87,8 +90,13 @@ INITIAL = [0,1]
 CHANGE = [ 0, 0, 0, 1, 1]
 
 User.all.each do |user|
-  Scent.all.each do |scent|
-    SmellProgram.create!(scent: scent, user: user, status: "ready", image: IMAGES[scent.name])
+  Scent.all.sample(8).each_with_index do |scent, index|
+    if index < 4
+      state = "ready"
+    else
+      state = "completed"
+    end
+    SmellProgram.create!(scent: scent, user: user, status: state, image: IMAGES[scent.name])
     strength = INITIAL.sample
     accuracy = INITIAL.sample
     10.times do
