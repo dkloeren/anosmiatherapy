@@ -31,7 +31,7 @@ import {startChrono} from '../components/init_countdown';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  const btnTimer = document.getElementById("btn-start-training")
+  const btnTimer = document.getElementById("btn-start-training-counter")
   if (btnTimer) {
     const chrono = document.getElementById("starting_chrono")
     btnTimer.addEventListener("click",(e) => {

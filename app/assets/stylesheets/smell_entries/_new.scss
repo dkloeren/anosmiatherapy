@@ -1,0 +1,24 @@
+.new-header {
+  display: flex;
+  justify-content: center;
+  > h2 {
+    margin-top: 24px;
+    text-align: center;
+  }
+}
+
+#form-title-strength {
+  text-align: center;
+}
+
+#evaluation-separator {
+  margin: 50px;
+}
+
+#form-title-accuracy {
+  text-align: center;
+}
+
+#btn-form-smell-entry {
+  margin-top: 50px;
+}
