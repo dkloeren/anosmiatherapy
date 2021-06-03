@@ -6,10 +6,12 @@
 }
 
 
-#greeting > p{
+#greeting {
   margin-top: 24px;
   text-align: center;
+  > p {
   font-size: 16px;
+  }
 }
 
 #quote {
@@ -54,7 +56,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .current_training {
@@ -63,18 +65,27 @@
 }
 
 .training-tile {
-  flex-grow: 1;
+  // flex-grow: 1;
+  width: 50%;
   height:150px;
-  padding: 24px;
+  padding: 24px 24px 4px 24px;
   background-color: white;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   font-size: 12px;
+  color: white;
+
+  h3 {
+    color: white
+  }
 
   &.left {
-    margin: 0 4px 0 0;
+    margin: 0 1px 0 0;
   }
 
   &.right {
-    margin: 0 0 0 4px;
+    margin: 0 0 0 1px;
   }
 }
 
@@ -96,6 +107,7 @@
 }
 
 #btn-start-training-session {
+  // position: absolute;
   padding: 10px 15px 10px 15px;
   // position: absolute;
   // height: 100px;
@@ -113,4 +125,37 @@
   // border-radius: 50%;
   // bottom: 210px;
   // left: 220px;
+}
+
+
+.strength-data {
+  margin: 1px;
+  width: 10px;
+  // height: 20px;
+  background-color: #F4DBB8;
+}
+
+.accuracy-data {
+  margin: 1px;
+  width: 10px;
+  // height: 20px;
+  background-color: #FFC65A;
+}
+
+.nr-entries {
+  background-color: #F4DBB8;
+  padding: 0;
+  margin: 0;
+  color: #210908;
+  text-align: center;
+  height: 25px;
+  width: 25px;
+  // border: solid;
+  // border-color: F4DBB8;
+  // border-width: 1px;
+  border-radius: 50%;
+  > p {
+    padding: 0;
+    margin: 3px 2px 2px 2px;
+  }
 }
