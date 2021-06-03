@@ -1,10 +1,9 @@
 <div class="container-evaluation">
   <div class="new-header">
-    <h2> <%= @smell_program.scent.name %> </h2>
-
-    <img src="">
+    <h2> <%= @smell_program.scent.name.capitalize %></h2>
   </div>
   <hr class="d-solid">
+  <div class="training-img"><%= image_tag @smell_program.image %></div>
 
 <!--   <div id="form-wrapper">
     <form action="/p/quote.php" method="GET">
@@ -46,18 +45,23 @@
         <input type="radio" name="smell_entry[strength_rating]" id="s1" value="1" required>
         <!-- <label for="1" data-smell-amount="1"></label> -->
         <label for="s1"></label>
+        <!-- <p class="slider-num1">1</p> -->
         <input type="radio" name="smell_entry[strength_rating]" id="s2" value="2" required>
         <!-- <label for="2" data-smell-amount="2"></label> -->
         <label for="s2"></label>
+        <!-- <p class="slider-num2">2</p> -->
         <input type="radio" name="smell_entry[strength_rating]" id="s3" value="3" required>
         <!-- <label for="3" data-dsmell-amount="3"></label> -->
         <label for="s3"></label>
+        <!-- <p class="slider-num3">3</p> -->
         <input type="radio" name="smell_entry[strength_rating]" id="s4" value="4" required>
         <!-- <label for="4" data-smell-amount="4"></label> -->
         <label for="s4"></label>
+        <!-- <p class="slider-num4">4</p> -->
         <input type="radio" name="smell_entry[strength_rating]" id="s5" value="5" required>
         <!-- <label for="5" data-smell-amount="5"></label> -->
         <label for="s5"></label>
+        <!-- <p class="slider-num5">5</p> -->
         <div id="strength-rating-pos"></div>
       </div>
 
@@ -68,18 +72,23 @@
         <input type="radio" name="smell_entry[accuracy_rating]" id="a1" value="param1" required>
         <!-- <label for="1" data-smell-amount="1"></label> -->
         <label for="a1"></label>
+        <!-- <p class="slider-num1">1</p> -->
         <input type="radio" name="smell_entry[accuracy_rating]" id="a2" value="2" required>
         <!-- <label for="2" data-smell-amount="2"></label> -->
         <label for="a2"></label>
+        <!-- <p class="slider-num2">2</p> -->
         <input type="radio" name="smell_entry[accuracy_rating]" id="a3" value="3" required>
         <!-- <label for="3" data-dsmell-amount="3"></label> -->
         <label for="a3"></label>
+        <!-- <p class="slider-num3">3</p> -->
         <input type="radio" name="smell_entry[accuracy_rating]" id="a4" value="4" required>
         <!-- <label for="4" data-smell-amount="4"></label> -->
         <label for="a4"></label>
+        <!-- <p class="slider-num4">4</p> -->
         <input type="radio" name="smell_entry[accuracy_rating]" id="a5" value="5" required>
         <!-- <label for="5" data-smell-amount="5"></label> -->
         <label for="a5"></label>
+        <!-- <p class="slider-num5">5</p> -->
         <div id="accuracy-rating-pos"></div>
       </div>
 
@@ -87,7 +96,7 @@
         <button type="submit" id="btn-form-smell-entry"><%= @link_name %></button>
       </div>
     </form>
-    <button type="submit" class="btn-smell-entry"><%= @link_name %></button>
+    <!-- <button type="submit" class="btn-smell-entry"><%= @link_name %></button> -->
   </div>
 </div>
 
