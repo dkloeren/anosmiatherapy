@@ -11,15 +11,15 @@ class SmellEntriesController < ApplicationController
     @entry = SmellEntry.new
     @authenticity_token = form_authenticity_token
     @navbar_title = "Evaluation"
+    prepare_next_program
     if @next_program
-      prepare_next_program
       @link_name = "Next: #{@next_program.scent.name}"
       # undo forcast
-      @smell_program.status = "ready"
-      @smell_program.save
     else
       @link_name = "Finish Training"
     end
+    @smell_program.status = "ready"
+    @smell_program.save
   end
 
   def create
