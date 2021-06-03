@@ -1,14 +1,5 @@
-
-<h2><%= @smell_program.scent.name %> </h2>
-
-<div class="container flex-tiles " id="btn-start-counter">
-    <%= link_to "Start", "#", class: 'btn-start-counter', id: "btn-start-training-counter" %>
-</div>
-
-<div class="container flex-tiles ">
-    <%= link_to "Evaluate", new_smell_program_smell_entry_path(@smell_program), class: 'btn-main', id: "btn-next-training" %>
-</div>
-
+<h2><%= @smell_program.scent.name.capitalize %> </h2>
+<div class="training-img"><%= image_tag @smell_program.image %></div>
 
 <div class="container-counter">
   <div id="starting_chrono">
@@ -34,4 +25,12 @@
 
   <div id="app"></div>
 
+</div>
+
+<div class="container flex-tiles " id="btn-start-counter">
+    <%= link_to "Start", "#", class: 'btn-start-counter', id: "btn-start-training-counter" %>
+</div>
+
+<div class="container flex-tiles ">
+    <%= link_to "Evaluate", new_smell_program_smell_entry_path(@smell_program), class: 'btn-main', id: "btn-next-training" %>
 </div>
