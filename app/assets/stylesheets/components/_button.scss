@@ -49,6 +49,7 @@ a:hover {
 }
 
 .btn-start-counter {
+  width: 200px;
   padding: 16px 24px;
   margin: 15px;
   border-radius: 5px;
@@ -60,3 +61,31 @@ a:hover {
   color: $btn-dark-main;
   box-shadow: 0.5px 0.5px 0px 0px $btn-dark-main;
 }
+
+.btn-pos-ablolute {
+  position: absolute;
+  top: 50px;
+  left: auto;
+  z-index: 5;
+}
+
+
+.btn-disappear {
+  display: none;
+  // background-color: rgba(0,0,0,0);
+  // color: rgba(0,0,0,0);
+  // border-color: rgba(0,0,0,0);
+  // box-shadow: none;
+  // z-index: -1;
+}
+
+.btn-wait {
+  color: rgba(0,0,0,0.5);
+  border: none;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.btn-appear {
+  display: block;
+}
+

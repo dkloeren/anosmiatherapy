@@ -1,10 +1,9 @@
 <div class="container-evaluation">
   <div class="new-header">
-    <h2> <%= @smell_program.scent.name %> </h2>
-
-    <img src="">
+    <h2> <%= @smell_program.scent.name.capitalize %> </h2>
+    <!-- <img src=""> -->
   </div>
-  <hr class="d-solid">
+  <!-- <hr class="d-solid"> -->
 
 <!--   <div id="form-wrapper">
     <form action="/p/quote.php" method="GET">
@@ -41,7 +40,7 @@
 
       <!-- Slider Strength -->
       <div class="hr" id="evaluation-separator"></div>
-      <h3 id="form-title-strength">Enter strength rating</h3>
+      <p id="form-title-strength">How strong was the smell?</p>
       <div id="strength-rating-slider">
         <input type="radio" name="smell_entry[strength_rating]" id="s1" value="1" required>
         <!-- <label for="1" data-smell-amount="1"></label> -->
@@ -59,11 +58,18 @@
         <!-- <label for="5" data-smell-amount="5"></label> -->
         <label for="s5"></label>
         <div id="strength-rating-pos"></div>
+        <div class="slider-nr-labels d-flex justify-content-between">
+          <div class="slider-nr-label"><p>1</p></div>
+          <div class="slider-nr-label"><p>2</p></div>
+          <div class="slider-nr-label"><p>3</p></div>
+          <div class="slider-nr-label"><p>4</p></div>
+          <div class="slider-nr-label"><p>5</p></div>
+        </div>
       </div>
 
       <!-- Slider Accuracy -->
       <div class="hr" id="evaluation-separator"></div>
-      <h3 id="form-title-accuracy">Enter accuracy rating</h3>
+      <p id="form-title-accuracy">How close was the smell?</p>
       <div id="accuracy-rating-slider">
         <input type="radio" name="smell_entry[accuracy_rating]" id="a1" value="param1" required>
         <!-- <label for="1" data-smell-amount="1"></label> -->
@@ -81,13 +87,21 @@
         <!-- <label for="5" data-smell-amount="5"></label> -->
         <label for="a5"></label>
         <div id="accuracy-rating-pos"></div>
+        <div class="slider-nr-labels d-flex justify-content-between">
+          <div class="slider-nr-label"><p>1</p></div>
+          <div class="slider-nr-label"><p>2</p></div>
+          <div class="slider-nr-label"><p>3</p></div>
+          <div class="slider-nr-label"><p>4</p></div>
+          <div class="slider-nr-label"><p>5</p></div>
+        </div>
       </div>
 
+
       <div class="d-flex justify-content-center">
-        <button type="submit" id="btn-form-smell-entry"><%= @link_name %></button>
+        <button type="submit" class="btn-start-counter mt-64p"><%= @link_name %></button>
       </div>
     </form>
-    <button type="submit" class="btn-smell-entry"><%= @link_name %></button>
+    <!-- <button type="submit" class="btn-smell-entry"><%= @link_name %></button> -->
   </div>
 </div>
 
