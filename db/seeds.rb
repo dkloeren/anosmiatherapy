@@ -96,7 +96,7 @@ User.all.each do |user|
     else
       state = "completed"
     end
-    SmellProgram.create!(scent: scent, user: user, status: state)
+    SmellProgram.create!(scent: scent, user: user, status: state, image: IMAGES[scent.name])
     strength = INITIAL.sample
     accuracy = INITIAL.sample
     10.times do

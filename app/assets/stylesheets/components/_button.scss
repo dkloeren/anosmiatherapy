@@ -31,6 +31,12 @@ a:hover {
   border-width: 2px;
 }
 
+// .btn-submit:hover {
+//   text-decoration: none;
+//   transition: 0.5s 20%;
+//   background: $btn-dark-main;
+//   color: $btn-light-main;
+// }
 
 .btn-small {
   padding: 8px 16px 8px 16px;
@@ -49,6 +55,7 @@ a:hover {
 }
 
 .btn-start-counter {
+  width: 200px;
   padding: 16px 24px;
   margin: 15px;
   border-radius: 5px;
@@ -60,3 +67,60 @@ a:hover {
   color: $btn-dark-main;
   box-shadow: 0.5px 0.5px 0px 0px $btn-dark-main;
 }
+
+.btn-pos-ablolute {
+  position: absolute;
+  top: 50px;
+  left: auto;
+  z-index: 5;
+}
+
+
+.btn-disappear {
+  display: none;
+  // background-color: rgba(0,0,0,0);
+  // color: rgba(0,0,0,0);
+  // border-color: rgba(0,0,0,0);
+  // box-shadow: none;
+  // z-index: -1;
+}
+
+.btn-wait {
+  color: rgba(0,0,0,0.5);
+  border: none;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.btn-appear {
+  display: block;
+}
+
+.btn-home-login {
+  padding: 12px 24px;
+  margin: 15px;
+  border-radius: 22px;
+  text-align: center;
+  font-weight: bold;
+  background: #8E0E00;
+  color: #FFF4ED;
+  font-size: 20px;
+}
+
+.btn-home-sign {
+  padding: 8px 24px;
+  margin: 15px;
+  border-radius: 31px;
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid #8E0E00;
+  background: #FFF4ED;
+  color: #8E0E00;
+}
+
+.btn-home-sign:hover {
+  text-decoration: none;
+  transition: 0.5s 20%;
+  background: #8E0E00;
+  color: $btn-light-main;
+}
+

@@ -6,7 +6,7 @@ $number-of-options: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   font-family: 'PT sans', sans-serif;
   color: #000;
   user-select: none;
@@ -14,9 +14,11 @@ $number-of-options: 5;
 
 #form-wrapper {
   width: 100%;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: start;
 }
 
 form {
@@ -312,11 +314,50 @@ form {
   }
 }
 
-
-.number1 {
-
+.slider-nr-labels {
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  left: 2px;
+  padding: 28px;
+  z-index: -1;
 }
 
-.number2 {
-
+.slider-nr-label {
+  // padding: 20px;
 }
+
+
+.form-title-strength, .form-title-strength {
+  font-size: 24px;
+}
+
+// .slider-num1 {
+//   position: absolute;
+//   top: 50px;
+//   left: 30px;
+// }
+
+// .slider-num2 {
+//   position: absolute;
+//   top: 50px;
+//   left: 97px;
+// }
+
+// .slider-num3 {
+//   position: absolute;
+//   top: 50px;
+//   left: 165px;
+// }
+
+// .slider-num4 {
+//   position: absolute;
+//   top: 50px;
+//   right: 97px;
+// }
+
+// .slider-num5 {
+//   position: absolute;
+//   top: 50px;
+//   right: 28px;
+// }

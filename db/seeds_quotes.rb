@@ -14,9 +14,4 @@ quotes = {
   "Joan Rivers" => "My eyes opened, and the first thing I thought of when I could put thoughts together was I want to be in show business. Never wanted anything else. I used to sneak in the costume room at my nursery school and smell the costumes.",
   "David Lynch" => "I like watercolours. I like acrylic paint... a little bit. I like house paint. I like oil-based paint, and I love oil paint. I love the smell of turpentine and I like that world of oil paint very, very, very much.",
   "Sophie Dahl" => "When I write about things, it's a lot to do with sense memory. How things smell and taste can bring incredible memories flooding back and transport you in an instant to another time and place.",
-
-
-
-
-
 }

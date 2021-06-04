@@ -1,4 +1,5 @@
 const startChrono = () => {
+
 const FULL_DASH_ARRAY = 283;
 const WARNING_THRESHOLD = 10;
 const ALERT_THRESHOLD = 5;
@@ -113,6 +114,17 @@ function setCircleDasharray() {
     .setAttribute("stroke-dasharray", circleDasharray);
 }
 }
-export {startChrono}
+
+const waitButtonToggle = (buttonId) => {
+  const btnEval = document.getElementById(buttonId);
+  btnEval.classList.toggle("btn-wait");
+}
+
+const showButtonToggle = (buttonId) => {
+  const btnEval = document.getElementById(buttonId);
+  btnEval.classList.toggle("btn-disappear");
+}
+
+export {startChrono, waitButtonToggle, showButtonToggle}
 
 

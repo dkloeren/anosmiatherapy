@@ -7,6 +7,11 @@
   }
 }
 
+#form-wrapper p {
+  font-size: 24px;
+}
+
+
 #form-title-strength {
   text-align: center;
 }
@@ -20,5 +25,42 @@
 }
 
 #btn-form-smell-entry {
-  margin-top: 50px;
+  padding: 16px 24px;
+  margin: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  border: $btn-light-main;
+  border-width: 5px;
+  background: $btn-dark-main;
+  color: $btn-light-main;
+  box-shadow: 0.5px 0.5px 0px 0px $btn-light-main;
+  text-transform: capitalize;
+}
+
+
+
+.training-img {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 570px;
+}
+
+.container-evaluation {
+  // background-position: center;
+  flex-grow: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  > .footer {
+    margin-top: 0;
+  }
+  // > h2 {
+  // display: flex;
+  // justify-content: center;
+  // text-align: center;
+  // }
 }
