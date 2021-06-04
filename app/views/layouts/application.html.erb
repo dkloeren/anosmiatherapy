@@ -18,13 +18,13 @@
 
   <body>
     <div class="d-flex flex-column min-vh-100">
-<% if @navbar_title.present? %>
-    <%= render 'shared/navbar' %>
-    <% end %>
-    <%= render 'shared/flashes' %>
-    <div class="d-flex flex-column justify-content-start flex-grow-1"><%= yield %></div>
-    <%= render 'shared/footer' %>
+      <% if @navbar_title.present? %>
+        <%= render 'shared/navbar' %>
+      <% end %>
+      <%= render 'shared/flashes' %>
+      <div class="d-flex flex-column justify-content-start flex-grow-1"><%= yield %></div>
     </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
 
