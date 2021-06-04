@@ -11,7 +11,7 @@
   <!-- <div class="container-training-image"> -->
     <div id="container-counter" >
       <div id="starting_chrono" style="background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('<%= cl_image_path @smell_program.scent.photo.key %>')" >
-        <div class="base-timer" style="color: #E67E22;transform: translateY(200px)">
+        <div class="base-timer" style="color: #E67E22;transform: translateY(200px);">
           <!-- <div class="base-timer" style="color: #E67E22;"> -->
         <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <g class="base-timer__circle">
@@ -19,7 +19,6 @@
             <path
               id="base-timer-path-remaining"
               stroke-dasharray="283"
-              class="base-timer__path-remaining ${remainingPathColor}"
               d="
                 M 50, 50
                 m -45, 0
@@ -30,7 +29,8 @@
           </g>
         </svg>
         <span id="base-timer-label" class="base-timer__label">20</span>
-      </div></div>
+      </div>
+    </div>
 
       <div id="app"></div>
     </div>

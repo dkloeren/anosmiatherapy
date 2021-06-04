@@ -4,13 +4,6 @@
     <p><%= @greeting %>, <strong><%= current_user.first_name %></strong>!</p>
   </div>
 
-  <div class="quote">
-    <blockquote>
-      <p><i>What’s in a name? <br> That which we call a rose by any other name would smell as sweet.</i></p>
-      <cite>William Shakespeare</cite>
-    </blockquote>
-  </div>
-
 <!--   <div class="animated-border-quote">
     <blockquote>
       <p>What’s in a name? <br> That which we call a rose by any other name would smell as sweet.</p>
@@ -18,9 +11,6 @@
     </blockquote>
   </div>
  -->
-  <div class="mt-4">
-    <h3>Your progress</h3>
-  </div>
 
 </div>
 
@@ -38,6 +28,7 @@
   </div>
 </div>
 
+
 <div class="container flex-tiles " id="btn-start-training-session">
   <% if @next_program.present? %>
     <%= link_to "Start Training", start_smell_program_smell_entries_path(@next_program),
@@ -50,3 +41,12 @@
     </div>
   <% end %>
 </div>
+
+
+<div class="quote">
+  <blockquote>
+    <p><i>What’s in a name? <br> That which we call a rose by any other name would smell as sweet.</i></p>
+    <cite>William Shakespeare</cite>
+  </blockquote>
+</div>
+
