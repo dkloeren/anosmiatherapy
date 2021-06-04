@@ -7,6 +7,11 @@
   }
 }
 
+#form-wrapper p {
+  font-size: 24px;
+}
+
+
 #form-title-strength {
   text-align: center;
 }
@@ -33,11 +38,7 @@
   text-transform: capitalize;
 }
 
-h2 {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
+
 
 .training-img {
   display: flex;
@@ -46,18 +47,20 @@ h2 {
   height: 570px;
 }
 
-.container-counter {
-  display: block;
-  position: relative;
-  width: 100%;
+.container-evaluation {
+  // background-position: center;
+  flex-grow: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  > .footer {
+    margin-top: 0;
+  }
+  // > h2 {
+  // display: flex;
+  // justify-content: center;
+  // text-align: center;
+  // }
 }
-
-#starting_chrono {
-  position: absolute;
-  transform: translate(-50%,-200%);
-  margin-right: -50%;
-  top: 150%;
-  left: 50%;
-  opacity: 0.7;
-}
-

@@ -1,10 +1,10 @@
-<div class="container-evaluation">
+<div class="container-evaluation" style="background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('<%= cl_image_path @smell_program.scent.photo.key %>')">
   <div class="new-header">
     <h2> <%= @smell_program.scent.name.capitalize %></h2>
   </div>
-  <hr class="d-solid">
-  <div class="training-img"><%= image_tag @smell_program.image %></div>
-
+  <!-- <hr class="d-solid">
+  <div class="training-img"><%= cl_image_tag @smell_program.scent.photo.key %></div>
+ -->
 
 <!-- html code below of the rating slider -->
   <div id="form-wrapper">
