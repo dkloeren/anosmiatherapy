@@ -17,11 +17,14 @@
   </head>
 
   <body>
-    <% if @navbar_title.present? %>
-      <%= render 'shared/navbar' %>
+    <div class="d-flex flex-column min-vh-100">
+<% if @navbar_title.present? %>
+    <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="flex-grow-1"><%= yield %></div>
+    <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
 
