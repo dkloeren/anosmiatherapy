@@ -25,7 +25,7 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 // import { initCountdown } from '../components/init_countdown';
 // import { startTimer} from '../components/init_countdown';
-import {startChrono} from '../components/init_countdown';
+import {startChrono, waitButtonToggle, showButtonToggle} from '../components/init_countdown';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -38,6 +38,14 @@ document.addEventListener('turbolinks:load', () => {
       e.preventDefault()
       chrono.innerHTML = ""
       startChrono()
+      const btnEvalId = "btn-next-training"
+      btnTimer.classList.toggle("btn-disappear");
+
+      setTimeout(() => {
+        waitButtonToggle(btnEvalId)
+        showButtonToggle(btnEvalId)
+      }, 3000);
+      setTimeout(waitButtonToggle(btnEvalId), 20000);
     })
   }
 

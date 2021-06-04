@@ -1,9 +1,9 @@
-<div class="container-sign-up">
+<div class="container ml-3">
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
-    <div class="form-inputs form-text-dark text-small d-flex flex-column align-items-center justify-content-center">
+    <div class="form-inputs form-text-dark text-small">
       <%= f.input :email,
                   label: "Email",
                   required: true,
