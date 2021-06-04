@@ -170,3 +170,9 @@
 .completed_tile {
   justify-content: space-between;
 }
+
+.mt-4 {
+    > h3 {
+    text-align: center;
+  }
+}
