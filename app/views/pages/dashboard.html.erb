@@ -42,11 +42,24 @@
   <% end %>
 </div>
 
-
 <div class="quote">
   <blockquote>
     <p><i>What’s in a name? <br> That which we call a rose by any other name would smell as sweet.</i></p>
     <cite>William Shakespeare</cite>
   </blockquote>
 </div>
+
+<div class="mt-4">
+  <h3>Completed Training</h3>
+</div>
+
+<div class="container-completed">
+  <div class="completed-training">
+    <div class="d-flex flex-column">
+      <%= render "completed_tile", locals: {training_id: 1, training: @completed_trainings[0]}  %>
+      <%= render "completed_tile", locals: {training_id: 2, training: @completed_trainings[1]} %>
+      <%= render "completed_tile", locals: {training_id: 3, training: @completed_trainings[2]} %>
+    </div>
+  </div>
+
 

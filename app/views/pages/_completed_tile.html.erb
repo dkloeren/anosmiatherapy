@@ -1,0 +1,27 @@
+<div class="completed-tile <%= locals[:side] %>" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path locals[:training].scent.photo.key, height: 300, crop: :fill %>')">
+
+  <div class="d-flex justify-content-between">
+    <div><h3><%= locals[:training].scent.name.capitalize %></h3></div>
+    <div class="nr-entries"><p><%= locals[:training].smell_entries.length %></p></div>
+  </div>
+
+  <div class="h-100 mt-3">
+    <div class="d-flex flex-column justify-content-center">
+      <div>
+
+        <div class="d-flex justify-content-start align-items-baseline">
+          <% locals[:training].smell_entries.each do |entry| %>
+            <div class="strength-data" style="height:<%= entry.strength_rating * 5 %>px; width: <%=  %> "></div>
+          <% end %>
+        </div>
+
+        <div class="d-flex justify-content-start align-items-start">
+          <% locals[:training].smell_entries.each do |entry| %>
+            <div class="accuracy-data" style="height:<%= entry.accuracy_rating * 5 %>px; width: <%=  %> "></div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
