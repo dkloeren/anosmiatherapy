@@ -18,9 +18,5 @@ class User < ApplicationRecord
     Scent.all[0..3].each do |scent|
       SmellProgram.create!(user: self, scent: scent, status: 1)
     end
-
-    Scent.all[4..6].each do |scent|
-      SmellProgram.create!(user: self, scent: scent, status: 0)
-    end
   end
 end
