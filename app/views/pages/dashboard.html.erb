@@ -17,17 +17,21 @@
 <div class="container-progress">
   <div class="current-training">
     <div class="flex-tiles">
-      <%= render "training_tile", locals: {side: "left", training_id: 1, training: @active_trainings[0]}  %>
-      <%= render "training_tile", locals: {side: "right", training_id: 2, training: @active_trainings[1]} %>
+      <%= render "training_tile", locals: {side: "left", stack:"top", training_id: 1, training: @active_trainings[0]}  %>
+      <%= render "training_tile", locals: {side: "right", stack:"top", training_id: 2, training: @active_trainings[1]} %>
     </div>
 
     <div class="flex-tiles">
-      <%= render "training_tile", locals: {side: "left", training_id: 3, training: @active_trainings[2]}  %>
-      <%= render "training_tile", locals: {side: "right", training_id: 4, training: @active_trainings[3]}%>
+      <%= render "training_tile", locals: {side: "left", stack: "bottom", training_id: 3, training: @active_trainings[2]}  %>
+      <%= render "training_tile", locals: {side: "right", stack: "bottom", training_id: 4, training: @active_trainings[3]}%>
     </div>
   </div>
 </div>
 
+<div class="d-flex justify-content-between" id="db-progress-disp-opt" >
+  <div></div>
+  <div></div>
+</div>
 
 <div class="container flex-tiles " id="btn-start-training-session">
   <% if @next_program.present? %>
