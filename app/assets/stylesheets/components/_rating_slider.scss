@@ -317,10 +317,10 @@ form {
 .slider-nr-labels {
   width: 100%;
   position: absolute;
-  top: 20px;
+  top: 48px;
   left: 2px;
-  padding: 28px;
-  z-index: -1;
+  padding: 0 28px 0 28px;
+  z-index: auto;
 }
 
 .slider-nr-label {
@@ -328,36 +328,7 @@ form {
 }
 
 
-.form-title-strength, .form-title-strength {
+#slider-title {
+  text-align: center;
   font-size: 24px;
 }
-
-// .slider-num1 {
-//   position: absolute;
-//   top: 50px;
-//   left: 30px;
-// }
-
-// .slider-num2 {
-//   position: absolute;
-//   top: 50px;
-//   left: 97px;
-// }
-
-// .slider-num3 {
-//   position: absolute;
-//   top: 50px;
-//   left: 165px;
-// }
-
-// .slider-num4 {
-//   position: absolute;
-//   top: 50px;
-//   right: 97px;
-// }
-
-// .slider-num5 {
-//   position: absolute;
-//   top: 50px;
-//   right: 28px;
-// }

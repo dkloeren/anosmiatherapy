@@ -1,40 +1,33 @@
 <div class="landing-container d-flex justify-content-center flex-column">
+
+	<!-- title / description -->
   <div class="landing-details">
     <h2>Anosmiatherapy</h2>
-      <hr class="d-solid">
-        <div id="landing-desc">
-          <div>
-           <p class="text-desc">/aˈnäzmēə, aˈnäsmēə/</p>
-           <!-- </br></br>
-            The loss of the sense of smell, either total or partial. Treatment intended to relieve or heal a disorder. It may be caused by head injury, infection, or blockage
-            of the nose. -->
-          </div>
-          <div>
-            <p class="text-desc">/ˈTHerəpē/</p>
-            <!-- </br></br>
-            Treatment intended to relieve or heal a disorder. -->
-          </div>
-        </div>
+     <hr class="d-solid">
+     <div id="landing-desc">
+     	<div>
+      	<p class="text-desc">/aˈnäzmēə, aˈnäsmēə/</p>
+      </div>
+      <div>
+        <p class="text-desc">/ˈTHerəpē/</p>
+      </div>
+    </div>
+  </div>
 
+  <!-- Image -->
   <div id="home-img"><%= image_tag "dashboard_image.png" %></div>
+  <div class="landing-desc">
+    <p class="text-desc-p">A smell training to help regain back your sense of smell</p>
+  </div>
 
-          <div class="landing-desc">
-            <p class="text-desc-p">A smell training to help regain back your sense of smell</p>
-          </div>
-
-
-<!--   <div class="landing-btn btn-1">
-    <%= link_to "Learn more", info_path,  class: "btn-main" %>
-  </div> -->
-
+	<!-- Login , Sign in Buttons -->
   <div class="landing-btn btn-2">
-    <% if user_signed_in? %>
-      <%= link_to "Dashboard", dashboard_path,  class: "btn-main" %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete,  class: "btn-main" %>
-    <% else %>
-      <%= link_to "Log In", new_user_session_path,  class: "btn-home-login" %>
-      <%= link_to "Sign Up", new_user_registration_path,  class: "btn-home-sign" %>
-    <% end %>
-   </div>
+  <% if user_signed_in? %>
+    <%= link_to "Dashboard", dashboard_path,  class: "btn-main" %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete,  class: "btn-main" %>
+  <% else %>
+    <%= link_to "Log In", new_user_session_path,  class: "btn-home-login" %>
+    <%= link_to "Sign Up", new_user_registration_path,  class: "btn-home-sign" %>
+  <% end %>
   </div>
 </div>
