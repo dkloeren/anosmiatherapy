@@ -13,9 +13,9 @@ require 'open-uri'
 
 # ID             0              1                   2                       3                       4                               5              6
 FIRSTNAMES  = %w[Admin          Luka                Tom                     Hannelore               Hans-Peter                      Elisabeth      ABCDEFGHIJKLMNOPQRST]
-LASTNAMES   = %w[Administer     Doncic              Jerry                   Mueller                 Robinson                        Windsor        ABCDEFGHIJKLMNOPQRST]
+LASTNAMES   = %w[Administer     Doncic              Jerry                   Mueller                 Robinson                        Shaduw         ABCDEFGHIJKLMNOPQRST]
 PASSWORDS   = %w[111111         111111              111111                  111111                  111111                          111111         111111 ]
-EMAILS      = %w[admin@mail.com mvp.2021@dallas.com tomhatesjerry@mail.org  priority1@freemail.def  derrobinsonhans@hansepeter.com  me@queen.co.uk abcdefghijklmnopqrst@alphabet.com]
+EMAILS      = %w[admin@mail.com mvp.2021@dallas.com tomhatesjerry@mail.org  priority1@freemail.def  derrobinsonhans@hansepeter.com  elisa@mail.com abcdefghijklmnopqrst@alphabet.com]
 
 FIRSTNAMES.each_with_index do |firstname, index|
   User.create!(
@@ -87,7 +87,7 @@ end
 ################################################################################
 
 INITIAL = [0,1]
-CHANGE = [ 0, 0, 0, 1, 1]
+CHANGE = [ 0, 0, 0, 1,]
 
 User.all.each do |user|
   Scent.all.sample(8).each_with_index do |scent, index|
@@ -99,7 +99,7 @@ User.all.each do |user|
     SmellProgram.create!(scent: scent, user: user, status: state, image: IMAGES[scent.name])
     strength = INITIAL.sample
     accuracy = INITIAL.sample
-    10.times do
+    ((index + 1) * 8).times do
       strength += CHANGE.sample  if strength < 5
       accuracy += CHANGE.sample  if accuracy < 5
       if strength + accuracy < 10
