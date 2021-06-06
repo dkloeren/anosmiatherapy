@@ -54,6 +54,14 @@ $color-shadow: rgba(0,0,0,0.7);
   }
 }
 
+
+.completed_tile {
+  justify-content: space-between;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .program-info {
 
   }
@@ -116,10 +124,6 @@ $color-shadow: rgba(0,0,0,0.7);
 
 .db-progress-disp-opt {
 
-}
-
-.completed_tile {
-  justify-content: space-between;
 }
 
 .mt-4 {
