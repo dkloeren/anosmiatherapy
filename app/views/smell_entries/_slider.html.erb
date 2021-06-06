@@ -4,8 +4,8 @@
 
 <!-- 5 point "Slider" -->
 <% if locals[:type] == "5-point" %>
-  <%# id_slider_form = "#{category}-rating-slider" %>
-  <% id_slider_form = "strength-rating-slider" %>
+  <% id_slider_form = "#{category}-rating" %>
+  <%# id_slider_form = "strength-rating-slider" %>
   <% id_indicator_position = "#{category}-rating-pos" %>
   <div id="<%= id_slider_form %>">
     <input type="radio" name="<%= instance_varname %>" id="<%= category %>1" value="1" required>
