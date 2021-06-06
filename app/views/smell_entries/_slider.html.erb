@@ -1,0 +1,42 @@
+<!-- locals[category] =>  "strength", "accuracy" -->
+<% category = locals[:category] %>
+<% instance_varname = "smell_entry[#{category}_rating]" %>
+
+<!-- 5 point "Slider" -->
+<% if locals[:type] == "5-point" %>
+  <% id_slider_form = "#{category}-rating" %>
+  <%# id_slider_form = "strength-rating-slider" %>
+  <% id_indicator_position = "#{category}-rating-pos" %>
+  <div id="<%= id_slider_form %>">
+    <input type="radio" name="<%= instance_varname %>" id="<%= category %>1" value="1" required>
+    <!-- <label for="1" data-smell-amount="1"></label> -->
+    <label for="<%= category %>1"></label>
+    <!-- <p class="<%= category %>lider-num1">1</p> -->
+    <input type="radio" name="<%= instance_varname %>" id="<%= category %>2" value="2" required>
+    <!-- <label for="2" data-smell-amount="2"></label> -->
+    <label for="<%= category %>2"></label>
+    <!-- <p class="<%= category %>lider-num2">2</p> -->
+    <input type="radio" name="<%= instance_varname %>" id="<%= category %>3" value="3" required>
+    <!-- <label for="3" data-dsmell-amount="3"></label> -->
+    <label for="<%= category %>3"></label>
+    <!-- <p class="<%= category %>lider-num3">3</p> -->
+    <input type="radio" name="<%= instance_varname %>" id="<%= category %>4" value="4" required>
+    <!-- <label for="4" data-smell-amount="4"></label> -->
+    <label for="<%= category %>4"></label>
+    <!-- <p class="<%= category %>lider-num4">4</p> -->
+    <input type="radio" name="<%= instance_varname %>" id="<%= category %>5" value="5" required>
+    <!-- <label for="5" data-smell-amount="5"></label> -->
+    <label for="<%= category %>5"></label>
+    <!-- <p class="slider-num5">5</p> -->
+    <div id="<%= id_indicator_position %>"></div>
+
+    <!-- Labels -->
+    <div class="slider-nr-labels d-flex justify-content-between">
+      <div class="slider-nr-label"><p>1</p></div>
+      <div class="slider-nr-label"><p>2</p></div>
+      <div class="slider-nr-label"><p>3</p></div>
+      <div class="slider-nr-label"><p>4</p></div>
+      <div class="slider-nr-label"><p>5</p></div>
+    </div>
+  </div>
+<% end %>
