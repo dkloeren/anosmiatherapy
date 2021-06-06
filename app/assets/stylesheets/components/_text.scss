@@ -21,7 +21,9 @@ h4 {
 }
 
 hr {
-  border-top: 1.5px solid black;
+  border-top: 1px solid black;
+  margin: 4px 0 0 0;
+  padding: 0px;
 }
 
 .text-dark {
@@ -38,4 +40,9 @@ hr {
 
 .mt-64p {
  margin-top: 64px;
+}
+
+.text-white-text-shadow {
+  color: white;
+  text-shadow: 2px 3px 3px $color-shadow;
 }

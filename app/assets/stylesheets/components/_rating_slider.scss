@@ -95,7 +95,6 @@ form {
   }
 }
 
-
 //  template for strength and accuraycy
 #slider-rating {
   display: flex;
@@ -157,6 +156,7 @@ form {
       z-index: 1;
       cursor: pointer;
       transition: all 0.15s ease-in-out;
+      // border-color: #f9c232;
     }
     &:hover::after {
       transform: translate(-50%, -50%) scale(1.25);
@@ -243,11 +243,14 @@ form {
 }
 
 .slider-nr-label {
+  @extend .text-white-text-shadow;
   // padding: 20px;
 }
 
-
 #slider-title {
+  // background: radial-gradient(closest-side, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0));
+  filter: drop-shadow(8px 8px 4px rgba(0,0,0,0.5));
   text-align: center;
   font-size: 24px;
+  text-shadow: 0 0 8px rgba(0,0,0,0.8)
 }

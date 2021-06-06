@@ -1,6 +1,6 @@
-<div class="container-evaluation" style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('<%= cl_image_path @smell_program.scent.photo.key %>')">
+<div class="container-evaluation" style="background-image: linear-gradient(rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%), url('<%= cl_image_path @smell_program.scent.photo.key %>')">
   <div class="new-header">
-    <h2> <%= @smell_program.scent.name.capitalize %></h2>
+    <h2 class="text-white-text-shadow"> <%= @smell_program.scent.name.capitalize %></h2>
   </div>
 
 <!-- Form for smell evaluation -->
@@ -11,12 +11,12 @@
 
       <!-- Slider Strength -->
       <div class="hr" id="evaluation-separator"></div>
-      <p id="slider-title">How strong was the smell?</p>
+      <p class="text-white-text-shadow" id="slider-title">How strong was the smell?</p>
       <%= render "slider", locals: {type: "5-point", category: "strength"}  %>
 
       <!-- Slider Accuracy -->
       <div class="hr" id="evaluation-separator"></div>
-      <p id="slider-title">How close was the smell?"</p>
+      <p class="text-white-text-shadow" id="slider-title">How close was the smell?"</p>
       <%= render "slider", locals: {type: "5-point", category: "accuracy"}  %>
 
       <!-- submit button -->

@@ -67,8 +67,7 @@ $color-shadow: rgba(0,0,0,0.7);
   }
 
 .program-title {
-  color: white;
-  text-shadow: 2px 3px 3px $color-shadow;
+  @extend .text-white-text-shadow;
 }
 
 .nr-entries {
