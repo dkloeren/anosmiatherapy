@@ -244,11 +244,9 @@ form {
 
 .slider-nr-label {
   @extend .text-white-text-shadow;
-  // padding: 20px;
 }
 
 #slider-title {
-  // background: radial-gradient(closest-side, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0));
   filter: drop-shadow(8px 8px 4px rgba(0,0,0,0.5));
   text-align: center;
   font-size: 24px;
