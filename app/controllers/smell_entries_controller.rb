@@ -7,7 +7,6 @@ class SmellEntriesController < ApplicationController
     @navbar_title = "Training"
   end
 
-
   def new
     @entry = SmellEntry.new
 
@@ -27,7 +26,6 @@ class SmellEntriesController < ApplicationController
     @smell_program.save
   end
 
-
   def create
     @entry = SmellEntry.new(entry_params)
     @entry.smell_program = @smell_program
@@ -45,6 +43,13 @@ class SmellEntriesController < ApplicationController
     else
       render :new
     end
+  end
+
+
+  def show
+  end
+
+  def index
   end
 
   private

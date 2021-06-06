@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :smell_entries, only: [:new, :create]
   end
 
-  resources :smell_entries, only: []
+  resources :smell_entries, only: [:show, :index]
 
   ##### TEST PAGE ###
   get '/test', to: 'pages#test', as: 'test'
