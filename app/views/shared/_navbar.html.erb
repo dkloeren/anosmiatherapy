@@ -14,9 +14,10 @@
       <%= link_to "Home", root_path, class: "dropdown-item" %>
     <% end %>
     <%= link_to "About", info_path, class: "dropdown-item" %>
-    <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
     <%#= link_to "Profile", profile_path, class: "dropdown-item" %>
     <% if user_signed_in? %>
+      <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+      <%= link_to "Training Overview", smell_programs_path, class: "dropdown-item" %>
       <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete,  class: "dropdown-item" %>
     <% else %>

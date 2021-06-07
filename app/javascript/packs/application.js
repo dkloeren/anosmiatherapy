@@ -27,7 +27,7 @@ import "bootstrap";
 import {startChrono, waitButtonToggle, showButtonToggle} from '../components/init_countdown';
 // import chart from '../components/init_progress_chart'
 import {initStackedAreaChart} from '../components/init_stacked_area_chart'
-
+import {iniRadialGraphChart} from '../components/init_radial_graph_chart'
 // import {chartLineWithBullets} from '../components/init_line_with_custom_bullets_chart'
 
 document.addEventListener('turbolinks:load', () => {
@@ -56,7 +56,9 @@ document.addEventListener('turbolinks:load', () => {
     })
   }
 
+
   initStackedAreaChart()
+  iniRadialGraphChart()
 
   // //
   // if (jstTestButton) {
