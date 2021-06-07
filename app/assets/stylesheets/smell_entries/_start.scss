@@ -1,0 +1,32 @@
+
+#btn-start-counter {
+  width: 100%;
+  height: 50px;
+}
+
+.container-start-training {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  background-color: rgba(0,0,0,0);
+  > p, h2 {
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container-switch-buttons {
+  > p, h2, h3 {
+    text-align: center;
+  }
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

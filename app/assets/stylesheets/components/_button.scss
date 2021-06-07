@@ -29,13 +29,6 @@ a:hover {
   box-shadow: 2px 2px lightgrey;
 }
 
-// .btn-submit:hover {
-//   text-decoration: none;
-//   transition: 0.5s 20%;
-//   background: $btn-dark-main;
-//   color: $btn-light-main;
-// }
-
 .btn-small {
   padding: 8px 16px 8px 16px;
 }
@@ -68,7 +61,7 @@ a:hover {
 
 .btn-pos-ablolute {
   position: absolute;
-  top: 50px;
+  top: 70px;
   left: auto;
   z-index: 5;
 }
@@ -76,11 +69,6 @@ a:hover {
 
 .btn-disappear {
   display: none;
-  // background-color: rgba(0,0,0,0);
-  // color: rgba(0,0,0,0);
-  // border-color: rgba(0,0,0,0);
-  // box-shadow: none;
-  // z-index: -1;
 }
 
 .btn-wait {

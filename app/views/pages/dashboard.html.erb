@@ -1,34 +1,31 @@
+<!--  personal Greeting -->
 <div class="container dashboard">
-
   <div id="greeting">
     <p><%= @greeting %>, <strong><%= current_user.first_name %></strong>!</p>
   </div>
-
-<!--   <div class="animated-border-quote">
-    <blockquote>
-      <p>What’s in a name? <br> That which we call a rose by any other name would smell as sweet.</p>
-      <cite>William Shakespear</cite>
-    </blockquote>
-  </div>
- -->
-
 </div>
 
+<!-- Prgress, Start Training -->
 <div class="container-progress">
   <div class="current-training">
     <div class="flex-tiles">
-      <%= render "training_tile", locals: {side: "left", training_id: 1, training: @active_trainings[0]}  %>
-      <%= render "training_tile", locals: {side: "right", training_id: 2, training: @active_trainings[1]} %>
+      <%= render "training_progress", locals: {format: 'tile', side: "left", stack:"top", training_id: 1, training: @active_trainings[0]}  %>
+      <%= render "training_progress", locals: {format: 'tile', side: "right", stack:"top", training_id: 2, training: @active_trainings[1]} %>
     </div>
-
     <div class="flex-tiles">
-      <%= render "training_tile", locals: {side: "left", training_id: 3, training: @active_trainings[2]}  %>
-      <%= render "training_tile", locals: {side: "right", training_id: 4, training: @active_trainings[3]}%>
+      <%= render "training_progress", locals: {format: 'tile', side: "left", stack: "bottom", training_id: 3, training: @active_trainings[2]}  %>
+      <%= render "training_progress", locals: {format: 'tile', side: "right", stack: "bottom", training_id: 4, training: @active_trainings[3]}%>
     </div>
   </div>
 </div>
 
+<!-- >> Display Options -->
+<div class="container d-flex justify-content-between" id="db-progress-disp-opt" >
+  <div></div>
+  <div></div>
+</div>
 
+<!-- >> Button -->
 <div class="container flex-tiles " id="btn-start-training-session">
   <% if @next_program.present? %>
     <%= link_to "Start Training", start_smell_program_smell_entries_path(@next_program),
@@ -43,10 +40,29 @@
 </div>
 
 
+<!-- Quotes -->
 <div class="quote">
   <blockquote>
-    <p><i>What’s in a name? <br> That which we call a rose by any other name would smell as sweet.</i></p>
+    <p>What’s in a name? <br> That which we call a rose by any other name would smell as sweet.</p>
     <cite>William Shakespeare</cite>
   </blockquote>
 </div>
+
+
+<!-- Completed Traiings -->
+<% if @completed_trainings.present? %>
+<div class="mt-4">
+  <h3>Completed Training</h3>
+</div>
+<div class="container-completed">
+  <div class="completed-training">
+    <div class="d-flex flex-column">
+    <% @completed_trainings.each do |completed_training| %>
+      <%= render "training_progress", locals: {format: "band", training: completed_training}  %>
+    <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
+
 

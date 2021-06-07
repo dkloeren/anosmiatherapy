@@ -1,3 +1,6 @@
+$tile-border-radius: 0px;
+$color-shadow: rgba(0,0,0,0.7);
+
 .dashboard {
   display: flex;
   justify-content: center;
@@ -14,44 +17,9 @@
   }
 }
 
-#quote {
-  position: relative;
-  // margin-bottom: 20px;
-
-
-#quote-content {
-  padding: 8px;
-  text-align: left;
-  justify: true;
-  font-size: 14px;
-
-  > p {
-    margin: 0;
-
-  }
-}
-
-#quote-author {
-  text-align: right;
-  position: absolute;
-  margin: 0;
-  right: 0;
-  bottom: -10px;
-  font-size: 12px;
-
-  > p {
-    margin: 0;
-  }
-}
-
-
-
-}
-#dashboard_image {
-
-}
-
 .flex-tiles {
+  padding-left: 4px;
+  padding-right: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,66 +33,68 @@
 }
 
 .training-tile {
-  // flex-grow: 1;
+  position: relative;
   width: 50%;
   height:150px;
   padding: 24px 24px 4px 24px;
-  background-color: white;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  font-size: 12px;
-  color: white;
-
-  h3 {
-    color: white
-  }
 
   &.left {
     margin: 0 1px 0 0;
+    &.top {border-radius: $tile-border-radius 0px 0px 0px;}
+    &.bottom {border-radius: 0px 0px 0px $tile-border-radius;}
   }
 
   &.right {
     margin: 0 0 0 1px;
+    &.top {border-radius: 0px $tile-border-radius 0px 0px;}
+    &.bottom {border-radius: 0px 0px $tile-border-radius 0px;}
   }
 }
 
-.menu-tile {
-  display: flex;
-  align-items: center;
-  width: 150px;
-  height: 150px;
-  background-color: $purple;
 
-  > div {
-    flex-grow: 1;
-    align-self: center;
+.completed_tile {
+  justify-content: space-between;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.program-info {
+
   }
+
+.program-title {
+  @extend .text-white-text-shadow;
 }
 
-.menu-tile p {
-  color: white;
+.nr-entries {
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  padding: 0;
+  margin: 0;
 }
+
+.nr-entries > p {
+    vertical-align: top;
+    text-align: right;
+    color: rgba(255,255,255,0.5);
+    padding: 0;
+    margin: 0;
+    font-weight: bolder;
+    font-size: 32px;
+  }
+
 
 #btn-start-training-session {
-  // position: absolute;
   padding: 10px 15px 10px 15px;
-  // position: absolute;
-  // height: 100px;
-  // width: 100px;
-  // border-radius: 50%;
-  // bottom: 210px;
-  // left: 220px;
 }
 
 #btn-start-training-counter {
   padding: 10px 15px 10px 15px;
-  // position: absolute;
-  // height: 100px;
-  // width: 100px;
-  // border-radius: 50%;
-  // bottom: 210px;
-  // left: 220px;
 }
 
 .dashboard-tile-data {
@@ -135,34 +105,28 @@
   height:26px;
 }
 
-.strength-data {
+.db-strength-data {
   margin: 1px;
   width: 10px;
   // height: 20px;
   background-color: #F4DBB8;
+  box-shadow: 2px 2px 2px $color-shadow;
 }
 
-.accuracy-data {
+.db-accuracy-data {
   margin: 1px;
   width: 10px;
   // height: 20px;
   background-color: #FFC65A;
+  box-shadow: 2px 2px 4px $color-shadow;
 }
 
-.nr-entries {
-  background-color: #F4DBB8;
-  padding: 0;
-  margin: 0;
-  color: #210908;
-  text-align: center;
-  height: 25px;
-  width: 25px;
-  // border: solid;
-  // border-color: F4DBB8;
-  // border-width: 1px;
-  border-radius: 50%;
-  > p {
-    padding: 0;
-    margin: 3px 2px 2px 2px;
+.db-progress-disp-opt {
+
+}
+
+.mt-4 {
+    > h3 {
+    text-align: center;
   }
 }
