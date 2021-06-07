@@ -21,6 +21,7 @@ class PagesController < ApplicationController
     @greeting = set_greeting
     @next_program = SmellProgram.where(user: current_user).find_by(status: "ready")
 
+    @completed_trainings = SmellProgram.where(user: current_user).where(status: ["completed"])
   end
 
   def profile

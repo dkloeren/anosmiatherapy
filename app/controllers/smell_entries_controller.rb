@@ -7,7 +7,6 @@ class SmellEntriesController < ApplicationController
     @navbar_title = "Training"
   end
 
-
   def new
     @entry = SmellEntry.new
 
@@ -26,7 +25,6 @@ class SmellEntriesController < ApplicationController
     @smell_program.status = "ready"
     @smell_program.save
   end
-
 
   def create
     @entry = SmellEntry.new(entry_params)
@@ -48,6 +46,10 @@ class SmellEntriesController < ApplicationController
   end
 
   private
+
+  def set_smell_intry
+    @scent_entry = SmellEntry.find(params[:id])
+  end
 
   def entry_params
     params.require(:smell_entry).permit(:strength_rating, :accuracy_rating)
