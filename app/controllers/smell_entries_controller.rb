@@ -45,14 +45,11 @@ class SmellEntriesController < ApplicationController
     end
   end
 
-
-  def show
-  end
-
-  def index
-  end
-
   private
+
+  def set_smell_intry
+    @scent_entry = SmellEntry.find(params[:id])
+  end
 
   def entry_params
     params.require(:smell_entry).permit(:strength_rating, :accuracy_rating)

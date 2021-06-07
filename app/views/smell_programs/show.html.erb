@@ -1,0 +1,18 @@
+
+<div class="container">
+  <p>User: <%= current_user.first_name %></p>
+  <p>Program for: <%= @smell_program.scent.name %></p>
+
+  <div class="chart-container stacked-area">
+    <% @smell_program.smell_entries.each_with_index do |smell_entry, index| %>
+      <div >
+        <div id="chart_stacked_area"
+             data-history="<%= @history.to_json %>"
+            ></div>
+        <%#= render "program_chart", locals: {} %>
+        <%#= render "progress_chart"%>
+      </div>
+    <% end %>
+  </div
+  <%= link_to "Click", class: "btn-js-start" %>
+</div>
