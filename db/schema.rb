@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_135558) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price_cents", default: 0, null: false
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
+
   end
 
   create_table "scents", force: :cascade do |t|
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_135558) do
     t.integer "accuracy_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "comment"
     t.index ["smell_program_id"], name: "index_smell_entries_on_smell_program_id"
   end
 
@@ -119,6 +121,12 @@ ActiveRecord::Schema.define(version: 2021_06_07_135558) do
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "product_types"
+  add_foreign_key "forum_posts", "forum_threads"
+  add_foreign_key "forum_posts", "users"
+  add_foreign_key "forum_subscriptions", "forum_threads"
+  add_foreign_key "forum_subscriptions", "users"
+  add_foreign_key "forum_threads", "forum_categories"
+  add_foreign_key "forum_threads", "users"
   add_foreign_key "smell_entries", "smell_programs"
   add_foreign_key "smell_programs", "scents"
   add_foreign_key "smell_programs", "users"

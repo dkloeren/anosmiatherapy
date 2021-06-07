@@ -12,15 +12,36 @@ class PagesController < ApplicationController
 
   def dashboard
     @active_trainings = SmellProgram.where(user: current_user).where(status: ["pause", "ready"])
+
+    # if params[replace_scent_id]
+    #   params[replace_scent_id].each do
+
+    # end
+
+    finished_trainings = @active_trainings.select do |training|
+      training.smell_entries.last.strength_rating + training.smell_entries.last.accuracy_rating >= 8;
+    end
+    finished_trainings.each do |training|
+      training.status = "completed"
+      # training.save
+    end
+    @finished_trainings_ids = finished_trainings.map { |training| training.id }
+
+    # Reset button
     if params[:reset]
       @active_trainings.each do |program|
         program.status = "ready"
         program.save
       end
     end
+
+    # Greetings
     @greeting = set_greeting
+
+    # @next_program is the first program to be trainine when training starts
     @next_program = SmellProgram.where(user: current_user).find_by(status: "ready")
 
+    # Completed Trainings
     @completed_trainings = SmellProgram.where(user: current_user).where(status: ["completed"])
   end
 
