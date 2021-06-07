@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   devise_for :users
   root to: 'pages#home'
+  # root to: 'products#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
@@ -15,7 +18,12 @@ Rails.application.routes.draw do
 
   resources :smell_entries, only: []
 
+  resources :products, only: [:index, :show]
+
+  resources :orders, only: [:show, :create] do
+  resources :payments, only: :new
+end
+
   ##### TEST PAGE ###
   get '/test', to: 'pages#test', as: 'test'
 end
-

@@ -17,6 +17,7 @@
     <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
     <%#= link_to "Profile", profile_path, class: "dropdown-item" %>
     <% if user_signed_in? %>
+      <%= link_to "Shop", products_path, class: "dropdown-item" %>
       <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete,  class: "dropdown-item" %>
     <% else %>

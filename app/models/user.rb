@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :smell_programs
   has_many :smell_entries, through: :smell_programs
   has_many :scents, through: :smell_programs
+  has_many :orders
   has_one_attached :avatar
 
   after_commit :ini_programs, on: [ :create ]
