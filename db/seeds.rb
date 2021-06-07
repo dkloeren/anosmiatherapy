@@ -112,7 +112,20 @@ User.all.each do |user|
   end
 end
 
+puts 'Cleaning database...'
+Product.destroy_all
+ProductType.destroy_all
 
+puts 'Creating categories...'
+kit = ProductType.create!(name: 'scent kit')
+individual_scent = ProductType.create!(name: 'individual scent')
+
+puts 'Creating products...'
+Product.create!(sku: 'scent-kit', name: 'Scent Kit', product_type: kit, price_cents: 1000)
+
+Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, price_cents: 1000)
+Product.create!(sku: 'individual-scent-wood',   name: 'Wood Scent',   product_type: individual_scent, price_cents: 1000)
+puts 'Finished!'
 
 #####
 

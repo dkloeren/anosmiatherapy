@@ -73,4 +73,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #
 gem 'date'
 
+gem 'money-rails'
+
+gem 'stripe'
+
+gem 'stripe_event'
+
 gem 'simple_discussion'
+
