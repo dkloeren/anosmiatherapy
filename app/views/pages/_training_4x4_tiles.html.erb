@@ -1,0 +1,21 @@
+<!-- Progress A, Start Training -->
+<div class="container-progress tiles">
+  <div class="current-training">
+    <div class="flex-tiles">
+      <%= link_to smell_program_path(@active_trainings[0]), class: "link_tile" do %>
+        <%= render "training_progress", locals: {format: 'tile', side: "left", stack:"top", training_id: 1, training: @active_trainings[0]}  %>
+      <% end %>
+      <%= link_to smell_program_path(@active_trainings[1]), class: "link_tile" do %>
+        <%= render "training_progress", locals: {format: 'tile', side: "right", stack:"top", training_id: 2, training: @active_trainings[1]} %>
+      <% end %>
+    </div>
+    <div class="flex-tiles">
+      <%= link_to smell_program_path(@active_trainings[2]), class: "link_tile" do %>
+        <%= render "training_progress", locals: {format: 'tile', side: "left", stack: "bottom", training_id: 3, training: @active_trainings[2]}  %>
+      <% end %>
+      <%= link_to smell_program_path(@active_trainings[3]), class: "link_tile" do %>
+        <%= render "training_progress", locals: {format: 'tile', side: "right", stack: "bottom", training_id: 4, training: @active_trainings[3]}%>
+      <% end %>
+    </div>
+  </div>
+</div>

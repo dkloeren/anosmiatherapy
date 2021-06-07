@@ -1,18 +1,72 @@
 
-<div class="container">
+<div class="container smell_programs_show">
   <p>User: <%= current_user.first_name %></p>
   <p>Program for: <%= @smell_program.scent.name %></p>
 
-  <div class="chart-container stacked-area">
-    <% @smell_program.smell_entries.each_with_index do |smell_entry, index| %>
-      <div >
-        <div id="chart_stacked_area"
-             data-history="<%= @history.to_json %>"
-            ></div>
-        <%#= render "program_chart", locals: {} %>
-        <%#= render "progress_chart"%>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Switch scent of this training
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Choose a scent</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    <% end %>
-  </div
-  <%= link_to "Click", class: "btn-js-start" %>
+      <div class="modal-body">
+
+        <%= simple_form_for(SmellProgram.new) do |f| %>
+          <%= f.association :scent, collection: @category_scents  %>
+          <%#= f.submit %>
+
+          <%= f.button :submit, "Confirm", input_html: {program_id:"#{@smell_program.id}"}, class: "btn-primary"  %>
+        <% end %>
+
+
+        <!-- Code for tile that replace buttons -->
+        <!-- <div class="container-new-scent"> -->
+        <%#  @category_scents.each_with_index do |scent, index| %>
+        <%# i = index + 1 %>
+        <!-- <div class="switch-scent-radio-btn-container"> -->
+          <!-- <div class="training-carousel" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.15) 50%) , url('<%#= cl_image_path locals[:training].scent.photo.key, height: 300, crop: :fill %>')"> -->
+          <!-- <input type="radio" class="switch-scent-radio-btn" name="options" id="option<%#= i %>" autocomplete="off"> -->
+          <!-- <label class="switch-scent-radio-btn-label" for="option<%#= i %>"><%#= scent.name %></label> -->
+        <!-- </div> -->
+        <%# end %>
+      </div>
+    </div>
+  </div>
 </div>
+
+  <div class="chart-container stacked-area">
+    <div id="chart_stacked_area"
+             data-history="<%= @smell_training_log.to_json %>"></div>
+    </div>
+  </div>
+
+  <h2>Smell Training Log</h2>
+  <% @smell_program.smell_entries.reverse_each do |entry| %>
+    <div class="entry-log">
+      <div class="d-flex align-items-center justify-content-around">
+        <div class="entry-logs-datetime"><%= entry.created_at %> </div>
+        <div class="entry-logs-evaluation d-flex">
+          <p class="entry-log-strength mx-2"><%= entry.strength_rating %></p>
+          <p class="entry-log-accuracy mx-2"><%= entry.accuracy_rating %></p>
+        </div>
+      </div>
+      <% if entry.comment.present? %>
+          <div class="entry-logs-comment"><p><%= entry.comment %></p></div>
+      <% end %>
+    </div>
+  <% end %>
+  <%= link_to "Click", class: "btn-js-start" %>
+
+</div>
+
+

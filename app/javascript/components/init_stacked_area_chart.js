@@ -1,15 +1,10 @@
-
-
-
-// if (stackedAreaChart) {
-
 /* Imports */
-import * as am4core from "@amcharts/amcharts4/core";
-import * as am4charts from "@amcharts/amcharts4/charts";
-import am4themes_animated from "@amcharts/amcharts4/themes/animated";
-
+  import * as am4core from "@amcharts/amcharts4/core";
+  import * as am4charts from "@amcharts/amcharts4/charts";
+  import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 const initStackedAreaChart = () => {
+
   const chartElement = document.getElementById('chart_stacked_area');
   if (chartElement) {
     // load Datasets
@@ -23,19 +18,28 @@ const initStackedAreaChart = () => {
     const chart = am4core.create("chart_stacked_area", am4charts.XYChart);
 
     // Create data
-    // chart.data = [];
-    // var i=0
-    // history.forEach((entry, index) => {
-    //   // console.log(Date(entry.date))
-    //   console.log(Date(entry.strength))
-    //   console.log(Date(entry.accuracy))
-    //   chart.data.push = {
-    //     "date" : Date(entry.date),
-    //     // "index": index,
-    //     "stregth" : entry.stregth,
-    //     "accuracy" : entry.accuracy
-    //   }
-    // });
+    chart.data = [];
+    var year = 2000;
+    history.forEach((entry, index) => {
+      chart.data.push({
+        "year": year.toString(),
+        // "year" : Date(entry.date)
+        "strength" : entry.strength,
+        "accuracy" : entry.accuracy,
+      })
+
+      // chart.data.push(
+      // {
+      //   "year": year.toString(),
+      //   "cars": index,
+      //   "motorcycles": index * 2,
+      //   "bicycles": index * 3
+      // })
+
+      year += 1;
+
+      // console.log(chart.data)
+    });
 
 
     // chart.dateFormatter.inputDateFormat = "dd.MM.yyyy, HH:mm";
@@ -123,108 +127,110 @@ const initStackedAreaChart = () => {
     // range2.label.verticalCenter = "bottom";
 
 
-chart.data = [{
-  "year": "1994",
-  "cars": 1587,
-  "motorcycles": 650,
-  "bicycles": 121
-}, {
-  "year": "1995",
-  "cars": 1567,
-  "motorcycles": 683,
-  "bicycles": 146
-}, {
-  "year": "1996",
-  "cars": 1617,
-  "motorcycles": 691,
-  "bicycles": 138
-}, {
-  "year": "1997",
-  "cars": 1630,
-  "motorcycles": 642,
-  "bicycles": 127
-}, {
-  "year": "1998",
-  "cars": 1660,
-  "motorcycles": 699,
-  "bicycles": 105
-}, {
-  "year": "1999",
-  "cars": 1683,
-  "motorcycles": 721,
-  "bicycles": 109
-}, {
-  "year": "2000",
-  "cars": 1691,
-  "motorcycles": 737,
-  "bicycles": 112
-}, {
-  "year": "2001",
-  "cars": 1298,
-  "motorcycles": 680,
-  "bicycles": 101
-}, {
-  "year": "2002",
-  "cars": 1275,
-  "motorcycles": 664,
-  "bicycles": 97
-}, {
-  "year": "2003",
-  "cars": 1246,
-  "motorcycles": 648,
-  "bicycles": 93
-}, {
-  "year": "2004",
-  "cars": 1318,
-  "motorcycles": 697,
-  "bicycles": 111
-}, {
-  "year": "2005",
-  "cars": 1213,
-  "motorcycles": 633,
-  "bicycles": 87
-}, {
-  "year": "2006",
-  "cars": 1199,
-  "motorcycles": 621,
-  "bicycles": 79
-}, {
-  "year": "2007",
-  "cars": 1110,
-  "motorcycles": 210,
-  "bicycles": 81
-}, {
-  "year": "2008",
-  "cars": 1165,
-  "motorcycles": 232,
-  "bicycles": 75
-}, {
-  "year": "2009",
-  "cars": 1145,
-  "motorcycles": 219,
-  "bicycles": 88
-}, {
-  "year": "2010",
-  "cars": 1163,
-  "motorcycles": 201,
-  "bicycles": 82
-}, {
-  "year": "2011",
-  "cars": 1180,
-  "motorcycles": 285,
-  "bicycles": 87
-}, {
-  "year": "2012",
-  "cars": 1159,
-  "motorcycles": 277,
-  "bicycles": 71
-}];
+// chart.data = [{
+//   "year": "1994",
+//   "cars": 1587,
+//   "motorcycles": 650,
+//   "bicycles": 121
+// }, {
+//   "year": "1995",
+//   "cars": 1567,
+//   "motorcycles": 683,
+//   "bicycles": 146
+// }, {
+//   "year": "1996",
+//   "cars": 1617,
+//   "motorcycles": 691,
+//   "bicycles": 138
+// }, {
+//   "year": "1997",
+//   "cars": 1630,
+//   "motorcycles": 642,
+//   "bicycles": 127
+// }, {
+//   "year": "1998",
+//   "cars": 1660,
+//   "motorcycles": 699,
+//   "bicycles": 105
+// }, {
+//   "year": "1999",
+//   "cars": 1683,
+//   "motorcycles": 721,
+//   "bicycles": 109
+// }, {
+//   "year": "2000",
+//   "cars": 1691,
+//   "motorcycles": 737,
+//   "bicycles": 112
+// }, {
+//   "year": "2001",
+//   "cars": 1298,
+//   "motorcycles": 680,
+//   "bicycles": 101
+// }, {
+//   "year": "2002",
+//   "cars": 1275,
+//   "motorcycles": 664,
+//   "bicycles": 97
+// }, {
+//   "year": "2003",
+//   "cars": 1246,
+//   "motorcycles": 648,
+//   "bicycles": 93
+// }, {
+//   "year": "2004",
+//   "cars": 1318,
+//   "motorcycles": 697,
+//   "bicycles": 111
+// }, {
+//   "year": "2005",
+//   "cars": 1213,
+//   "motorcycles": 633,
+//   "bicycles": 87
+// }, {
+//   "year": "2006",
+//   "cars": 1199,
+//   "motorcycles": 621,
+//   "bicycles": 79
+// }, {
+//   "year": "2007",
+//   "cars": 1110,
+//   "motorcycles": 210,
+//   "bicycles": 81
+// }, {
+//   "year": "2008",
+//   "cars": 1165,
+//   "motorcycles": 232,
+//   "bicycles": 75
+// }, {
+//   "year": "2009",
+//   "cars": 1145,
+//   "motorcycles": 219,
+//   "bicycles": 88
+// }, {
+//   "year": "2010",
+//   "cars": 1163,
+//   "motorcycles": 201,
+//   "bicycles": 82
+// }, {
+//   "year": "2011",
+//   "cars": 1180,
+//   "motorcycles": 285,
+//   "bicycles": 87
+// }, {
+//   "year": "2012",
+//   "cars": 1159,
+//   "motorcycles": 277,
+//   "bicycles": 71
+// }];
+
+console.log(chart.data)
 
 chart.dateFormatter.inputDateFormat = "yyyy";
 let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-dateAxis.renderer.minGridDistance = 60;
-dateAxis.startLocation = 0.5;
-dateAxis.endLocation = 0.5;
+dateAxis.renderer.minGridDistance = 1;
+dateAxis.startLocation = 0;
+dateAxis.endLocation = 10;
 dateAxis.baseInterval = {
   timeUnit: "year",
   count: 1
@@ -235,8 +241,8 @@ valueAxis.tooltip.disabled = true;
 
 let series = chart.series.push(new am4charts.LineSeries());
 series.dataFields.dateX = "year";
-series.name = "cars";
-series.dataFields.valueY = "cars";
+series.name = "strength";
+series.dataFields.valueY = "strength";
 series.tooltipHTML = "<img src='https://www.amcharts.com/lib/3/images/car.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>{valueY.value}</b></span>";
 series.tooltipText = "[#000]{valueY.value}[/]";
 series.tooltip.background.fill = am4core.color("#FFF");
@@ -248,9 +254,9 @@ series.strokeWidth = 2;
 series.stacked = true;
 
 let series2 = chart.series.push(new am4charts.LineSeries());
-series2.name = "motorcycles";
+series2.name = "accuracy";
 series2.dataFields.dateX = "year";
-series2.dataFields.valueY = "motorcycles";
+series2.dataFields.valueY = "accuracy";
 series2.tooltipHTML = "<img src='https://www.amcharts.com/lib/3/images/motorcycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>{valueY.value}</b></span>";
 series2.tooltipText = "[#000]{valueY.value}[/]";
 series2.tooltip.background.fill = am4core.color("#FFF");
@@ -262,21 +268,21 @@ series2.fillOpacity = 0.6;
 series2.stacked = true;
 series2.strokeWidth = 2;
 
-let series3 = chart.series.push(new am4charts.LineSeries());
-series3.name = "bicycles";
-series3.dataFields.dateX = "year";
-series3.dataFields.valueY = "bicycles";
-series3.tooltipHTML = "<img src='https://www.amcharts.com/lib/3/images/bicycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>{valueY.value}</b></span>";
-series3.tooltipText = "[#000]{valueY.value}[/]";
-series3.tooltip.background.fill = am4core.color("#FFF");
-series3.tooltip.getFillFromObject = false;
-series3.tooltip.getStrokeFromObject = true;
-series3.tooltip.background.strokeWidth = 3;
-series3.sequencedInterpolation = true;
-series3.fillOpacity = 0.6;
-series3.defaultState.transitionDuration = 1000;
-series3.stacked = true;
-series3.strokeWidth = 2;
+// let series3 = chart.series.push(new am4charts.LineSeries());
+// series3.name = "bicycles";
+// series3.dataFields.dateX = "year";
+// series3.dataFields.valueY = "bicycles";
+// series3.tooltipHTML = "<img src='https://www.amcharts.com/lib/3/images/bicycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>{valueY.value}</b></span>";
+// series3.tooltipText = "[#000]{valueY.value}[/]";
+// series3.tooltip.background.fill = am4core.color("#FFF");
+// series3.tooltip.getFillFromObject = false;
+// series3.tooltip.getStrokeFromObject = true;
+// series3.tooltip.background.strokeWidth = 3;
+// series3.sequencedInterpolation = true;
+// series3.fillOpacity = 0.6;
+// series3.defaultState.transitionDuration = 1000;
+// series3.stacked = true;
+// series3.strokeWidth = 2;
 
 chart.cursor = new am4charts.XYCursor();
 chart.cursor.xAxis = dateAxis;
@@ -288,32 +294,31 @@ chart.legend.position = "top";
 
 // axis ranges
 let range = dateAxis.axisRanges.create();
-range.date = new Date(2001, 0, 1);
-range.endDate = new Date(2003, 0, 1);
+range.date = new Date(2000, 0, 1);
+range.endDate = new Date(2010, 0, 1);
 range.axisFill.fill = chart.colors.getIndex(7);
 range.axisFill.fillOpacity = 0.2;
 
-range.label.text = "Fines for speeding increased";
-range.label.inside = true;
-range.label.rotation = 90;
-range.label.horizontalCenter = "right";
-range.label.verticalCenter = "bottom";
+// range.label.text = "Fines for speeding increased";
+// range.label.inside = true;
+// range.label.rotation = 90;
+// range.label.horizontalCenter = "right";
+// range.label.verticalCenter = "bottom";
 
 let range2 = dateAxis.axisRanges.create();
-range2.date = new Date(2007, 0, 1);
+range2.date = new Date(2000, 0, 1);
 range2.grid.stroke = chart.colors.getIndex(7);
 range2.grid.strokeOpacity = 0.6;
 range2.grid.strokeDasharray = "5,2";
 
-
-range2.label.text = "Motorcycle fee introduced";
-range2.label.inside = true;
-range2.label.rotation = 90;
-range2.label.horizontalCenter = "right";
-range2.label.verticalCenter = "bottom";
+// range2.label.text = "Motorcycle fee introduced";
+// range2.label.inside = true;
+// range2.label.rotation = 90;
+// range2.label.horizontalCenter = "right";
+// range2.label.verticalCenter = "bottom";
 
   }
 };
 
-console.log(initStackedAreaChart)
+// console.log(initStackedAreaChart)
 export {initStackedAreaChart}

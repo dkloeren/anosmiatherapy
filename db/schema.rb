@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_074710) do
     t.integer "accuracy_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "comment"
     t.index ["smell_program_id"], name: "index_smell_entries_on_smell_program_id"
   end
 
