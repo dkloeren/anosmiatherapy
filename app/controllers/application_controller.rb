@@ -27,7 +27,6 @@ class ApplicationController < ActionController::Base
     }
 
     @navbar_title = titles[key]
-    @navbar_title = "..." if !@navbar_title.present? && key == "pages#home"
 
   end
 end

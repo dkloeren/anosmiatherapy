@@ -21,6 +21,10 @@ class PagesController < ApplicationController
     finished_trainings = @active_trainings.select do |training|
       training.smell_entries.last.strength_rating + training.smell_entries.last.accuracy_rating >= 8;
     end
+    finished_trainings.each do |training|
+      training.status = "completed"
+      # training.save
+    end
     @finished_trainings_ids = finished_trainings.map { |training| training.id }
 
     # Reset button

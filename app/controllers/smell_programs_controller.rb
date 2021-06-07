@@ -17,13 +17,20 @@ class SmellProgramsController < ApplicationController
   end
 
   def create
-    raise
     @smell_program = SmellProgram.new(smell_program_params)
     @smell_program.user = current_user
-    @smell_program.status = 'pending'
+
+    if params[:program_id]
+      smell_program_before = SmellProgram.find(params[:program_id])
+      smell_program_before.status = "backlog" unless smell_program_before.status == "completed"
+      smell_program.save
+      @smell_program.status = 'ready'
+    else
+      @smell_program.status = 'ready'
+    end
 
     if @smell_program.save
-      redirect_to dashboard(@smell_program)
+      redirect_to dashboard_path
     else
       render :show
     end
