@@ -130,7 +130,6 @@ puts 'Finished!'
 #####
 
 QUOTES = {
-
   "William Shakespeare" => "What's in a name? That which we call a rose by any other name would smell as sweet.",
   "Barbara Streisand" => "I love things that are indescribable, like the taste of an avocado or the smell of a gardenia.",
   "Yotam Ottolenghi" => "I love my garlic press; in fact, it is probably my one true desert island gadget. But I'm happy to put it aside whenever the smell and sweet taste of slow-cooked garlic is called for.",
