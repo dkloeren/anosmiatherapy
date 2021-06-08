@@ -121,10 +121,26 @@ kit = ProductType.create!(name: 'scent kit')
 individual_scent = ProductType.create!(name: 'individual scent')
 
 puts 'Creating products...'
-Product.create!(sku: 'scent-kit', name: 'Scent Kit', product_type: kit, price_cents: 1000)
+Product.create!(sku: 'scent-kit', name: 'Scent Kit', product_type: kit, price_cents: 3500)
+image_url = "url"
+file = URI.open(url)
+Product.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
 
-Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, price_cents: 1000)
-Product.create!(sku: 'individual-scent-wood',   name: 'Wood Scent',   product_type: individual_scent, price_cents: 1000)
+Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, price_cents: 2000)
+image_url = "url"
+file = URI.open(url)
+Product.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+
+Product.create!(sku: 'individual-scent-wood',   name: 'Wood Scent',   product_type: individual_scent, price_cents: 2000)
+image_url = "url"
+file = URI.open(url)
+Product.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+
+Product.create!(sku: 'individual-scent-floral',   name: 'Floral Scent',   product_type: individual_scent, price_cents: 2000)
+image_url = "url"
+file = URI.open(url)
+Product.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+
 puts 'Finished!'
 
 #####
