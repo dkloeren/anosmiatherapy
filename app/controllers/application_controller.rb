@@ -23,10 +23,10 @@ class ApplicationController < ActionController::Base
       "devise/sessions#new" => "Log in",
       "devise/sessions#edit" => "Log in",
       "smell_programs#show" => "Smell Training Log",
-      "smell_programs#index" => "All Smell Trainings"
+      "smell_programs#index" => "All Smell Trainings",
+      "products#index" => "Shop"
     }
 
     @navbar_title = titles[key]
-
   end
 end

@@ -1,6 +1,13 @@
 $tile-border-radius: 0px;
 $color-shadow: rgba(0,0,0,0.7);
 
+h1.test {
+  font-family: "Keroine TRIAL";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+}
+
 .dashboard {
   display: flex;
   justify-content: center;
@@ -136,9 +143,11 @@ $color-shadow: rgba(0,0,0,0.7);
 }
 
 
-
-
 #btn-start-training-session {
+  padding: 10px 15px 10px 15px;
+}
+
+#btn-new-training-session {
   padding: 10px 15px 10px 15px;
 }
 
