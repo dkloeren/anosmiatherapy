@@ -18,12 +18,12 @@ class PagesController < ApplicationController
     #   params[replace_scent_id].each do
 
     # end
-
     finished_trainings = @active_trainings.select do |training|
       if training.smell_entries.length > 0
       training.smell_entries.last.strength_rating + training.smell_entries.last.accuracy_rating >= 8;
-
       end
+    end
+
     # Replace active trainings
     if params[:replace_training_id]
       replace_scents
