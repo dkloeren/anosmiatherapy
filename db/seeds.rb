@@ -60,19 +60,9 @@ CATEGORIES.each do |category|
     scents = ["black-pepper", "ginger", "cinnamon", "cardamom"].sample(4)
   end
 
-  scents.each do |scent|
-    p "#{scent}"
-    Scent.create!(name: scent, category: category)
-    #file = URI.open(IMAGES[scent])
-    file = URI.open("#{Rails.root}/app/assets/images/cedar.jpg")
-    Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
-
   scents.each_with_index do |scent, index|
-    puts index
     Scent.create!(name: scent, category: category)
-    puts IMAGES[scent]
     # file = URI.open(IMAGES[scent])
-
     # Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
 
   end
@@ -150,3 +140,6 @@ puts "creating quotes"
 QUOTES.each do |author, text|
   Quote.create(author: author, text: text)
 end
+
+
+
