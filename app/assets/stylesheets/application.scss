@@ -22,3 +22,48 @@
 
 // Smell Programs
 @import "smell_programs/show";
+
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  -webkit-overflow-scrolling: touch;
+
+  .card {
+    display: inline-block;
+    margin: 0 8px 0 8px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.training-card {
+  display: flex;
+  justify-content: between;
+  width: 310px;
+  height: 147px;
+  padding: 19px;
+  > h3 {
+    font-size: 30px;
+    font-weight: lighter;
+    margin: 0 0 16px 0;
+    padding: 0;
+
+  }
+  > p.number {
+    font-weight: 400;
+    font-size: 24px;
+    height: 31px;
+  }
+  > p.label {
+    font-weight: 400;
+    font-size: 22px;
+    height: 31px;
+  }
+}

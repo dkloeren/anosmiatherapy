@@ -1,0 +1,66 @@
+
+<!-- Progress A,  Carousel -->
+<div class="container-progress tiles">
+  <div class="current-training">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= link_to smell_program_path(@active_trainings[0]), class: "link_tile" do %>
+          <%= render "training_progress", locals: {format: 'carousel', training_id: 1, training: @active_trainings[0]}  %>
+          <% end %>
+        </div>
+        <div class="carousel-item">
+          <%= link_to smell_program_path(@active_trainings[1]), class: "link_tile" do %>
+          <%= render "training_progress", locals: {format: 'carousel', training_id: 2, training: @active_trainings[1]}  %>
+          <% end %>
+        </div>
+        <div class="carousel-item">
+          <%= link_to smell_program_path(@active_trainings[2]), class: "link_tile" do %>
+          <%= render "training_progress", locals: {format: 'carousel', training_id: 3, training: @active_trainings[2]}  %>
+          <% end %>
+        </div>
+        <div class="carousel-item">
+          <%= link_to smell_program_path(@active_trainings[3]), class: "link_tile" do %>
+          <%= render "training_progress", locals: {format: 'carousel', training_id: 4, training: @active_trainings[3]}  %>
+          <% end %>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Completed Traiings -->
+<% if @completed_trainings.present? %>
+<div class="mt-4">
+  <h3>Completed Training</h3>
+</div>
+<div class="container-completed">
+  <div class="completed-training">
+    <div class="d-flex flex-column">
+    <% @completed_trainings.each do |completed_training| %>
+      <%= link_to(smell_program_path(completed_training)) do %>
+        <%= render "training_progress", locals: {format: "band", training: completed_training}  %>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+

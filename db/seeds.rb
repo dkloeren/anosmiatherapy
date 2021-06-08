@@ -76,10 +76,14 @@ CATEGORIES.each do |category|
     scents = ["black-pepper", "ginger", "cinnamon", "cardamom"].sample(4)
   end
 
-  scents.each do |scent|
+  scents.each_with_index do |scent, index|
+    puts index
     Scent.create!(name: scent, category: category)
-    file = URI.open(IMAGES[scent])
-    Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+    puts IMAGES[scent]
+    # file = URI.open(IMAGES[scent])
+
+    # Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+
   end
 end
 
@@ -123,8 +127,10 @@ individual_scent = ProductType.create!(name: 'individual scent')
 puts 'Creating products...'
 Product.create!(sku: 'scent-kit', name: 'Scent Kit', product_type: kit, price_cents: 1000)
 
+
 Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, price_cents: 1000)
 Product.create!(sku: 'individual-scent-wood',   name: 'Wood Scent',   product_type: individual_scent, price_cents: 1000)
+
 puts 'Finished!'
 
 #####
