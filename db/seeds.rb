@@ -77,12 +77,15 @@ CHANGE = [ 0, 0, 0, 1,]
 User.all.each do |user|
   Scent.all.sample(8).each_with_index do |scent, index|
     if index < 4
-      state = "ready"
+      state =  "ready"
+      # state = 1
     else
       state = "completed"
+      # state = 3
     end
-    p "#{IMAGES[scent.name]}#{scent.name}"
-    SmellProgram.create!(scent: scent, user: user, status: state, image: IMAGES[scent.name])
+    # p "#{IMAGES[scent.name]}#{scent.name}"
+    SmellProgram.create!(scent: scent, user: user, status: state)
+    # SmellProgram.create!(scent: scent, user: user, status: state, image: IMAGES[scent.name])
     strength = INITIAL.sample
     accuracy = INITIAL.sample
     ((index + 1) * 8).times do
