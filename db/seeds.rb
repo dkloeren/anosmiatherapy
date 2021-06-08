@@ -107,25 +107,35 @@ kit = ProductType.create!(name: 'scent kit')
 individual_scent = ProductType.create!(name: 'individual scent')
 
 puts 'Creating products...'
-Product.create!(sku: 'scent-kit', name: 'Scent Kit', product_type: kit, price_cents: 3500)
+Product.create!(sku: 'scent-kit', name: 'Scent Kit #1', product_type: kit, price_cents: 3500)
+image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/kit_scent1_nuxf6r.jpg"
+file = URI.open(image_url)
+Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
+
+Product.create!(sku: 'scent-kit', name: 'Scent Kit #2', product_type: kit, price_cents: 3500)
+image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/kit_scent3_2_ucraeu.jpg"
+file = URI.open(image_url)
+Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
+
+Product.create!(sku: 'scent-kit', name: 'Scent Kit #3', product_type: kit, price_cents: 3500)
 image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160399/Anosmiatherapy/Product/kit_scent2_hy7tb5.jpg"
 file = URI.open(image_url)
 Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
-# Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, price_cents: 2000)
-# image_url = "url"
-# file = URI.open(url)
-# Product.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+Product.create!(sku: 'individual-scent-wood',   name: 'Wood Scent',   product_type: individual_scent, price_cents: 2000)
+image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/in_scent1_ijylje.jpg"
+file = URI.open(image_url)
+Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
-# Product.create!(sku: 'individual-scent-wood',   name: 'Wood Scent',   product_type: individual_scent, price_cents: 2000)
-# image_url = "url"
-# file = URI.open(url)
-# Product.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+Product.create!(sku: 'individual-scent-floral',   name: 'Floral Scent',   product_type: individual_scent, price_cents: 2000)
+image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/in_scent3_sblk84.jpg"
+file = URI.open(image_url)
+Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
-# Product.create!(sku: 'individual-scent-floral',   name: 'Floral Scent',   product_type: individual_scent, price_cents: 2000)
-# image_url = "url"
-# file = URI.open(url)
-# Product.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, price_cents: 2000)
+image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160395/Anosmiatherapy/Product/in_scent2_y1lzdd.jpg"
+file = URI.open(image_url)
+Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
 puts 'Finished!'
 
