@@ -150,6 +150,3 @@ puts "creating quotes"
 QUOTES.each do |author, text|
   Quote.create(author: author, text: text)
 end
-
-
-
