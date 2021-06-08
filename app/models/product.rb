@@ -3,5 +3,5 @@ class Product < ApplicationRecord
 
   monetize :price_cents
 
-  # has_attached :photo
+  has_one_attached :photo
 end

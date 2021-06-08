@@ -76,10 +76,14 @@ CATEGORIES.each do |category|
     scents = ["black-pepper", "ginger", "cinnamon", "cardamom"].sample(4)
   end
 
-  scents.each do |scent|
+  scents.each_with_index do |scent, index|
+    puts index
     Scent.create!(name: scent, category: category)
-    file = URI.open(IMAGES[scent])
-    Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+    puts IMAGES[scent]
+    # file = URI.open(IMAGES[scent])
+
+    # Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+
   end
 end
 
@@ -146,7 +150,6 @@ puts 'Finished!'
 #####
 
 QUOTES = {
-
   "William Shakespeare" => "What's in a name? That which we call a rose by any other name would smell as sweet.",
   "Barbara Streisand" => "I love things that are indescribable, like the taste of an avocado or the smell of a gardenia.",
   "Yotam Ottolenghi" => "I love my garlic press; in fact, it is probably my one true desert island gadget. But I'm happy to put it aside whenever the smell and sweet taste of slow-cooked garlic is called for.",
@@ -169,6 +172,5 @@ puts "creating quotes"
 QUOTES.each do |author, text|
   Quote.create(author: author, text: text)
 end
-
 
 

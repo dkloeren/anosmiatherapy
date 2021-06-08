@@ -31,6 +31,5 @@ class ApplicationController < ActionController::Base
     }
 
     @navbar_title = titles[key]
-
   end
 end
