@@ -10,12 +10,16 @@
 require 'open-uri'
 
 # random seeds
+SmellProgram.destroy_all
+User.destroy_all
 
 # ID             0              1                   2                       3                       4                               5              6
 FIRSTNAMES  = %w[Admin          Luka                Tom                     Hannelore               Hans-Peter                      Elisabeth      ABCDEFGHIJKLMNOPQRST]
 LASTNAMES   = %w[Administer     Doncic              Jerry                   Mueller                 Robinson                        Shaduw         ABCDEFGHIJKLMNOPQRST]
 PASSWORDS   = %w[111111         111111              111111                  111111                  111111                          111111         111111 ]
 EMAILS      = %w[admin@mail.com mvp.2021@dallas.com tomhatesjerry@mail.org  priority1@freemail.def  derrobinsonhans@hansepeter.com  elisa@mail.com abcdefghijklmnopqrst@alphabet.com]
+
+p "creating user"
 
 FIRSTNAMES.each_with_index do |firstname, index|
   User.create!(
@@ -29,6 +33,7 @@ User.all.each do |user|
   file = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['sports']))
   user.avatar.attach(io: file, filename: "avatar", content_type: 'image/jpg')
 end
+p "#{User.count} were created"
 
 ################################################################################
 
@@ -55,6 +60,13 @@ CATEGORIES.each do |category|
     scents = ["black-pepper", "ginger", "cinnamon", "cardamom"].sample(4)
   end
 
+  scents.each do |scent|
+    p "#{scent}"
+    Scent.create!(name: scent, category: category)
+    #file = URI.open(IMAGES[scent])
+    file = URI.open("#{Rails.root}/app/assets/images/cedar.jpg")
+    Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+
   scents.each_with_index do |scent, index|
     puts index
     Scent.create!(name: scent, category: category)
@@ -79,6 +91,7 @@ User.all.each do |user|
     else
       state = "completed"
     end
+    p "#{IMAGES[scent.name]}#{scent.name}"
     SmellProgram.create!(scent: scent, user: user, status: state, image: IMAGES[scent.name])
     strength = INITIAL.sample
     accuracy = INITIAL.sample

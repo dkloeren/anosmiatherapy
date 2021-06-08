@@ -14,6 +14,16 @@ class PagesController < ApplicationController
     @smell_trainings = SmellProgram.where(user: current_user).includes(:scent)
     @active_trainings = find_active_trainings_programs
 
+    # if params[replace_scent_id]
+    #   params[replace_scent_id].each do
+
+    # end
+
+    finished_trainings = @active_trainings.select do |training|
+      if training.smell_entries.length > 0
+      training.smell_entries.last.strength_rating + training.smell_entries.last.accuracy_rating >= 8;
+
+      end
     # Replace active trainings
     if params[:replace_training_id]
       replace_scents
