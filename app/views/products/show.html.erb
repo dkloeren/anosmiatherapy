@@ -4,15 +4,20 @@
     <div class="p-image">
       <%= cl_image_tag(@product.photo.key, width: '100%') %>
     </div>
-    <div class="col-sm-12 col-md-6">
+    <!-- <div class="col-sm-12 col-md-6"> -->
+    <div class="shop-info">
       <h2 id="show-header"><%= @product.name %></h2>
-      <p>Individual scent bottle.</p>
-      <p>Designed and produced in Berlin, Germany.</p>
-      <p>Delivery in EU & International.</p>
-      <p><%= humanized_money_with_symbol(@product.price) %></p>
-      <%= form_tag orders_path do %>
-      <%= hidden_field_tag 'product_id', @product.id %>
-      <%= submit_tag 'Purchase', class: 'btn-submit' %>
+      <h3><%= humanized_money_with_symbol(@product.price) %></h3>
+      <div class="show-text">
+        <p>Individual scent bottle.</p>
+        <p>Designed and produced in Berlin, Germany.</p>
+        <p>Delivery in EU & International.</p>
+      </div>
+        <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'product_id', @product.id %>
+    <div class="show-button">
+      <%= submit_tag 'Purchase', class: 'btn-new-show' %>
+    </div>
       <% end %>
     </div>
   </div>
