@@ -119,7 +119,7 @@
     <% if @next_program.present? %>
       <div>
         <%= link_to "Start Training", start_smell_program_smell_entries_path(@next_program),
-                                      class: 'btn-main', id: "btn-start-training-session" %>
+                                      class: 'btn-new-show', id: "btn-start-training-session" %>
       </div>
     <% else %>
       <!-- <p>You have completed this training session</p> -->
@@ -131,7 +131,7 @@
     <% if @finished_trainings_ids.present? %>
       <div>
         <%= link_to "New Scent", dashboard_path(replace_training_id: @finished_trainings_ids),
-            class: 'btn-home-sign', id: "btn-new-training-session" %>
+            class: 'btn-new-show ', id: "btn-new-training-session" %>
       </div>
       <% end %>
   </div>
