@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  include SimpleDiscussion::ForumUser
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -12,6 +13,10 @@ class User < ApplicationRecord
 
   after_commit :ini_programs, on: [ :create ]
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
   def ini_programs
@@ -21,3 +26,5 @@ class User < ApplicationRecord
     end
   end
 end
+
+
