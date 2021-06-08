@@ -5,49 +5,107 @@
   </div>
 </div>
 
-<!-- Progress A,  Carousel -->
-<div class="container-progress tiles">
-  <div class="current-training">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%= link_to smell_program_path(@active_trainings[0]), class: "link_tile" do %>
-          <%= render "training_progress", locals: {format: 'carousel', training_id: 1, training: @active_trainings[0]}  %>
-          <% end %>
+
+<h1 class="test">Uncovered</h1>
+
+<!-- Slider -->
+<div class="scrolling-wrapper">
+  <div class="card">
+    <%= link_to smell_program_path(@active_trainings[0]), class: "link_tile" do %>
+    <div class="training-card">
+      <div>
+        <h3>AAAA</h3>
+        <div class="d-flex justify-content-start">
+          <p class="number">20</p>
+          <p class="label">tries</p>
         </div>
-        <div class="carousel-item">
-          <%= link_to smell_program_path(@active_trainings[1]), class: "link_tile" do %>
-          <%= render "training_progress", locals: {format: 'carousel', training_id: 2, training: @active_trainings[1]}  %>
-          <% end %>
-        </div>
-        <div class="carousel-item">
-          <%= link_to smell_program_path(@active_trainings[2]), class: "link_tile" do %>
-          <%= render "training_progress", locals: {format: 'carousel', training_id: 3, training: @active_trainings[2]}  %>
-          <% end %>
-        </div>
-        <div class="carousel-item">
-          <%= link_to smell_program_path(@active_trainings[3]), class: "link_tile" do %>
-          <%= render "training_progress", locals: {format: 'carousel', training_id: 4, training: @active_trainings[3]}  %>
-          <% end %>
+        <div class="d-flex justify-content-start">
+          <p class="number">50%</p>
+          <p class="label">recovered</p>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      <div>
+         <h1>IMAGE</h1>
+      </div>
     </div>
+    <%#= render "training_progress", locals: {format: 'carousel', training_id: 1, training: @active_trainings[0]}  %>
+    <% end %>
+  </div>
+  <div class="card">
+    <%= link_to smell_program_path(@active_trainings[1]), class: "link_tile" do %>
+    <div class="training-card">
+      <div>
+        <h3>BBBB</h3>
+        <div class="d-flex justify-content-start">
+          <p class="number">20</p>
+          <p class="label">tries</p>
+        </div>
+        <div class="d-flex justify-content-start">
+          <p class="number">50%</p>
+          <p class="label">recovered</p>
+        </div>
+      </div>
+      <div>
+         <h1>IMAGE</h1>
+      </div>
+    </div>
+    <%#= render "training_progress", locals: {format: 'carousel', training_id: 2, training: @active_trainings[1]}  %>
+    <% end %>
+  </div>
+  <div class="card">
+    <%= link_to smell_program_path(@active_trainings[2]), class: "link_tile" do %>
+    <div class="training-card">
+      <div>
+        <h3>CCCCS</h3>
+        <div class="d-flex justify-content-start">
+          <p class="number">20</p>
+          <p class="label">tries</p>
+        </div>
+        <div class="d-flex justify-content-start">
+          <p class="number">50%</p>
+          <p class="label">recovered</p>
+        </div>
+      </div>
+      <div>
+         <h1>IMAGE</h1>
+      </div>
+    </div>
+    <%#= render "training_progress", locals: {format: 'carousel', training_id: 3, training: @active_trainings[2]}  %>
+    <% end %>
+  </div>
+  <div class="card">
+    <%= link_to smell_program_path(@active_trainings[3]), class: "link_tile" do %>
+    <div class="training-card">
+      <div>
+        <h3>Rosmary</h3>
+        <div class="d-flex justify-content-start">
+          <p class="number">20</p>
+          <p class="label">tries</p>
+        </div>
+        <div class="d-flex justify-content-start">
+          <p class="number">50%</p>
+          <p class="label">recovered</p>
+        </div>
+      </div>
+      <div>
+         <h1>IMAGE</h1>
+      </div>
+    <%#= render "training_progress", locals: {format: 'carousel', training_id: 4, training: @active_trainings[3]}  %>
+    <% end %>
   </div>
 </div>
+  <!--   <div class="card"><h2>Card</h2></div>
+    <div class="card"><h2>Card</h2></div>
+    <div class="card"><h2>Card</h2></div>
+    <div class="card"><h2>Card</h2></div>
+    <div class="card"><h2>Card</h2></div>
+    <div class="card"><h2>Card</h2></div>
+    <div class="card"><h2>Card</h2></div>
+    <div class="card"><h2>Card</h2></div>
+    <div class="card"><h2>Card</h2></div> -->
+</div>
+
+
 
 <!-- >> Display Options -->
 <div class="container d-flex justify-content-between" id="db-progress-disp-opt" >
@@ -57,25 +115,26 @@
 
 <!-- >> Button -->
 <div class="container flex-tiles " id="btn-start-training-session">
-  <% if @next_program.present? %>
-    <div class="d-flex mt-3 justify-content-center">
+  <div class="d-flex mt-3 justify-content-center">
+    <% if @next_program.present? %>
       <div>
         <%= link_to "Start Training", start_smell_program_smell_entries_path(@next_program),
                                       class: 'btn-main', id: "btn-start-training-session" %>
       </div>
-      <% if @finished_trainings_ids.present? %>
+    <% else %>
+      <!-- <p>You have completed this training session</p> -->
       <div>
-        <%= link_to "New Scent", dashboard_path(replace_scent_id: @finished_trainings_ids),
-            class: 'btn-main', id: "btn-start-training-session" %>
+        <%= link_to "Train again", dashboard_path(reset: true), class: 'btn-main'%>
+      </div>
+    <% end %>
+    <!-- option: swtich programs -->
+    <% if @finished_trainings_ids.present? %>
+      <div>
+        <%= link_to "New Scent", dashboard_path(replace_training_id: @finished_trainings_ids),
+            class: 'btn-home-sign', id: "btn-new-training-session" %>
       </div>
       <% end %>
-    </div>
-  <% else %>
-    <p>You have completed this training session</p>
-    <div class="btn-main">
-      <%= link_to "Reset", dashboard_path(reset: true)%>
-    </div>
-  <% end %>
+  </div>
 </div>
 
 
@@ -86,24 +145,4 @@
     <cite>William Shakespeare</cite>
   </blockquote>
 </div>
-
-
-<!-- Completed Traiings -->
-<% if @completed_trainings.present? %>
-<div class="mt-4">
-  <h3>Completed Training</h3>
-</div>
-<div class="container-completed">
-  <div class="completed-training">
-    <div class="d-flex flex-column">
-    <% @completed_trainings.each do |completed_training| %>
-      <%= link_to(smell_program_path(completed_training)) do %>
-        <%= render "training_progress", locals: {format: "band", training: completed_training}  %>
-      <% end %>
-    <% end %>
-    </div>
-  </div>
-</div>
-<% end %>
-
 
