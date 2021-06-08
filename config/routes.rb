@@ -22,9 +22,10 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
 
   resources :orders, only: [:show, :create] do
-  resources :payments, only: :new
-end
+    resources :payments, only: :new
+  end
 
   ##### TEST PAGE ###
   get '/test', to: 'pages#test', as: 'test'
+
 end
