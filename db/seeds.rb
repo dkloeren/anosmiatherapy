@@ -112,12 +112,24 @@ User.all.each do |user|
   end
 end
 
+puts 'Cleaning database...'
+Product.destroy_all
+ProductType.destroy_all
 
+puts 'Creating categories...'
+kit = ProductType.create!(name: 'scent kit')
+individual_scent = ProductType.create!(name: 'individual scent')
+
+puts 'Creating products...'
+Product.create!(sku: 'scent-kit', name: 'Scent Kit', product_type: kit, price_cents: 1000)
+
+Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, price_cents: 1000)
+Product.create!(sku: 'individual-scent-wood',   name: 'Wood Scent',   product_type: individual_scent, price_cents: 1000)
+puts 'Finished!'
 
 #####
 
 QUOTES = {
-
   "William Shakespeare" => "What's in a name? That which we call a rose by any other name would smell as sweet.",
   "Barbara Streisand" => "I love things that are indescribable, like the taste of an avocado or the smell of a gardenia.",
   "Yotam Ottolenghi" => "I love my garlic press; in fact, it is probably my one true desert island gadget. But I'm happy to put it aside whenever the smell and sweet taste of slow-cooked garlic is called for.",
