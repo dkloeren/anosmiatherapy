@@ -10,7 +10,10 @@
 require 'open-uri'
 
 # random seeds
+SmellEntry.destroy_all
 SmellProgram.destroy_all
+Product.destroy_all
+Order.destroy_all
 User.destroy_all
 
 # ID             0              1                   2                       3                       4                               5              6
@@ -22,13 +25,15 @@ EMAILS      = %w[admin@mail.com mvp.2021@dallas.com tomhatesjerry@mail.org  prio
 p "creating user"
 
 FIRSTNAMES.each_with_index do |firstname, index|
-  User.create!(
+  user = User.new(
   first_name: firstname,
   last_name: LASTNAMES[index],
   email: EMAILS[index],
   password: PASSWORDS[index])
+  user.save unless User.find_by(user: user)
 end
 
+# Profile image
 User.all.each do |user|
   file = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['sports']))
   user.avatar.attach(io: file, filename: "avatar", content_type: 'image/jpg')
@@ -61,7 +66,8 @@ CATEGORIES.each do |category|
   end
 
   scents.each_with_index do |scent, index|
-    Scent.create!(name: scent, category: category)
+    scent = Scent.create!(name: scent, category: category)
+    scent.save unless Scent.find_by(name: scent.name)
     # file = URI.open(IMAGES[scent])
     # Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
 

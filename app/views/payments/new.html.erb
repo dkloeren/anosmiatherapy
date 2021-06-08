@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row py-4">
     <!-- <div class="col-md-3"><%#= image_tag @order.product.photo_url, width: '100%' %></div> -->
-    <div class="col-md-3"><%= cl_image_path @order.product.photo.key, width: '100%' %></div>
+    <div class="col-md-3">
+      <div class="p-image">
+      <%= cl_image_tag(@order.product.photo.key, width: '100%') %>
+      </div>
+    </div>
     <div class="col">
       <h2>Checkout summary</h2>
       <p>Purchase of <strong><%= @order.product.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
