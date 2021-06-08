@@ -10,12 +10,16 @@
 require 'open-uri'
 
 # random seeds
+SmellProgram.destroy_all
+User.destroy_all
 
 # ID             0              1                   2                       3                       4                               5              6
 FIRSTNAMES  = %w[Admin          Luka                Tom                     Hannelore               Hans-Peter                      Elisabeth      ABCDEFGHIJKLMNOPQRST]
 LASTNAMES   = %w[Administer     Doncic              Jerry                   Mueller                 Robinson                        Shaduw         ABCDEFGHIJKLMNOPQRST]
 PASSWORDS   = %w[111111         111111              111111                  111111                  111111                          111111         111111 ]
 EMAILS      = %w[admin@mail.com mvp.2021@dallas.com tomhatesjerry@mail.org  priority1@freemail.def  derrobinsonhans@hansepeter.com  elisa@mail.com abcdefghijklmnopqrst@alphabet.com]
+
+p "creating user"
 
 FIRSTNAMES.each_with_index do |firstname, index|
   User.create!(
@@ -29,6 +33,7 @@ User.all.each do |user|
   file = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['sports']))
   user.avatar.attach(io: file, filename: "avatar", content_type: 'image/jpg')
 end
+p "#{User.count} were created"
 
 ################################################################################
 
@@ -37,7 +42,7 @@ end
 IMAGES = {
   "orange" => "https://images.unsplash.com/photo-1611178240580-43c2105a7b62?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Njl8fG9yYW5nZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
   "palosanto" => "https://images.unsplash.com/photo-1612088486201-2cb53360306c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGFsbyUyMHNhbnRvfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-  "cedar" => "https://images.unsplash.com/photo-1615195695780-bb72bdeda718?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80",
+  "cedar" => "https://images.unsplash.com/photo-1541187323374-0a2ef7f5b29d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
   "oud" => "https://vcandlesupplies.com/wp-content/uploads/2021/03/Tom-Ford-Oud-Wood-Type-Pure-Fragrance-Oils-FB.jpg",
   "santal" => "https://i.pinimg.com/564x/52/ec/5f/52ec5f0ed9d6fee8fcb6a8ad633e411e.jpg",
   "lavender" => "https://images.unsplash.com/photo-1498998754966-9f72acbc85b2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80",
@@ -76,6 +81,13 @@ CATEGORIES.each do |category|
     scents = ["black-pepper", "ginger", "cinnamon", "cardamom"].sample(4)
   end
 
+  scents.each do |scent|
+    p "#{scent}"
+    Scent.create!(name: scent, category: category)
+    #file = URI.open(IMAGES[scent])
+    file = URI.open("#{Rails.root}/app/assets/images/cedar.jpg")
+    Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+
   scents.each_with_index do |scent, index|
     puts index
     Scent.create!(name: scent, category: category)
@@ -100,6 +112,7 @@ User.all.each do |user|
     else
       state = "completed"
     end
+    p "#{IMAGES[scent.name]}#{scent.name}"
     SmellProgram.create!(scent: scent, user: user, status: state, image: IMAGES[scent.name])
     strength = INITIAL.sample
     accuracy = INITIAL.sample
