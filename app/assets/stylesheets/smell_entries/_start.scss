@@ -4,6 +4,12 @@
   height: 50px;
 }
 
+#training-start-title {
+  width:100%;
+  margin-top: 95px ;
+  text-align:left;
+}
+
 .container-start-training {
   position: relative;
   display: flex;
@@ -23,10 +29,35 @@
 }
 
 .container-switch-buttons {
+  position: absolute;
+  top: 430px;
+  left: 50%;
   > p, h2, h3 {
     text-align: center;
   }
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+
+#start-image-container {
+  position: absolute;
+  height: 300px;
+  width:300px;
+  top:-40px;
+  right:-100px;
+  z-index: -5;
+  transform: rotate(-40.64deg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  // position: absolute;
+  // height:300px;
+  // width:auto;
+  // top:0px;
+  // right:0px;
+  // z-index: 10;
+  // background-repeat: no-repeat;
+  // background-size: contain;
+
 }

@@ -18,7 +18,10 @@ class PagesController < ApplicationController
     end
 
     # Reset button
-    reset_current_training_status if params[:reset]
+    if params[:reset]
+      reset_current_training_status
+      redirect_to :dashboard
+    end
 
     # Greetings
     @greeting = set_greeting

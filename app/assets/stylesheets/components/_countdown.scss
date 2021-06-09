@@ -5,6 +5,7 @@
   left: 0%;
   font-family: sans-serif;
   display: grid;
+  // height: 640px;
   height: 640px;
   width:100vw;
   margin:0;
@@ -87,12 +88,12 @@
 }
 
 .base-timer__path-remaining.orange {
-  color: #f9c232;
+  color: #94A2B3;
   z-index: -1;
 }
 
 .base-timer__path-remaining.red {
-  color: #8E0E00;
+  color: #94A2B3;
   z-index: -1;
 }
 
@@ -105,9 +106,17 @@
   align-items: center;
   justify-content: center;
   font-size: 48px;
-  color: white;
+  color: black;
   z-index: 0;
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  // text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  font-family: Keroine TRIAL;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 61px;
+  letter-spacing: 0em;
+// text-align: left;
+
 }
 
 .counter-filter {
@@ -121,3 +130,15 @@
   z-index: -2;
 }
 
+
+#start-image-container {
+  position: absolute;
+  height:300px;
+  width:auto;
+  top:0px;
+  right:0px;
+  z-index: 10;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(-51.64deg);
+}

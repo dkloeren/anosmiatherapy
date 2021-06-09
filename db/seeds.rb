@@ -54,8 +54,13 @@ IMAGES = {
   "lemon" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/lemon_600_axk5zo.png",
   "thyme" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/thym_600_rm8o00.png",
   "rosemary" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/rosemary_600_u6wzgk.png",
-  "grapefruit" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623190180/Anosmiatherapy/Scent_Illustrations/grapefruit_600_fcuain.png",
-  "cedar" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623190180/Anosmiatherapy/Scent_Illustrations/cedar_760_gabmyt.png"
+  "grapefruit" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/grapefruit_1__600_i1aecc.png",
+  "cedar" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/cedar_600_b8npwf.png",
+  "rose" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/rose_600_okwc2r.png",
+  "sage" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238717/Anosmiatherapy/Scent_Illustrations/sage_600_lfz9zp.png",
+  "cinnamon" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/cinammon_600_pfkvvl.png",
+  "lavender" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/lavender_600_qgdhze.png",
+  "cardamom" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/cardamone_600_osqzij.png"
 }
 
 
@@ -161,32 +166,62 @@ kit = ProductType.create!(name: 'scent kit')
 individual_scent = ProductType.create!(name: 'individual scent')
 
 puts 'Creating products...'
-Product.create!(sku: 'scent-kit', name: 'Scent Kit #1', product_type: kit, price_cents: 3500)
+Product.create!(sku: 'scent-kit', name: 'Scent Kit #1', product_type: kit, order: 1, price_cents: 3500, description: '
+  Start physiotherapy for your nose with these scents. All essential oils are from organic local natural sources designed and manufactured in Berlin, Germany.
+
+Each oil is selected from the 5 different categories (citrus, herbal, floral, wood and spicy) that you’re training with.
+
+Improve your scent journey by trying out the other scent kits as well.
+
+Citrus: lemon
+Herbal: sage
+Floral: lavender
+Wood: cedar
+
+Delivery in EU & International')
 image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/kit_scent1_nuxf6r.jpg"
 file = URI.open(image_url)
 Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
-Product.create!(sku: 'scent-kit', name: 'Scent Kit #2', product_type: kit, price_cents: 3500)
+Product.create!(sku: 'scent-kit', name: 'Scent Kit #2', product_type: kit, order: 2, price_cents: 3500, description: 'Start physiotherapy for your nose with these scents. All essential oils are from organic local natural sources designed and manufactured in Berlin, Germany.
+
+Each oil is selected from the 5 different categories (citrus, herbal, floral, wood and spicy) that you’re training with.
+
+Improve your scent journey by trying out the other scent kits as well.
+
+Citrus: orange
+Herbal: rosemary
+Wood: palo Santo
+Spice: Ginger
+
+Delivery in EU & International')
 image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/kit_scent3_2_ucraeu.jpg"
 file = URI.open(image_url)
 Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
-Product.create!(sku: 'scent-kit', name: 'Scent Kit #3', product_type: kit, price_cents: 3500)
+Product.create!(sku: 'scent-kit', name: 'Scent Kit #3', product_type: kit, order: 3, price_cents: 3500, description: 'Start physiotherapy for your nose with these smells. All essential oils are from organic local natural sources designed and manufactured in Berlin, Germany.
+
+Citrus: lemon
+Herbal: tea tree
+Floral: lavender
+Wood: cedar
+
+Delivery in EU & International')
 image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160399/Anosmiatherapy/Product/kit_scent2_hy7tb5.jpg"
 file = URI.open(image_url)
 Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
-Product.create!(sku: 'individual-scent-wood',   name: 'Wood Scent',   product_type: individual_scent, price_cents: 2000)
+Product.create!(sku: 'individual-scent-wood',   name: 'Wood Scent',   product_type: individual_scent, order: 4, price_cents: 2000, description: 'Indivial scent bottle 30ml designed and produced in Berlin, Germany. Delivery in EU & International')
 image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/in_scent1_ijylje.jpg"
 file = URI.open(image_url)
 Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
-Product.create!(sku: 'individual-scent-floral',   name: 'Floral Scent',   product_type: individual_scent, price_cents: 2000)
+Product.create!(sku: 'individual-scent-floral',   name: 'Floral Scent',   product_type: individual_scent, order: 5, price_cents: 2000, description: 'Indivial scent bottle 30ml designed and produced in Berlin, Germany. Delivery in EU & International')
 image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/in_scent3_sblk84.jpg"
 file = URI.open(image_url)
 Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
-Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, price_cents: 2000)
+Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, order: 6,price_cents: 2000, description: 'Indivial scent bottle 30ml designed and produced in Berlin, Germany. Delivery in EU & International')
 image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160395/Anosmiatherapy/Product/in_scent2_y1lzdd.jpg"
 file = URI.open(image_url)
 Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')

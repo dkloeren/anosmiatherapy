@@ -9,9 +9,9 @@
       <h2 id="show-header"><%= @product.name %></h2>
       <h3><%= humanized_money_with_symbol(@product.price) %></h3>
       <div class="show-text">
-        <p>Individual scent bottle.</p>
-        <p>Designed and produced in Berlin, Germany.</p>
-        <p>Delivery in EU & International.</p>
+      <p>
+        <%= simple_format(@product.description) %>
+      </p>
       </div>
         <%= form_tag orders_path do %>
         <%= hidden_field_tag 'product_id', @product.id %>

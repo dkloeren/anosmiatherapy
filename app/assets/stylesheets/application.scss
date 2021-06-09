@@ -27,6 +27,12 @@
 @import "products/index";
 @import "products/show";
 
+// payments
+@import "payments/new";
+
+// orders
+@import "orders/show";
+
 .section {
   &-container {
     margin: 56px 0 38px 0;
