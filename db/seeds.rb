@@ -21,10 +21,10 @@ User.destroy_all
 Scent.destroy_all
 
 # ID             0              1                   2                       3                       4                               5              6
-FIRSTNAMES  = %w[Admin          Luka                Tom                     Hannelore               Hans-Peter                      Elisabeth      ABCDEFGHIJKLMNOPQRST]
-LASTNAMES   = %w[Administer     Doncic              Jerry                   Mueller                 Robinson                        Shaduw         ABCDEFGHIJKLMNOPQRST]
-PASSWORDS   = %w[111111         111111              111111                  111111                  111111                          111111         111111 ]
-EMAILS      = %w[admin@mail.com mvp.2021@dallas.com tomhatesjerry@mail.org  priority1@freemail.def  derrobinsonhans@hansepeter.com  elisa@mail.com abcdefghijklmnopqrst@alphabet.com]
+FIRSTNAMES  = %w[Admin          Luka                 Elisabeth      ABCDEFGHIJKLMNOPQRST]
+LASTNAMES   = %w[Administer     Doncic               Shaduw         ABCDEFGHIJKLMNOPQRST]
+PASSWORDS   = %w[111111         111111               111111         111111 ]
+EMAILS      = %w[admin@mail.com mvp.2021@dallas.com  elisa@mail.com abcdefghijklmnopqrst@alphabet.com]
 
 
 p "creating user"
@@ -60,7 +60,16 @@ IMAGES = {
   "sage" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238717/Anosmiatherapy/Scent_Illustrations/sage_600_lfz9zp.png",
   "cinnamon" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/cinammon_600_pfkvvl.png",
   "lavender" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/lavender_600_qgdhze.png",
-  "cardamom" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/cardamone_600_osqzij.png"
+  "cardamom" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/cardamone_600_osqzij.png",
+  "oud" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623240101/Anosmiatherapy/Scent_Illustrations/oud_230_cswdpz.png",
+  "patchouli" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623240101/Anosmiatherapy/Scent_Illustrations/patchouli_400_nhaqfe.png",
+  "ylang-ylang" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623240101/Anosmiatherapy/Scent_Illustrations/ylang-ylang_600_tbaoqy.png",
+  "ginger" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623240101/Anosmiatherapy/Scent_Illustrations/ginger_600_jhbb87.png",
+  "bergamot" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623240101/Anosmiatherapy/Scent_Illustrations/bergamot_570_latmmv.png",
+  "teatree" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623240101/Anosmiatherapy/Scent_Illustrations/tea-tree_430_yfl5zd.png",
+  "palosanto" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623240101/Anosmiatherapy/Scent_Illustrations/palosanto_500_wb6ii1.png",
+  "santal" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623240101/Anosmiatherapy/Scent_Illustrations/palosanto_500_wb6ii1.png",
+  "orange" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623240136/Anosmiatherapy/Scent_Illustrations/orange_600_swenrt.png"
 }
 
 
