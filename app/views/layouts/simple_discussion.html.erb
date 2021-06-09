@@ -23,29 +23,30 @@
             <p class="section-category to-all"> <%= t('.all_threads') %></p>
           <% end %>
         </div>
+
         <% if user_signed_in? %>
           <div>
             <%= forum_link_to simple_discussion.mine_forum_threads_path do %><%= icon "fa-fw far", "user-circle" %>
-              <%= t('.my_questions') %>
+             <span class="turquoise"><%= t('.my_questions') %></span>
             <% end %>
           </div>
           <div>
             <%= forum_link_to simple_discussion.participating_forum_threads_path do %>
               <%= icon "fa-fw far", "comments" %>
-              <%= t('.participating') %>
+            <span class="turquoise"><%= t('.participating') %></span>
             <% end %>
           </div>
         <% end %>
         <div>
           <%= forum_link_to simple_discussion.answered_forum_threads_path do %>
             <%= icon "fa-fw fas", "check" %>
-            <%= t('.answered') %>
+          <span class="turquoise"><%= t('.answered') %></span>
           <% end %>
         </div>
         <div>
           <%= forum_link_to simple_discussion.unanswered_forum_threads_path do %>
             <%= icon "fa-fw fas", "question" %>
-            <%= t('.unanswered') %>
+          <span class="turquoise"><%= t('.unanswered') %></span>
           <% end %>
         </div>
       </div>
