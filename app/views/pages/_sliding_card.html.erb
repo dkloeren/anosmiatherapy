@@ -1,0 +1,25 @@
+  <% training = current_user.smell_programs.find( locals[:training_id] ) %>
+  <div class="card">
+    <%= link_to smell_program_path(training, class: "link_tile") do %>
+      <div class="training-card">
+        <div class="d-flex flex-column justify-content-between">
+          <h3 class="card-title p-0 m-0"><%= training.scent.name.capitalize %></h3>
+          <div class="d-flex flex-column justify-content-end flex-grow-1">
+            <div class="d-flex justify-content-start align-items-baseline">
+              <p class="number mr-1 my-0"><%= training.smell_entries.count %></p>
+              <p class="label my-0">tries</p>
+            </div>
+            <div class="d-flex justify-content-start align-items-baseline">
+              <p class="number my-0"><%= training.progress_percentage %></p>
+              <p class="percentage mr-1 my-0">%</p>
+              <p class="label my-0">recovered</p>
+            </div>
+          </div>
+        </div>
+      <% if training.scent.photo.key %>
+        <div class="card-image-container" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.0)) , url('<%= cl_image_path training.scent.photo.key, class: "card-image" %>')">
+        </div>
+      <% end %>
+     </div>
+    <% end %>
+  </div>

@@ -25,8 +25,34 @@
 
 // products
 @import "products/index";
+@import "products/show";
+
+.section {
+  &-container {
+    margin: 56px 0 38px 0;
+    position: relative;
+  }
+  &-category {
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    color: #94B3A2;
+    font-family: PT Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    margin: 0px;
+  }
+  &-title {
+    font-family: Keroine TRIAL;
+  }
+}
 
 .scrolling-wrapper {
+  position: relative;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -36,8 +62,12 @@
   -webkit-overflow-scrolling: touch;
 
   .card {
+    position: relative;
     display: inline-block;
     margin: 0 8px 0 8px;
+    z-index: 1;
+    border: none;
+    // overflow-y: visible;
   }
 
   &::-webkit-scrollbar {
@@ -45,27 +75,81 @@
   }
 }
 
+.card-image-container {
+  position: absolute;
+  height: 190px;
+  width:200px;
+  top:-35px;
+  right:-70px;
+  z-index: 3;
+  transform: rotate(19.2deg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+// .card-image {
+//   height: 190px;
+//   width: auto;
+//   overflow: visible;
+
+// }
+
 .training-card {
+
   display: flex;
   justify-content: between;
   width: 310px;
   height: 147px;
   padding: 19px;
-  > h3 {
-    font-size: 30px;
-    font-weight: lighter;
+  border: none;
+  overflow: visible;
+
+  .card-title {
+
+    font-stretch: condensed;
     margin: 0 0 16px 0;
     padding: 0;
+    font-family: "Keroine TRIAL";
+    font-size: 32px;
+    font-style: lighter;
+    font-weight: 400;
+    line-height: 37px;
+    letter-spacing: 0.01em;
+    text-align: left;
 
   }
-  > p.number {
-    font-weight: 400;
+  .number {
+    font-stretch: condensed;
+    font-family: PT Sans;
     font-size: 24px;
-    height: 31px;
-  }
-  > p.label {
+    font-style: lighter;
     font-weight: 400;
-    font-size: 22px;
-    height: 31px;
+    line-height: 31px;
+    letter-spacing: 0.01em;
+    text-align: left;
+  }
+
+  .percentage {
+    font-stretch: condensed;
+    font-family: PT Sans;
+    font-size: 18px;
+    font-style: lighter;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0.01em;
+    text-align: left;
+  }
+
+  .label {
+    font-stretch: condensed;
+    font-family: PT Sans;
+    font-size: 16px;
+    font-style: lighter;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.01em;
+    text-align: left;
   }
 }
+
+

@@ -9,9 +9,16 @@
 
 require 'open-uri'
 
-# random seeds
+# clean database
+puts 'Cleaning database...'
+
+SmellEntry.destroy_all
 SmellProgram.destroy_all
+Order.destroy_all
+Product.destroy_all
+ProductType.destroy_all
 User.destroy_all
+Scent.destroy_all
 
 # ID             0              1                   2                       3                       4                               5              6
 FIRSTNAMES  = %w[Admin          Luka                Tom                     Hannelore               Hans-Peter                      Elisabeth      ABCDEFGHIJKLMNOPQRST]
@@ -19,27 +26,38 @@ LASTNAMES   = %w[Administer     Doncic              Jerry                   Muel
 PASSWORDS   = %w[111111         111111              111111                  111111                  111111                          111111         111111 ]
 EMAILS      = %w[admin@mail.com mvp.2021@dallas.com tomhatesjerry@mail.org  priority1@freemail.def  derrobinsonhans@hansepeter.com  elisa@mail.com abcdefghijklmnopqrst@alphabet.com]
 
+
 p "creating user"
-
 FIRSTNAMES.each_with_index do |firstname, index|
-  User.create!(
-  first_name: firstname,
-  last_name: LASTNAMES[index],
-  email: EMAILS[index],
-  password: PASSWORDS[index])
+  user = User.create!(
+    first_name: firstname,
+    last_name: LASTNAMES[index],
+    email: EMAILS[index],
+    password: PASSWORDS[index])
+  p "  #{index}  =>  #{firstname} "
 end
 
-User.all.each do |user|
-  file = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['sports']))
-  user.avatar.attach(io: file, filename: "avatar", content_type: 'image/jpg')
-end
-p "#{User.count} were created"
+# Profile image
+# User.all.each do |user|
+#   file = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['sports']))
+#   user.avatar.attach(io: file, filename: "avatar", content_type: 'image/jpg')
+# end
+p "#{User.count} users were created"
 
 ################################################################################
-
+puts '-------------------='
+p "creating scents"
 #xx
 # 1 choose a new scent and find an image-link
-IMAGES = []
+IMAGES = {
+  "black-pepper" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186011/Anosmiatherapy/Scent_Illustrations/black-pepper_600_uc1afs.png",
+  "lemon" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/lemon_600_axk5zo.png",
+  "thyme" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/thym_600_rm8o00.png",
+  "rosemary" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/rosemary_600_u6wzgk.png",
+  "grapefruit" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623190180/Anosmiatherapy/Scent_Illustrations/grapefruit_600_fcuain.png",
+  "cedar" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623190180/Anosmiatherapy/Scent_Illustrations/cedar_760_gabmyt.png"
+}
+
 
 # 2 add a category if the new scent
 CATEGORIES = %w[herbal citrus woody floral spicy]
@@ -61,28 +79,62 @@ CATEGORIES.each do |category|
   end
 
   scents.each_with_index do |scent, index|
-    Scent.create!(name: scent, category: category)
-    # file = URI.open(IMAGES[scent])
-    # Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
-
+    new_scent = Scent.create!(name: scent, category: category)
+    new_scent.save unless Scent.find_by(name: scent)
+    if IMAGES[scent]
+      file = URI.open(IMAGES[scent])
+      Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+    end
+    p "  #{index}  =>  #{scent} "
   end
 end
+p "#{Scent.count} scents were created"
 
 
 ################################################################################
+puts '-------------------='
+p "creating smell programs"
 
-INITIAL = [0,1]
+scents = [
+  Scent.find_by(name: "black-pepper"),
+  Scent.find_by(name: "lemon"),
+  Scent.find_by(name: "thyme"),
+  Scent.find_by(name: "rosemary"),
+  Scent.find_by(name: "grapefruit"),
+  Scent.find_by(name: "cedar"),
+  Scent.find_by(name: "santal"),
+  Scent.find_by(name: "lavender"),
+  Scent.find_by(name: "rose"),
+  Scent.find_by(name: "patchouli"),
+  Scent.find_by(name: "ginger"),
+  Scent.find_by(name: "cardamom"),
+  Scent.find_by(name: "cinnamon"),
+  Scent.find_by(name: "bergamot"),
+  Scent.find_by(name: "teatree"),
+  Scent.find_by(name: "oud"),
+  Scent.find_by(name: "palosanto"),
+  Scent.find_by(name: "orange"),
+  Scent.find_by(name: "sage"),
+  Scent.find_by(name: "ylang-ylang"),
+]
+
+INITIAL = [0,1,2]
 CHANGE = [ 0, 0, 0, 1,]
 
 User.all.each do |user|
-  Scent.all.sample(8).each_with_index do |scent, index|
+  scents.each_with_index do |scent, index|
     if index < 4
-      state = "ready"
-    else
+      state =  "ready"
+      # state = 1
+    elsif index < 7
       state = "completed"
+      # state = 3
+    else
+      state = "pending"
     end
-    p "#{IMAGES[scent.name]}#{scent.name}"
-    SmellProgram.create!(scent: scent, user: user, status: state, image: IMAGES[scent.name])
+    # p "#{IMAGES[scent.name]}#{scent.name}"
+    SmellProgram.create!(scent: scent, user: user, status: state)
+    # SmellProgram.create!(scent: scent, user: user, status: state, image: IMAGES[scent.name])
     strength = INITIAL.sample
     accuracy = INITIAL.sample
     ((index + 1) * 8).times do
@@ -95,42 +147,53 @@ User.all.each do |user|
         SmellProgram.last.save
       end
     end
+    p "  #{index}  =>  #{scent.name} - SmellProgram created for #{user.first_name} "
   end
 end
+p "#{SmellProgram.count} smell-programs were created"
 
-puts 'Cleaning database...'
-Product.destroy_all
-ProductType.destroy_all
+################################################################################
+puts '-------------------='
+p "creating products"
 
 puts 'Creating categories...'
 kit = ProductType.create!(name: 'scent kit')
 individual_scent = ProductType.create!(name: 'individual scent')
 
 puts 'Creating products...'
-Product.create!(sku: 'scent-kit', name: 'Scent Kit', product_type: kit, price_cents: 3500)
+Product.create!(sku: 'scent-kit', name: 'Scent Kit #1', product_type: kit, price_cents: 3500)
+image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/kit_scent1_nuxf6r.jpg"
+file = URI.open(image_url)
+Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
+
+Product.create!(sku: 'scent-kit', name: 'Scent Kit #2', product_type: kit, price_cents: 3500)
+image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/kit_scent3_2_ucraeu.jpg"
+file = URI.open(image_url)
+Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
+
+Product.create!(sku: 'scent-kit', name: 'Scent Kit #3', product_type: kit, price_cents: 3500)
 image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160399/Anosmiatherapy/Product/kit_scent2_hy7tb5.jpg"
 file = URI.open(image_url)
 Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
+Product.create!(sku: 'individual-scent-wood',   name: 'Wood Scent',   product_type: individual_scent, price_cents: 2000)
+image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/in_scent1_ijylje.jpg"
+file = URI.open(image_url)
+Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
-# Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, price_cents: 2000)
-# image_url = "url"
-# file = URI.open(url)
-# Product.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+Product.create!(sku: 'individual-scent-floral',   name: 'Floral Scent',   product_type: individual_scent, price_cents: 2000)
+image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160396/Anosmiatherapy/Product/in_scent3_sblk84.jpg"
+file = URI.open(image_url)
+Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
-# Product.create!(sku: 'individual-scent-wood',   name: 'Wood Scent',   product_type: individual_scent, price_cents: 2000)
-# image_url = "url"
-# file = URI.open(url)
-# Product.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
-
-# Product.create!(sku: 'individual-scent-floral',   name: 'Floral Scent',   product_type: individual_scent, price_cents: 2000)
-# image_url = "url"
-# file = URI.open(url)
-# Product.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
-
-puts 'Finished!'
+Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, price_cents: 2000)
+image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160395/Anosmiatherapy/Product/in_scent2_y1lzdd.jpg"
+file = URI.open(image_url)
+Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
 #####
+puts '-------------------='
+p "creating quotes"
 
 QUOTES = {
   "William Shakespeare" => "What's in a name? That which we call a rose by any other name would smell as sweet.",
@@ -150,10 +213,10 @@ QUOTES = {
   "Sophie Dahl" => "When I write about things, it's a lot to do with sense memory. How things smell and taste can bring incredible memories flooding back and transport you in an instant to another time and place.",
 }
 
-puts "creating quotes"
-
 QUOTES.each do |author, text|
   Quote.create(author: author, text: text)
 end
 
+puts "creating quotes finished"
 
+puts 'Finished!'
