@@ -6,3 +6,17 @@
   background: #FFF4ED;
 }
 
+.link-to-all {
+  a {
+  display: flex;
+    i{
+      align-self: center;
+    }
+  }
+}
+
+.section-category.to-all {
+  position: static;
+  margin-left: 5px;
+}
+
