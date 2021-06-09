@@ -49,7 +49,15 @@ puts '-------------------='
 p "creating scents"
 #xx
 # 1 choose a new scent and find an image-link
-IMAGES = []
+IMAGES = {
+  "black-pepper" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186011/Anosmiatherapy/Scent_Illustrations/black-pepper_600_uc1afs.png",
+  "lemon" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/lemon_600_axk5zo.png",
+  "thyme" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/thym_600_rm8o00.png",
+  "rosemary" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/rosemary_600_u6wzgk.png",
+  "grapefruit" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623190180/Anosmiatherapy/Scent_Illustrations/grapefruit_600_fcuain.png",
+  "cedar" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623190180/Anosmiatherapy/Scent_Illustrations/cedar_760_gabmyt.png"
+}
+
 
 # 2 add a category if the new scent
 CATEGORIES = %w[herbal citrus woody floral spicy]
@@ -71,11 +79,13 @@ CATEGORIES.each do |category|
   end
 
   scents.each_with_index do |scent, index|
-    scent = Scent.create!(name: scent, category: category)
-    scent.save unless Scent.find_by(name: scent.name)
-    # file = URI.open(IMAGES[scent])
-    # Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
-    p "  #{index}  =>  #{scent.name} "
+    new_scent = Scent.create!(name: scent, category: category)
+    new_scent.save unless Scent.find_by(name: scent)
+    if IMAGES[scent]
+      file = URI.open(IMAGES[scent])
+      Scent.last.photo.attach(io: file, filename: scent, content_type: 'image/jpg')
+    end
+    p "  #{index}  =>  #{scent} "
   end
 end
 p "#{Scent.count} scents were created"
@@ -85,17 +95,42 @@ p "#{Scent.count} scents were created"
 puts '-------------------='
 p "creating smell programs"
 
-INITIAL = [0,1]
+scents = [
+  Scent.find_by(name: "black-pepper"),
+  Scent.find_by(name: "lemon"),
+  Scent.find_by(name: "thyme"),
+  Scent.find_by(name: "rosemary"),
+  Scent.find_by(name: "grapefruit"),
+  Scent.find_by(name: "cedar"),
+  Scent.find_by(name: "santal"),
+  Scent.find_by(name: "lavender"),
+  Scent.find_by(name: "rose"),
+  Scent.find_by(name: "patchouli"),
+  Scent.find_by(name: "ginger"),
+  Scent.find_by(name: "cardamom"),
+  Scent.find_by(name: "cinnamon"),
+  Scent.find_by(name: "bergamot"),
+  Scent.find_by(name: "teatree"),
+  Scent.find_by(name: "oud"),
+  Scent.find_by(name: "palosanto"),
+  Scent.find_by(name: "orange"),
+  Scent.find_by(name: "sage"),
+  Scent.find_by(name: "ylang-ylang"),
+]
+
+INITIAL = [0,1,2]
 CHANGE = [ 0, 0, 0, 1,]
 
 User.all.each do |user|
-  Scent.all.sample(8).each_with_index do |scent, index|
+  scents.each_with_index do |scent, index|
     if index < 4
       state =  "ready"
       # state = 1
-    else
+    elsif index < 7
       state = "completed"
       # state = 3
+    else
+      state = "pending"
     end
     # p "#{IMAGES[scent.name]}#{scent.name}"
     SmellProgram.create!(scent: scent, user: user, status: state)

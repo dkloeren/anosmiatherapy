@@ -19,4 +19,40 @@ class SmellProgram < ApplicationRecord
       (total_width_px / n_blocks.to_f).floor
     end
   end
+
+  def progress_percentage
+    100 * (smell_entries.last.strength_rating + smell_entries.last.accuracy_rating) / 10
+  end
+
+  def perfect?
+    smell_entries.last.strength_rating + smell_entries.last.accuracy_rating == 10
+  end
+
+  def completed?
+    smell_entries.last.strength_rating > 3 && smell_entries.last.accuracy_rating > 3
+  end
+
+  def complete!
+    @status = "complete"
+    save
+  end
+
+  def halt!
+    @status = "pending"
+    save
+  end
+
+  def wait!
+    @status = "pause"
+    save
+  end
+
+  def ready!
+    @status = "ready"
+    save
+  end
+
+  def comments
+  end
+
 end
