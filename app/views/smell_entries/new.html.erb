@@ -1,8 +1,19 @@
 <!-- <div class="container-evaluation" style="background-image: linear-gradient(rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%), url('<%#= cl_image_path @smell_program.scent.photo.key %>')"> -->
-  <div class="container-evaluation" style="background-image: linear-gradient(rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%)">
-  <div class="new-header">
-    <h2 class="text-white-text-shadow"> <%= @smell_program.scent.name.capitalize %></h2>
+<div class="container-evaluation" style="background-image: linear-gradient(rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.0) 5%)">
+    <!-- information -->
+  <div class="container">
+    <div class="section-container" id="training-start-title">
+      <p class="section-category">TRAINING</p>
+      <h1 class="section-title"><%= @smell_program.scent.name.capitalize %></h1>
+    </div>
   </div>
+
+  <!-- Image -->
+  <% training = current_user.smell_programs.find(params[:smell_program_id]) %>
+  <% if training.scent.photo.key %>
+    <div id="start-image-container" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.0)) , url('<%= cl_image_path training.scent.photo.key, class: "card-image" %>')">
+    </div>
+  <% end %>
 
 <!-- Form for smell evaluation -->
   <div id="form-wrapper">
@@ -12,12 +23,12 @@
 
       <!-- Slider Strength -->
       <div class="hr" id="evaluation-separator"></div>
-      <p class="text-white-text-shadow" id="slider-title">How strong was the smell?</p>
+      <p id="slider-title-strength">How strong was the smell?</p>
       <%= render "slider", locals: {type: "5-point", category: "strength"}  %>
 
       <!-- Slider Accuracy -->
       <div class="hr" id="evaluation-separator"></div>
-      <p class="text-white-text-shadow" id="slider-title">How close was the smell?"</p>
+      <p id="slider-title-accuracy">How close was the smell?"</p>
       <%= render "slider", locals: {type: "5-point", category: "accuracy"}  %>
 
       <!-- submit button -->
