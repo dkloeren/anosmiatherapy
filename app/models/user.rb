@@ -17,6 +17,32 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def completed
+    smell_programs.where(status: "completed")
+  end
+
+  def active
+    smell_programs.where(status: "ready")
+  end
+
+  def halted
+    smell_programs.where(status: ["backlog", "pending"])
+  end
+
+  def current
+    smell_programs.where(status: ["pause","ready"])
+  end
+
+  def waiting
+    smell_programs.where(status: "pause")
+  end
+
+  def completed_candidates
+    current.select do |program|
+      program.completed?
+    end
+  end
+
   private
 
   def ini_programs

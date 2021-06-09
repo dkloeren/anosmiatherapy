@@ -1,8 +1,49 @@
 $bg: $background ;
 
+.quotation-mark {
+  transform: rotate(9.13deg);
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left:0px;
+}
+
+
+.quote-container {
+  margin: 48px 0px 24px 0px;
+  position: relative;
+}
+
+.quote-block {
+  margin: 24px 8px 40px 24px;
+  width: 85%;
+
+  blockquote {
+    font-family: PT Sans;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.01em;
+    text-align: left;
+  }
+
+  cite {
+    font-family: PT Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.01em;
+    text-align: left;
+  }
+}
+
+
+
 .quote {
   display:inline-block;
-  margin:1em;
+  margin: 40px 1em  1em  1em;
   overflow:hidden;
   blockquote {
     background-color:$bg;
