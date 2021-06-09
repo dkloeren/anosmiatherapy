@@ -1,8 +1,22 @@
 .bg-color {
-background: #FFF4ED;
+  background: #FFF4ED;
 }
 
 .col-md-9-mb-3 {
-background: #FFF4ED;
+  background: #FFF4ED;
+}
+
+.link-to-all {
+  a {
+  display: flex;
+    i{
+      align-self: center;
+    }
+  }
+}
+
+.section-category.to-all {
+  position: static;
+  margin-left: 5px;
 }
 

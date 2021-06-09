@@ -10,7 +10,8 @@
         <!-- </div> -->
       <p></p>
       <p>Purchase of <strong><%= @order.product.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn-new-show">Pay</button>
+      <div class="shop-payment">
+      <button id="pay" class="btn-new-show">Pay now</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
@@ -21,6 +22,7 @@
           });
         });
       </script>
+    </div>
     </div>
   </div>
 </div>

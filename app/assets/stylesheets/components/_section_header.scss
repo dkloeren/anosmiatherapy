@@ -4,9 +4,6 @@
     position: relative;
   }
   &-category {
-    position: absolute;
-    top: -15px;
-    left: 0px;
     color: #94B3A2;
     font-family: PT Sans;
     font-size: 16px;
@@ -16,7 +13,14 @@
     letter-spacing: 0.02em;
     text-align: left;
     margin: 0px;
+    text-transform: uppercase;
   }
+  &-positioning {
+    position: absolute;
+    top: -15px;
+    left: 0px;
+  }
+
   &-title {
     font-family: Keroine TRIAL;
   }

@@ -1,6 +1,7 @@
 #shop-header {
   text-align: left;
-  margin: 15px;
+  margin-bottom: 30px;
+  margin-top: 40px;
 }
 
 .row {
@@ -25,11 +26,11 @@
   align-items: center;
 }
 
-.card-body {
-  position: absolute;
-  top: 0px;
-  left: 5px;
-}
+// .card-body {
+//   position: absolute;
+//   top: 0px;
+//   left: 5px;
+// }
 
 .card-price {
   display: flex;
@@ -53,6 +54,11 @@
   padding: 0px;
 }
 
-
+#section-title {
+  position: absolute;
+  top: 85px;
+  font-size: small;
+  left: auto;
+}
 
 

@@ -6,5 +6,30 @@
 
 .btn-orders {
   display: flex;
+}
 
+#order-num {
+  text-align: center;
+}
+
+#ty-header {
+  text-align: center;
+}
+
+.order-list {
+  margin: 15px;
+}
+
+.btn-orders {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: -100px;
+}
+
+.badge-primary {
+  margin-bottom: 20px;
+  padding: 8px 24px;
+  font-family: 'PT sans', 'normal', bold;
+  text-transform: capitalize;
 }
