@@ -33,23 +33,23 @@ class SmellProgram < ApplicationRecord
   end
 
   def complete!
-    @status = "complete"
-    save
+    self.status = "complete"
+    self.save
   end
 
   def halt!
-    @status = "pending"
-    save
+    self.status = "pending"
+    self.save
   end
 
   def wait!
-    @status = "pause"
-    save
+    self.status = "pause"
+    self.save
   end
 
   def ready!
-    @status = "ready"
-    save
+    self.status = "ready"
+    self.save
   end
 
   def comments

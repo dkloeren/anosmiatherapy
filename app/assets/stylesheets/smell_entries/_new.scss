@@ -49,18 +49,29 @@
 
 .container-evaluation {
   // background-position: center;
-  flex-grow: 1;
+  // flex-grow: 1;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // height: 100%;
+  // margin: 0;
+  // padding: 0;
+  // > .footer {
+  //   margin-top: 0;
+  // }
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  background-color: rgba(0,0,0,0);
+  > p, h2 {
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  > .footer {
-    margin-top: 0;
-  }
-  // > h2 {
-  // display: flex;
-  // justify-content: center;
-  // text-align: center;
-  // }
 }
