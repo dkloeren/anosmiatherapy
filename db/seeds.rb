@@ -112,6 +112,7 @@ image_url = "https://res.cloudinary.com/dmak3udzc/image/upload/v1623160399/Anosm
 file = URI.open(image_url)
 Product.last.photo.attach(io: file, filename: 'scent.jpg', content_type: 'image/jpg')
 
+
 # Product.create!(sku: 'individual-scent-citrus', name: 'Citrus Scent', product_type: individual_scent, price_cents: 2000)
 # image_url = "url"
 # file = URI.open(url)
