@@ -21,6 +21,16 @@ $number-of-options: 5;
   justify-content: start;
 }
 
+p {
+  font-family: PT Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
 form {
   width: 90%;
   max-width: 500px;
@@ -243,7 +253,13 @@ form {
 }
 
 .slider-nr-label {
-  @extend .text-white-text-shadow;
+  font-family: PT Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0.01em;
+  text-align: left;
 }
 
 #slider-title {
