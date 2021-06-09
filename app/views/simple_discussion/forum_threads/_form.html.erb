@@ -1,18 +1,7 @@
-<%= form_for @forum_thread,
+<%= simple_form_for @forum_thread,
    url: (@forum_thread.persisted? ? simple_discussion.forum_thread_path(@forum_thread) : simple_discussion.forum_threads_path),
    html: { data: {behavior: "comment-form"} } do |f| %>
 
-  <% if @forum_thread.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@forum_thread.errors.count, "error") %> prohibited this forum_thread from being saved:</h2>
-
-      <ul>
-      <% @forum_thread.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="form-group">
     <%= f.label :forum_category_id, t('choose_a_category') %>
@@ -42,3 +31,4 @@
   </div>
 
 <% end %>
+

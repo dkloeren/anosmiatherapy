@@ -20,7 +20,7 @@
         <div>
           <%= forum_link_to simple_discussion.forum_threads_path, exact: true do %>
             <%= icon "fa-fw fas", "bars" %>
-            <%= t('.all_threads') %>
+            <p class="section-category"> <%= t('.all_threads') %></p>
           <% end %>
         </div>
         <% if user_signed_in? %>
