@@ -54,8 +54,13 @@ IMAGES = {
   "lemon" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/lemon_600_axk5zo.png",
   "thyme" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/thym_600_rm8o00.png",
   "rosemary" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623186012/Anosmiatherapy/Scent_Illustrations/rosemary_600_u6wzgk.png",
-  "grapefruit" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623190180/Anosmiatherapy/Scent_Illustrations/grapefruit_600_fcuain.png",
-  "cedar" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623190180/Anosmiatherapy/Scent_Illustrations/cedar_760_gabmyt.png"
+  "grapefruit" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/grapefruit_1__600_i1aecc.png",
+  "cedar" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/cedar_600_b8npwf.png",
+  "rose" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/rose_600_okwc2r.png",
+  "sage" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238717/Anosmiatherapy/Scent_Illustrations/sage_600_lfz9zp.png",
+  "cinnamon" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/cinammon_600_pfkvvl.png",
+  "lavender" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/lavender_600_qgdhze.png",
+  "cardamom" => "https://res.cloudinary.com/dmak3udzc/image/upload/v1623238716/Anosmiatherapy/Scent_Illustrations/cardamone_600_osqzij.png"
 }
 
 
