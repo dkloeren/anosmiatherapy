@@ -1,10 +1,10 @@
 .btn-main {
   padding: 8px 14px;
   margin: 12px;
-  border-radius: 29px;
   text-align: center;
   font-weight: bold;
-  background: #8E0E00;
+  background: #1F1C1B
+;
   color: #FFF4ED;
   font-size: 16px;
   box-shadow: 2px 2px lightgrey;
@@ -20,10 +20,9 @@ a:hover {
 .btn-submit {
   padding: 8px 14px;
   margin: 12px;
-  border-radius: 29px;
   text-align: center;
   font-weight: bold;
-  background: #8E0E00;
+  background: #1F1C1B;
   color: #FFF4ED;
   font-size: 16px;
   box-shadow: 2px 2px lightgrey;
@@ -49,13 +48,12 @@ a:hover {
   width: 200px;
   padding: 16px 24px;
   margin: 15px;
-  border-radius: 5px;
   text-align: center;
   font-weight: bold;
   border: $btn-dark-main;
   border-width: 5px;
-  background: $btn-light-main;
-  color: $btn-dark-main;
+  background: #1F1C1B;
+  color: #FFF4ED;
   box-shadow: 0.5px 0.5px 0px 0px $btn-dark-main;
 }
 
@@ -84,10 +82,9 @@ a:hover {
 .btn-home-login {
   padding: 8px 14px;
   margin: 12px;
-  border-radius: 29px;
   text-align: center;
   font-weight: bold;
-  background: #8E0E00;
+  background: #1F1C1B;
   color: #FFF4ED;
   font-size: 16px;
   box-shadow: 2px 2px lightgrey;
@@ -96,19 +93,18 @@ a:hover {
 .btn-home-sign {
   padding: 8px 24px;
   margin: 15px;
-  border-radius: 31px;
   text-align: center;
   font-weight: bold;
-  border: 1px solid #8E0E00;
+  border: 1px solid #1F1C1B;
   background: #FFF4ED;
-  color: #8E0E00;
+  color: #1F1C1B;
   box-shadow: 2px 2px lightgrey;
 }
 
 .btn-home-sign:hover {
   text-decoration: none;
   transition: 0.5s 20%;
-  background: #8E0E00;
+  background: #1F1C1B;
   color: $btn-light-main;
 }
 
