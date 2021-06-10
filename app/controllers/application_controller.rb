@@ -28,7 +28,8 @@ class ApplicationController < ActionController::Base
       "products#show" => "Anosmiatherapy",
       "payments#new" => "Anosmiatherapy",
       "orders#index" => "Anosmiatherapy",
-      "orders#show" => "Anosmiatherapy"
+      "orders#show" => "Anosmiatherapy",
+      "simple_discussion/forum_threads#index" => "Anosmiatherapy"
     }
 
     @navbar_title = titles[key]
