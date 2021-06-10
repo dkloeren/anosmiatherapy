@@ -4,18 +4,18 @@ body {
 }
 
 h2 {
-  font-family: 'Keroine TRIAL', 'sans-serif';
+  font-family: $headers-font;
   color: $text-dark;
 }
 
 h3 {
-  font-family: 'Keroine TRIAL', 'sans-serif';
+  font-family: $headers-font;
   color: $text-dark;
   font-size: 24px;
 }
 
 h4 {
-  font-family: 'Keroine TRIAL', 'sans-serif';
+  font-family: $headers-font;
   color: $text-dark;
   font-size: 20px;
 }

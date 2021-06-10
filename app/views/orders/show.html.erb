@@ -8,10 +8,10 @@
      <p></p>
       <div class="order-list">
         <ul class="list-unstyled">
-          <li><strong></strong> <%= @order.created_at.to_date %></li>
           <li><strong>Order date:</strong> <%= @order.created_at.to_date %></li>
           <li><strong>Purchased Item:</strong> <%= @order.product.name %></li>
-          <li>SKU: <%= @order.product_sku %></li>
+          <li>Product SKU: <%= @order.product_sku %></li>
+          <p></p>
           <li><strong>Order Total:</strong> <%= humanized_money_with_symbol @order.amount %></li>
         </ul>
       </div>

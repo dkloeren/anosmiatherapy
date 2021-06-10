@@ -8,7 +8,7 @@
             <%= link_to product_path(product) do %>
               <%= cl_image_tag product.photo.key, class: "card-img-bottom" %>
             <div class="product-details">
-              <h5><%= product.name %></h5>
+              <h5 class="h5-product"><%= product.name %></h5>
               <p id="product-price"><%= humanized_money_with_symbol(product.price) %></p>
             </div>
             <% end %>
