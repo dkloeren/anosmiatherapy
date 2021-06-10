@@ -1,5 +1,5 @@
 meta_product_name: "Anosmiatherapy"
 meta_title: "Anosmiatherapy - Restore your sense of smell."
 meta_description: "A smell training to help regain back your sense of smell."
-meta_image: "dashboard_image.png" # should exist in `app/assets/images/`
+meta_image: "info_image.png" # should exist in `app/assets/images/`
 twitter_account: "@anosmiatherapy"   # required for Twitter Cards
