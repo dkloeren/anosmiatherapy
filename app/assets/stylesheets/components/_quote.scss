@@ -177,12 +177,12 @@ $bg: $background ;
   }
 }
  blockquote {
-  font-family: 'Keroine Trial', 'sans-serif';
+  font-family: $headers-font;
 
  }
 .square-brackets-quote {
   display:inline-block;
-  font-family: 'Keroine TRIAL', 'sans-serif';
+  font-family: $headers-font;
   margin:1em;
   max-width:20em;
  blockquote {
