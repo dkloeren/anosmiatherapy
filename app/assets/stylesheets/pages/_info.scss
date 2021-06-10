@@ -1,5 +1,5 @@
 .info-details {
-  padding: 20px;
+  padding: 15px;
   text-align: justify;
 
   h4 {
@@ -7,4 +7,33 @@
     margin-top: 20px;
     letter-spacing: 1.5px;
   }
+}
+
+.info-text-1 {
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.info-text-2 {
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.info-text-3 {
+  font-size: 1rem;
+  text-align: justify;
+}
+
+#info-header {
+  text-align: left;
+  padding-top: 35px;
+  padding-left: 15px;
+}
+
+#section-title-info {
+  padding-left: 15px;
+    position: absolute;
+  top: 80px;
+  font-size: small;
+  left: auto;
 }
