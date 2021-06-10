@@ -17,7 +17,7 @@ class SmellEntriesController < ApplicationController
     @navbar_title = "Evaluation"
     prepare_next_program
     if @next_program
-      @link_name = "Next: \"#{@next_program.scent.name.capitalize}\""
+      @link_name = "#{@next_program.scent.name.capitalize}"
       # undo forcast
     else
       @link_name = "Finish Training"

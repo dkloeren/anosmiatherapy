@@ -20,16 +20,20 @@ class SmellProgram < ApplicationRecord
     end
   end
 
+  def new?
+    smell_entries.all.present? ? false : true
+  end
+
   def progress_percentage
-    100 * (smell_entries.last.strength_rating + smell_entries.last.accuracy_rating) / 10
+    self.new? ? 0 : 100 * (smell_entries.last.strength_rating + smell_entries.last.accuracy_rating) / 10
   end
 
   def perfect?
-    smell_entries.last.strength_rating + smell_entries.last.accuracy_rating == 10
+    self.new? ? false : smell_entries.last.strength_rating + smell_entries.last.accuracy_rating == 10
   end
 
   def completed?
-    smell_entries.last.strength_rating > 3 && smell_entries.last.accuracy_rating > 3
+    self.new? ? false : smell_entries.last.strength_rating > 3 && smell_entries.last.accuracy_rating > 3
   end
 
   def complete!
@@ -50,6 +54,16 @@ class SmellProgram < ApplicationRecord
   def ready!
     self.status = "ready"
     self.save
+  end
+
+  def logs
+    smell_entries.map do |entry|
+      {
+        strength: entry.strength_rating,
+        accuracy: entry.accuracy_rating,
+        date: entry.created_at
+      }
+    end
   end
 
   def comments

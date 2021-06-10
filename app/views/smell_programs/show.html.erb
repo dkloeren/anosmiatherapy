@@ -5,49 +5,34 @@
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Switch scent of this training
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Choose a scent</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <%= simple_form_for(SmellProgram.new) do |f| %>
-          <%= f.association :scent, collection: @category_scents  %>
-          <%#= f.submit %>
-
-          <%= f.button :submit, "Confirm", input_html: {program_id:"#{@smell_program.id}"}, class: "btn-primary"  %>
-        <% end %>
+<!--   <button type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">"Same category"</button>
+ -->
+  <div class="btn-group">
+    <button type="button" class="btn-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= @selection %> ▾
+    </button>
+    <div class="dropdown-menu">
+      <button type="button" class="" data-toggle="modal" data-target="#modal-new_category">"New category"</button><br>
+      <button type="button" class="" data-toggle="modal" data-target="#modal-same_category">"Same category"</button><br>
+      <button type="button" class="" data-toggle="modal" data-target="#modal-any_category">"Any category"</button><br>
+      <button type="button" class="" data-toggle="modal" data-target="#modal-paused_category">"Paused trainings"</button><br>
 
 
-        <!-- Code for tile that replace buttons -->
-        <!-- <div class="container-new-scent"> -->
-        <%#  @category_scents.each_with_index do |scent, index| %>
-        <%# i = index + 1 %>
-        <!-- <div class="switch-scent-radio-btn-container"> -->
-          <!-- <div class="training-carousel" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.15) 50%) , url('<%#= cl_image_path locals[:training].scent.photo.key, height: 300, crop: :fill %>')"> -->
-          <!-- <input type="radio" class="switch-scent-radio-btn" name="options" id="option<%#= i %>" autocomplete="off"> -->
-          <!-- <label class="switch-scent-radio-btn-label" for="option<%#= i %>"><%#= scent.name %></label> -->
-        <!-- </div> -->
-        <%# end %>
-      </div>
+      <%#= link_to "Same category", smell_program_path(params[:id], selection: "Same category" ) %> <br>
+      <%#= link_to "New category", smell_program_path(params[:id], selection: "New category") %> <br>
+      <%#= link_to "Paused trainings", smell_program_path(params[:id], selection: "Paused category")%> <br>
+      <%#= link_to "Any category", smell_program_path(params[:id], selection: "Any category" ) %> <br>
     </div>
   </div>
-</div>
+
+  <%= render "show_modal", locals: {category: "new", id: "modal-new_category"}  %>
+  <%= render "show_modal", locals: {category: "same", id: "modal-same_category"}  %>
+  <%= render "show_modal", locals: {category: "any", id: "modal-any_category"}  %>
+  <%= render "show_modal", locals: {category: "paused", id: "modal-paused_category"}  %>
 
   <div class="chart-container stacked-area">
     <div id="chart_stacked_area"
              data-history="<%= @smell_training_log.to_json %>"></div>
-    </div>
   </div>
 
   <h2>Smell Training Log</h2>
@@ -68,5 +53,3 @@
   <%= link_to "Click", class: "btn-js-start" %>
 
 </div>
-
-

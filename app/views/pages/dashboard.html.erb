@@ -13,7 +13,7 @@
 
 
 <!-- Slider active-->
-<div class="scrolling-wrapper">
+<div class="scrolling-wrapper" style="padding-top:35px">
   <% current_user.current.each do |program| %>
   <%= render "sliding_card", locals: {training_id: program.id}  %>
   <% end %>
@@ -21,24 +21,30 @@
 
 
 <!-- >> Button -->
-<div class="container flex-tiles " id="btn-start-training-session">
-  <div class="d-flex mt-3 justify-content-center">
+<% if current_user.completed_candidates.present? %>
+  <%  css_option = "half" %>
+<% else %>
+  <%  css_option = "full" %>
+<% end %>
+
+
+<div class="container w-100 d-flex justify-content-center" id="btn-start-training-session">
+  <div class="d-flex my-4 w-100 justify-content-around">
     <% if current_user.active.present? %>
       <div>
-        <%= link_to "Start Training", start_smell_program_smell_entries_path(current_user.active[0]),
-                                      class: 'btn-new-show', id: "btn-start-training-session" %>
+        <%= link_to "Start Training", start_smell_program_smell_entries_path(current_user.active[0]), class: "btn-main m-0 #{css_option}" %>
       </div>
     <% else %>
-      <!-- <p>You have completed this training session</p> -->
       <div>
-        <%= link_to "Train again", dashboard_path(reset: true), class: 'btn-new-show'%>
+        <%#= link_to "Train again", dashboard_path(reset: true), class: "btn-standard #{css_option}" %>
+        <%= link_to "Train again", dashboard_path(reset: true), class: "btn-main m-0 #{css_option}" %>
       </div>
     <% end %>
     <!-- option: swtich programs -->
     <% if current_user.completed_candidates.present? %>
       <div>
         <%= link_to "New Scent", dashboard_path(replace_trainings: true),
-            class: 'btn-new-show ', id: "btn-new-training-session" %>
+            class: "btn-inverse #{css_option}" %>
       </div>
     <% end %>
   </div>
@@ -47,7 +53,7 @@
 <!-- Section -->
 <div class="container">
   <div class="section-container">
-    <p class="section-category section-positioning">TRAINING</p>
+    <p class="section-category">TRAINING</p>
     <h1 class="section-title">Recovered scent</h1>
   </div>
 </div>
