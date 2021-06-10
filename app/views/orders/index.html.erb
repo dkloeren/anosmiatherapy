@@ -1,0 +1,15 @@
+<div class="container">
+  <p class="section-category" id="sec-order-title">ORDERS</p>
+  <h2 id="shop-header">History</h2>
+  <div class="shop-cards">
+    <% @orders.each do |order| %>
+      <div class="order-img">
+        <%= cl_image_tag order.product.photo.key %>
+      </div>
+      <div>
+        <h4>Order number #<%= order.id %></h4>
+        <p class="order-date">Ordered date: <%= order.created_at.to_date %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
