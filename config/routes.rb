@@ -27,5 +27,5 @@ Rails.application.routes.draw do
 
   ##### TEST PAGE ###
   get '/test', to: 'pages#test', as: 'test'
-
+  get '/order/sucess', to: 'orders#show'
 end
