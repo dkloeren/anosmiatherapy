@@ -9,7 +9,7 @@
         <%= cl_image_tag order.product.photo.key, crop: :fill, class: "order-img" %>
       <% end %>
         <div class="li-order-history">
-          <h4 class="order-id">Order Number #<%= order.id %></h4>
+          <h4 class="order-id">Order #<%= order.id %></h4>
           <p class="order-date">Order Date: <%= order.created_at.to_date %></p>
         </div>
       </div>
