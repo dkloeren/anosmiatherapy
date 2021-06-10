@@ -119,17 +119,7 @@ scents = [
   Scent.find_by(name: "santal"),
   Scent.find_by(name: "lavender"),
   Scent.find_by(name: "rose"),
-  Scent.find_by(name: "patchouli"),
-  Scent.find_by(name: "ginger"),
-  Scent.find_by(name: "cardamom"),
-  Scent.find_by(name: "cinnamon"),
-  Scent.find_by(name: "bergamot"),
-  Scent.find_by(name: "teatree"),
-  Scent.find_by(name: "oud"),
-  Scent.find_by(name: "palosanto"),
-  Scent.find_by(name: "orange"),
-  Scent.find_by(name: "sage"),
-  Scent.find_by(name: "ylang-ylang"),
+  Scent.find_by(name: "patchouli")
 ]
 
 INITIAL = [0,1,2]

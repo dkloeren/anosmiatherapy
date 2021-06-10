@@ -24,7 +24,7 @@
 
   <div class="form-group text-right">
     <% if f.object.new_record? %>
-      <%= f.button :submit, t('ask_your_question'), class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> #{t('saving')}"} %>
+      <%= f.button :submit, t('ask_your_question'), class: "btn-main", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> #{t('saving')}"} %>
     <% else %>
       <%= f.button :submit, "Update Thread", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> #{t('saving')}"} %>
     <% end %>

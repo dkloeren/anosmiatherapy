@@ -1,27 +1,24 @@
 
 <div class="container smell_programs_show">
-  <p>User: <%= current_user.first_name %></p>
-  <p>Program for: <%= @smell_program.scent.name %></p>
-
+<div class="container">
+  <div class="section-container">
+    <p class="section-category section-positioning">TRAINING</p>
+    <h1 class="section-title"><%= @smell_program.scent.name.capitalize %> </h1>
+  </div>
+</div>
 
 <!-- Button trigger modal -->
 <!--   <button type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">"Same category"</button>
  -->
   <div class="btn-group">
     <button type="button" class="btn-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <%= @selection %> ▾
+      Replace this training ▾
     </button>
     <div class="dropdown-menu">
-      <button type="button" class="" data-toggle="modal" data-target="#modal-new_category">"New category"</button><br>
-      <button type="button" class="" data-toggle="modal" data-target="#modal-same_category">"Same category"</button><br>
-      <button type="button" class="" data-toggle="modal" data-target="#modal-any_category">"Any category"</button><br>
-      <button type="button" class="" data-toggle="modal" data-target="#modal-paused_category">"Paused trainings"</button><br>
-
-
-      <%#= link_to "Same category", smell_program_path(params[:id], selection: "Same category" ) %> <br>
-      <%#= link_to "New category", smell_program_path(params[:id], selection: "New category") %> <br>
-      <%#= link_to "Paused trainings", smell_program_path(params[:id], selection: "Paused category")%> <br>
-      <%#= link_to "Any category", smell_program_path(params[:id], selection: "Any category" ) %> <br>
+      <button type="button" class="btn-dropdown-options" data-toggle="modal" data-target="#modal-new_category">New category</button><br>
+      <button type="button" class="btn-dropdown-options" data-toggle="modal" data-target="#modal-same_category">Same category</button><br>
+      <button type="button" class="btn-dropdown-options" data-toggle="modal" data-target="#modal-any_category">Any category</button><br>
+      <button type="button" class="btn-dropdown-options" data-toggle="modal" data-target="#modal-paused_category">Paused trainings</button><br>
     </div>
   </div>
 
@@ -29,27 +26,5 @@
   <%= render "show_modal", locals: {category: "same", id: "modal-same_category"}  %>
   <%= render "show_modal", locals: {category: "any", id: "modal-any_category"}  %>
   <%= render "show_modal", locals: {category: "paused", id: "modal-paused_category"}  %>
-
-  <div class="chart-container stacked-area">
-    <div id="chart_stacked_area"
-             data-history="<%= @smell_training_log.to_json %>"></div>
-  </div>
-
-  <h2>Smell Training Log</h2>
-  <% @smell_program.smell_entries.reverse_each do |entry| %>
-    <div class="entry-log">
-      <div class="d-flex align-items-center justify-content-around">
-        <div class="entry-logs-datetime"><%= entry.created_at %> </div>
-        <div class="entry-logs-evaluation d-flex">
-          <p class="entry-log-strength mx-2"><%= entry.strength_rating %></p>
-          <p class="entry-log-accuracy mx-2"><%= entry.accuracy_rating %></p>
-        </div>
-      </div>
-      <% if entry.comment.present? %>
-          <div class="entry-logs-comment"><p><%= entry.comment %></p></div>
-      <% end %>
-    </div>
-  <% end %>
-  <%= link_to "Click", class: "btn-js-start" %>
 
 </div>

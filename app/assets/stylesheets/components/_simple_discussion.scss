@@ -22,6 +22,7 @@
 
 .turquoise {
   color: #94B3A2;
+  text-transform: uppercase;
 }
 
 .form-control:focus {
@@ -53,7 +54,7 @@ h1, .h1 {
 .btn-outline-primary {
     color: black;
     border-color: black;
-    font-family: $headers-font;
+    font-family: $body-font;
 }
 
 a {
@@ -73,3 +74,5 @@ a {
 // .fa-circle-blue:before:last-child {
 //   color: green;
 // }
+
+

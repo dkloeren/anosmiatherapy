@@ -22,7 +22,7 @@ $number-of-options: 5;
 }
 
 p {
-  font-family: PT Sans;
+  font-family: $body-font;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -253,7 +253,7 @@ form {
 }
 
 .slider-nr-label {
-  font-family: PT Sans;
+  font-family: $body-font;
   font-style: normal;
   font-weight: 400;
   line-height: 31px;
