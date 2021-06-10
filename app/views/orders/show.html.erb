@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-md-3"><%#= image_tag @order.product.photo_url, width: '100%' %></div>
+    <div class="col">
+      <h2 id="ty-header">Thank you!</h2>
+        <p></p>
+        <h3 id="order-num">Your order number is #<%= @order.id %> <p></p><small><span class="badge badge-primary"><%= @order.state %></span></small></h3>
+     <p></p>
+      <div class="order-list">
+        <ul class="list-unstyled">
+          <li><strong>Order date:</strong> <%= @order.created_at.to_date %></li>
+          <li><strong>Purchased Item:</strong> <%= @order.product.name %></li>
+          <li>Product SKU: <%= @order.product_sku %></li>
+          <p></p>
+          <li><strong>Order Total:</strong> <%= humanized_money_with_symbol @order.amount %></li>
+        </ul>
+      </div>
+     <p></p>
+      <p class="p-orders">Estimated delivery in <strong>2 business days</strong></p>
+      <div class ="btn-orders">
+        <%= link_to "Return to Dashboard", root_path, class: "btn-new-index" %>
+    </div>
+    </div>
+  </div>
+</div>

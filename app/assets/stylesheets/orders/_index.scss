@@ -1,0 +1,39 @@
+#sec-order-title {
+  position: absolute;
+  top: 80px;
+  left: auto;
+}
+
+.order-img {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.order-date {
+  margin-bottom: 5px;
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-right: 0px;
+  font-size: 0.8rem;
+  line-height: 18px;
+}
+
+.order-id {
+  margin: 0px;
+  margin-left: 10px;
+}
+
+.li-order-history {
+  padding-top: 8px;
+  background-color: #ffffff69;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+}
+
+.order-card {
+  position: relative;
+  margin-bottom: 1.5rem;
+}

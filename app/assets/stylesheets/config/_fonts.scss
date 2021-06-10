@@ -1,9 +1,18 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
 // Define fonts for body and headers
-$body-font: "PT Sans", "Helvetica", "sans-serif";
-$headers-font: "Keroine TRIAL", "Helvetica", "sans-serif";
+
+// @font-face {
+//     font-family: "Keroine TRIAL";
+//     src: url("/assets/fonts/KeroineTRIAL-DouxExtreme.otf") format("opentype");
+// }
+
+$body-font: "PT Sans", serif, "PT Sans", "Helvetica", "sans-serif";
+$headers-font: "Crimson text", serif, "Keroine TRIAL", "Helvetica", "sans-serif";
+// $headers-font: "Keroine TRIAL", "Helvetica", "sans-serif";
+
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

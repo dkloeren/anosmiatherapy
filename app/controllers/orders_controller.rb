@@ -1,0 +1,30 @@
+class OrdersController < ApplicationController
+  def index
+    @orders = current_user.orders.order("created_at DESC")
+  end
+
+  def create
+    product = Product.find(params[:product_id])
+    order  = Order.create!(product: product, product_sku: product.sku, amount: product.price, state: 'pending', user: current_user)
+
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: product.name,
+        images: [product.photo.url],
+        amount: product.price_cents,
+        currency: 'eur',
+        quantity: 1
+      }],
+      success_url: "http://anosmiatherapy.herokuapp.com/order/success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "http://anosmiatherapy.herokuapp.com/order/cancel?session_id={CHECKOUT_SESSION_ID}"
+    )
+
+    order.update(checkout_session_id: session.id)
+    redirect_to new_order_payment_path(order)
+  end
+
+  def show
+    @order = current_user.orders.find(params[:id])
+  end
+end

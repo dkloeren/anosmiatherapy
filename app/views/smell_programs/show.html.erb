@@ -1,0 +1,30 @@
+
+<div class="container smell_programs_show">
+<div class="container">
+  <div class="section-container">
+    <p class="section-category section-positioning">TRAINING</p>
+    <h1 class="section-title"><%= @smell_program.scent.name.capitalize %> </h1>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<!--   <button type="button" class="" data-toggle="modal" data-target="#exampleModalCenter">"Same category"</button>
+ -->
+  <div class="btn-group">
+    <button type="button" class="btn-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Replace this training ▾
+    </button>
+    <div class="dropdown-menu">
+      <button type="button" class="btn-dropdown-options" data-toggle="modal" data-target="#modal-new_category">New category</button><br>
+      <button type="button" class="btn-dropdown-options" data-toggle="modal" data-target="#modal-same_category">Same category</button><br>
+      <button type="button" class="btn-dropdown-options" data-toggle="modal" data-target="#modal-any_category">Any category</button><br>
+      <button type="button" class="btn-dropdown-options" data-toggle="modal" data-target="#modal-paused_category">Paused trainings</button><br>
+    </div>
+  </div>
+
+  <%= render "show_modal", locals: {category: "new", id: "modal-new_category"}  %>
+  <%= render "show_modal", locals: {category: "same", id: "modal-same_category"}  %>
+  <%= render "show_modal", locals: {category: "any", id: "modal-any_category"}  %>
+  <%= render "show_modal", locals: {category: "paused", id: "modal-paused_category"}  %>
+
+</div>

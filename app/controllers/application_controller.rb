@@ -21,8 +21,23 @@ class ApplicationController < ActionController::Base
       "devise/registrations#new" => "Sign Up",
       "devise/registrations#edit" => "Profile",
       "devise/sessions#new" => "Log in",
-      "smell_programs#index" => "Smell Programs"
+      "devise/sessions#edit" => "Log in",
+      "smell_programs#show" => "Smell Training Log",
+      "smell_programs#index" => "All Smell Trainings",
+      "products#index" => "Anosmiatherapy",
+      "products#show" => "Anosmiatherapy",
+      "payments#new" => "Anosmiatherapy",
+      "orders#index" => "Anosmiatherapy",
+      "orders#show" => "Anosmiatherapy",
+      "simple_discussion/forum_threads#index" => "Anosmiatherapy",
+      "simple_discussion/forum_threads#new" => "Anosmiatherapy",
+      "simple_discussion/forum_threads#show" => "Anosmiatherapy"
     }
+
     @navbar_title = titles[key]
+  end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 end

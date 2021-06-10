@@ -1,0 +1,40 @@
+// .badge-shop {
+//   padding: 8px 16px;
+//   background-color: $red;
+//   font-size: small;
+// }
+
+.btn-orders {
+  display: flex;
+}
+
+#order-num {
+  text-align: center;
+}
+
+#ty-header {
+  text-align: center;
+}
+
+.order-list {
+  padding: 10px;
+}
+
+.btn-orders {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: -100px;
+}
+
+.badge-primary {
+  margin-bottom: 20px;
+  padding: 8px 24px;
+  font-family: 'PT sans', 'normal', bold;
+  text-transform: capitalize;
+}
+
+.p-orders {
+  font-size: 1rem;
+  padding: 10px;
+}

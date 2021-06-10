@@ -25,7 +25,7 @@ let timerInterval = null;
 let remainingPathColor = COLOR_CODES.info.color;
 
 document.getElementById("app").innerHTML = `
-<div class="base-timer">
+<div class="base-timer" style="color: #94A2B3;transform: translateY(180px);">
   <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g class="base-timer__circle">
       <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
@@ -74,11 +74,11 @@ function formatTime(time) {
   const minutes = Math.floor(time / 60);
   let seconds = time % 60;
 
-  if (seconds < 10) {
-    seconds = `0${seconds}`;
+  if (seconds < 30) {
+    seconds = `${seconds}`;
   }
 
-  return `${minutes}:${seconds}`;
+  return `${seconds}`;
 }
 
 function setRemainingPathColor(timeLeft) {

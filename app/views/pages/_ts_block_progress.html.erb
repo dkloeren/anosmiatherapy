@@ -1,0 +1,22 @@
+<div class="d-flex flex-column justify-content-center">
+  <div>
+    <div class="d-flex justify-content-start align-items-end dashboard-tile-data">
+      <% locals[:training].smell_entries.each do |entry| %>
+        <% if entry.strength_rating >= 4 %>
+          <div class="db-strength-data strength-good" style="height:<%= entry.strength_rating * locals[:scale_height] %>px; width: <%= locals[:training].ts_block_width(locals[:width]) %>px;"></div>
+        <% else %>
+          <div class="db-strength-data" style="height:<%= entry.strength_rating * locals[:scale_height] %>px; width: <%= locals[:training].ts_block_width(locals[:width]) %>px;"></div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="d-flex justify-content-start align-items-start dashboard-tile-data">
+      <% locals[:training].smell_entries.each do |entry| %>
+        <% if entry.accuracy_rating >= 4 %>
+          <div class="db-accuracy-data accuracy-good" style="height:<%= entry.accuracy_rating * locals[:scale_height] %>px; width: <%= locals[:training].ts_block_width(locals[:width]) %>px;"></div>
+        <% else %>
+          <div class="db-accuracy-data" style="height:<%= entry.accuracy_rating * locals[:scale_height] %>px; width: <%= locals[:training].ts_block_width(locals[:width]) %>px;"></div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

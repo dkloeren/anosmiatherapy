@@ -1,65 +1,86 @@
-<div class="container dashboard">
-
+<!--  personal Greeting -->
+<!-- <div class="container dashboard">
   <div id="greeting">
-    <p><%= @greeting %>, <strong><%= current_user.first_name %></strong>!</p>
+    <p><%#= @greeting %>, <strong><%#= current_user.first_name %></strong>!</p>
   </div>
-
-<!--   <div class="animated-border-quote">
-    <blockquote>
-      <p>What’s in a name? <br> That which we call a rose by any other name would smell as sweet.</p>
-      <cite>William Shakespear</cite>
-    </blockquote>
-  </div>
- -->
-
-</div>
-
-<div class="container-progress">
-  <div class="current-training">
-    <div class="flex-tiles">
-      <%= render "training_tile", locals: {side: "left", training_id: 1, training: @active_trainings[0]}  %>
-      <%= render "training_tile", locals: {side: "right", training_id: 2, training: @active_trainings[1]} %>
-    </div>
-
-    <div class="flex-tiles">
-      <%= render "training_tile", locals: {side: "left", training_id: 3, training: @active_trainings[2]}  %>
-      <%= render "training_tile", locals: {side: "right", training_id: 4, training: @active_trainings[3]}%>
-    </div>
+</div> -->
+<div class="container" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.0) 30%);">
+  <div class="section-container">
+    <p class="section-category">TRAINING</p>
+    <h1 class="section-title">Unrecovered scent</h1>
   </div>
 </div>
 
 
-<div class="container flex-tiles " id="btn-start-training-session">
-  <% if @next_program.present? %>
-    <%= link_to "Start Training", start_smell_program_smell_entries_path(@next_program),
-    # <%= link_to "Start Training", new_smell_program_smell_entry_path(@next_program),
-    class: 'btn-main', id: "btn-start-training-session" %>
-  <% else %>
-    <p>You have completed this training session</p>
-    <div class="btn-main">
-      <%= link_to "Reset", dashboard_path(reset: true)%>
-    </div>
+<!-- Slider active-->
+<div class="scrolling-wrapper" style="padding-top:35px">
+  <% current_user.current.each do |program| %>
+  <%= render "sliding_card", locals: {training_id: program.id}  %>
   <% end %>
 </div>
 
-<div class="quote">
-  <blockquote>
-    <p><i>What’s in a name? <br> That which we call a rose by any other name would smell as sweet.</i></p>
-    <cite>William Shakespeare</cite>
-  </blockquote>
-</div>
 
-<div class="mt-4">
-  <h3>Completed Training</h3>
-</div>
+<!-- >> Button -->
+<% if current_user.completed_candidates.present? %>
+  <%  css_option = "half" %>
+<% else %>
+  <%  css_option = "full" %>
+<% end %>
 
-<div class="container-completed">
-  <div class="completed-training">
-    <div class="d-flex flex-column">
-      <%= render "completed_tile", locals: {training_id: 1, training: @completed_trainings[0]}  %>
-      <%= render "completed_tile", locals: {training_id: 2, training: @completed_trainings[1]} %>
-      <%= render "completed_tile", locals: {training_id: 3, training: @completed_trainings[2]} %>
-    </div>
+
+<div class="container w-100 d-flex justify-content-center" id="btn-start-training-session">
+  <div class="d-flex my-4 w-100 justify-content-around">
+    <% if current_user.active.present? %>
+      <div>
+        <%= link_to "Start Training", start_smell_program_smell_entries_path(current_user.active[0]), class: "btn-main m-0 #{css_option}" %>
+      </div>
+    <% else %>
+      <div>
+        <%#= link_to "Train again", dashboard_path(reset: true), class: "btn-standard #{css_option}" %>
+        <%= link_to "Train again", dashboard_path(reset: true), class: "btn-main m-0 #{css_option}" %>
+      </div>
+    <% end %>
+    <!-- option: swtich programs -->
+    <% if current_user.completed_candidates.present? %>
+      <div>
+        <%= link_to "New Scent", dashboard_path(replace_trainings: true),
+            class: "btn-inverse #{css_option}" %>
+      </div>
+    <% end %>
   </div>
+</div>
+
+<!-- Section -->
+<div class="container">
+  <div class="section-container">
+    <p class="section-category">TRAINING</p>
+    <h1 class="section-title">Recovered scent</h1>
+  </div>
+</div>
+
+
+<!-- Slider completed -->
+<div class="scrolling-wrapper">
+  <% current_user.completed.each do |program| %>
+  <%= render "sliding_card", locals: {training_id: program.id}  %>
+  <% end %>
+</div>
+
+
+<div class="container">
+  <div class="quote-container d-flex justify-content-end">
+    <div class= "quote-block">
+      <blockquote>
+        <p>What’s in a name? <br> That which we call a rose by any other name would smell as sweet.</p>
+        <cite>- William Shakespeare</cite>
+      </blockquote>
+    </div>
+    <div class="quotation-mark">
+    <svg width="72" height="71" viewBox="0 0 72 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2433 62.8084C10.6697 62.2342 7.47043 60.2638 5.34949 57.3308C3.22855 54.3977 2.35961 50.7423 2.93384 47.1686C3.73116 42.2066 10.7478 27.2065 23.9865 2.17247L30.7238 3.25504L18.5736 35.8591C22.1473 36.4333 25.3465 38.4037 27.4675 41.3367C29.5884 44.2697 30.4574 47.9252 29.8831 51.4989C29.3089 55.0726 27.3385 58.2718 24.4055 60.3927C21.4725 62.5137 17.817 63.3826 14.2433 62.8084ZM47.93 68.2212C44.3563 67.647 41.1571 65.6766 39.0361 62.7436C36.9152 59.8106 36.0462 56.1551 36.6205 52.5814C37.4178 47.6194 44.4344 32.6194 57.6731 7.58532L64.4104 8.66789L52.2603 41.2719C55.834 41.8462 59.0332 43.8165 61.1541 46.7496C63.2751 49.6826 64.144 53.338 63.5698 56.9117C62.9955 60.4854 61.0252 63.6846 58.0921 65.8056C55.1591 67.9265 51.5037 68.7955 47.93 68.2212Z" fill="#E6DCD5"/>
+    </svg>
+    </div>
+</div>
+</div>
 
 

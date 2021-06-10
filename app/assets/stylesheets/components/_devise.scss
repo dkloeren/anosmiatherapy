@@ -1,16 +1,11 @@
 #devise-warning, #devise-info {
-
-  // background: $btn-dark-submit;
-  // color: $background ;
   background: #white;
   color: $btn-dark-submit ;
   border:solid;
   border-radius: 10px;
   border-color: black;
   border-width: 1px;
-
 }
-
 
 .container-sign-up {
   margin: 0px;
@@ -23,8 +18,6 @@
   }
 
   .form-inputs {
-    // margin-right: 24px;
-    // padding: 24px;
   }
 }
 
@@ -36,6 +29,4 @@
 .btn-form-submit {
   background-color: #210908;
   color: $background;
-  // width: 200px;
-  // height: 1.3em;
 }

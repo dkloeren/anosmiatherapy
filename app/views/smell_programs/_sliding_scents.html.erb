@@ -1,0 +1,14 @@
+  <% scent = Scent.find(locals[:scent_id]) %>
+  <div class="card">
+    <%= link_to smell_program_path(@smell_program, scent_id: scent.id,  class: "link_tile") do %>
+      <div class="training-card-scent">
+        <div>
+          <h3 class="card-title p-0 m-0"><%= scent.name.capitalize %></h3>
+        </div>
+        <% if scent.photo.key %>
+          <div class="card-image-container-scent" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.0)) , url('<%= cl_image_path scent.photo.key, class: "card-image" %>')">
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>

@@ -12,7 +12,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -26,12 +25,20 @@ import "bootstrap";
 // import { initCountdown } from '../components/init_countdown';
 // import { startTimer} from '../components/init_countdown';
 import {startChrono, waitButtonToggle, showButtonToggle} from '../components/init_countdown';
-
+// import chart from '../components/init_progress_chart'
+import {initStackedAreaChart} from '../components/init_stacked_area_chart'
+import {iniRadialGraphChart} from '../components/init_radial_graph_chart'
+// import {chartLineWithBullets} from '../components/init_line_with_custom_bullets_chart'
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+
+  // Check Selectors
   const btnTimer = document.getElementById("btn-start-training-counter")
+  const progChartContainer= document.getElementById(".amcharts-progress-chart-container")
+
+  const jstTestButton = document.getElementById("btn-js-start")
+
+  // Timer
   if (btnTimer) {
     const chrono = document.getElementById("starting_chrono")
     btnTimer.addEventListener("click",(e) => {
@@ -44,9 +51,21 @@ document.addEventListener('turbolinks:load', () => {
       setTimeout(() => {
         waitButtonToggle(btnEvalId)
         showButtonToggle(btnEvalId)
-      }, 3000);
-      setTimeout(waitButtonToggle(btnEvalId), 20000);
+      }, 1000);
+      setTimeout(waitButtonToggle(btnEvalId), 8000);
     })
   }
+
+
+  initStackedAreaChart()
+  iniRadialGraphChart()
+
+  // //
+  // if (jstTestButton) {
+  //   const progressCharts = document.Element.querySelectorAll(".progress_chart_container")
+  //   button.addEventListener("click",(e) => {
+  //     // chartPrgressChart();
+  //   })
+  // }
 
 });

@@ -1,41 +1,54 @@
 <div class="container-start-training">
-<!-- <div class="container-start-training" > -->
-  <h2> <%= @smell_program.scent.name.capitalize %> </h2>
-  <div class="container-switch-buttons">
-    <div class="container flex-tiles " id="btn-start-counter">
-      <%= link_to "Start", "#", class: 'btn-start-counter btn-pos-ablolute', id: "btn-start-training-counter" %>
-      <%= link_to "Evaluate", new_smell_program_smell_entry_path(@smell_program), class: 'btn-start-counter btn-pos-ablolute btn-disappear', id: "btn-next-training" %>
+
+  <!-- information -->
+  <div class="container">
+    <div class="section-container" id="training-start-title">
+      <p class="section-category">TRAINING</p>
+      <h1 class="section-title"><%= @smell_program.scent.name.capitalize %></h1>
     </div>
   </div>
 
-  <!-- <div class="container-training-image"> -->
-    <div id="container-counter" >
-      <div id="starting_chrono" style="background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('<%= cl_image_path @smell_program.scent.photo.key %>')" >
-        <div class="base-timer" style="color: #E67E22;transform: translateY(200px);">
-          <!-- <div class="base-timer" style="color: #E67E22;"> -->
-        <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <g class="base-timer__circle">
-            <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" style="color: #E67E22"></circle>
-            <path
-              id="base-timer-path-remaining"
-              stroke-dasharray="283"
-
-              d="
-                M 50, 50
-                m -45, 0
-                a 45,45 0 1,0 90,0
-                a 45,45 0 1,0 -90,0
-              "
-            ></path>
-          </g>
-        </svg>
-        <span id="base-timer-label" class="base-timer__label">20</span>
-      </div>
+  <!-- Image -->
+  <% training = current_user.smell_programs.find(params[:id]) %>
+  <% if training.scent.photo.key %>
+    <div id="start-image-container" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.0)) , url('<%= cl_image_path training.scent.photo.key, class: "card-image" %>')">
     </div>
+  <% end %>
 
-      <div id="app"></div>
+
+  <!-- Counter -->
+  <div id="container-counter" >
+    <!-- <div id="starting_chrono" style="background-image: linear-gradient(rgba(0,0,0,0.4) 0%, rgba(255,255,255,0.1) 40%), url('<%#= cl_image_path @smell_program.scent.photo.key %>')" > -->
+      <div id="starting_chrono" style="background-image: linear-gradient(rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 5%)" >
+      <!-- <div class="counter-filter"></div> -->
+      <div class="base-timer" style="color: #94A2B3;transform: translateY(180px);">
+      <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <g class="base-timer__circle">
+          <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" style="color: #94A2B3"></circle>
+          <path
+            id="base-timer-path-remaining"
+            stroke-dasharray="283"
+            d="
+              M 50, 50
+              m -45, 0
+              a 45,45 0 1,0 90,0
+              a 45,45 0 1,0 -90,0
+            "
+          ></path>
+        </g>
+      </svg>
+      <span id="base-timer-label" class="base-timer__label">20</span>
     </div>
-  <!-- </div> -->
+  </div>
+    <div id="app"></div>
+  </div>
+
+  <!-- start/evaluate buttons -->
+  <div class="container-switch-buttons">
+    <div class="container flex-tiles d-flex align-items-center justify-content-center" id="btn-start-counter">
+      <%= link_to "Start", "#", class: 'btn-main m-0 full', id: "btn-start-training-counter" %>
+      <%= link_to "Evaluate", new_smell_program_smell_entry_path(@smell_program), class: 'btn-main m-0 full btn-disappear', id: "btn-next-training" %>
+    </div>
+  </div>
+
 </div>
-
-<!-- class="base-timer__path-remaining ${remainingPathColor}"  -->

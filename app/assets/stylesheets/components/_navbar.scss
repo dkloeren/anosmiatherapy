@@ -4,11 +4,8 @@
   background: #FFF4ED;
   margin: 24px 0 0 0;
   padding: 0;
-
-  // width: 100%;
   width: 100vw
 }
-
 
 .navbar-lewagon {
   justify-content: space-between;
@@ -26,6 +23,18 @@
 .navbar-title {
   flex-grow: 1;
   text-align: center;
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    font-family: $headers-font;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
 }
 
 .navbar-btn {

@@ -1,12 +1,21 @@
-<div class="container-evaluation" style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('<%= cl_image_path @smell_program.scent.photo.key %>')">
-  <div class="new-header">
-    <h2> <%= @smell_program.scent.name.capitalize %></h2>
+<!-- <div class="container-evaluation" style="background-image: linear-gradient(rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%), url('<%#= cl_image_path @smell_program.scent.photo.key %>')"> -->
+<div class="container-evaluation" style="background-image: linear-gradient(rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.0) 5%)">
+    <!-- information -->
+  <div class="container">
+    <div class="section-container" id="training-start-title">
+      <p class="section-category">TRAINING</p>
+      <h1 class="section-title"><%= @smell_program.scent.name.capitalize %></h1>
+    </div>
   </div>
-  <!-- <hr class="d-solid">
-  <div class="training-img"><%= cl_image_tag @smell_program.scent.photo.key %></div>
- -->
 
-<!-- html code below of the rating slider -->
+  <!-- Image -->
+  <% training = current_user.smell_programs.find(params[:smell_program_id]) %>
+  <% if training.scent.photo.key %>
+    <div id="start-image-container" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.0)) , url('<%= cl_image_path training.scent.photo.key, class: "card-image" %>')">
+    </div>
+  <% end %>
+
+<!-- Form for smell evaluation -->
   <div id="form-wrapper">
     <form accept-charset="UTF-8" action="/smell_programs/<%= @smell_program.id %>/smell_entries" method="POST">
       <input name="utf8" type="hidden" value="&#x2713;" />
@@ -14,75 +23,21 @@
 
       <!-- Slider Strength -->
       <div class="hr" id="evaluation-separator"></div>
-      <p id="form-title-strength">How strong was the smell?</p>
-      <div id="strength-rating-slider">
-        <input type="radio" name="smell_entry[strength_rating]" id="s1" value="1" required>
-        <!-- <label for="1" data-smell-amount="1"></label> -->
-        <label for="s1"></label>
-        <!-- <p class="slider-num1">1</p> -->
-        <input type="radio" name="smell_entry[strength_rating]" id="s2" value="2" required>
-        <!-- <label for="2" data-smell-amount="2"></label> -->
-        <label for="s2"></label>
-        <!-- <p class="slider-num2">2</p> -->
-        <input type="radio" name="smell_entry[strength_rating]" id="s3" value="3" required>
-        <!-- <label for="3" data-dsmell-amount="3"></label> -->
-        <label for="s3"></label>
-        <!-- <p class="slider-num3">3</p> -->
-        <input type="radio" name="smell_entry[strength_rating]" id="s4" value="4" required>
-        <!-- <label for="4" data-smell-amount="4"></label> -->
-        <label for="s4"></label>
-        <!-- <p class="slider-num4">4</p> -->
-        <input type="radio" name="smell_entry[strength_rating]" id="s5" value="5" required>
-        <!-- <label for="5" data-smell-amount="5"></label> -->
-        <label for="s5"></label>
-        <!-- <p class="slider-num5">5</p> -->
-        <div id="strength-rating-pos"></div>
-        <div class="slider-nr-labels d-flex justify-content-between">
-          <div class="slider-nr-label"><p>1</p></div>
-          <div class="slider-nr-label"><p>2</p></div>
-          <div class="slider-nr-label"><p>3</p></div>
-          <div class="slider-nr-label"><p>4</p></div>
-          <div class="slider-nr-label"><p>5</p></div>
-        </div>
+      <div class="d-flex justify-content-center">
+        <p id="slider-title-strength">How strong was the smell?</p>
       </div>
+      <%= render "slider", locals: {type: "5-point", category: "strength"}  %>
 
       <!-- Slider Accuracy -->
       <div class="hr" id="evaluation-separator"></div>
-      <p id="form-title-accuracy">How close was the smell?</p>
-      <div id="accuracy-rating-slider">
-        <input type="radio" name="smell_entry[accuracy_rating]" id="a1" value="param1" required>
-        <!-- <label for="1" data-smell-amount="1"></label> -->
-        <label for="a1"></label>
-        <!-- <p class="slider-num1">1</p> -->
-        <input type="radio" name="smell_entry[accuracy_rating]" id="a2" value="2" required>
-        <!-- <label for="2" data-smell-amount="2"></label> -->
-        <label for="a2"></label>
-        <!-- <p class="slider-num2">2</p> -->
-        <input type="radio" name="smell_entry[accuracy_rating]" id="a3" value="3" required>
-        <!-- <label for="3" data-dsmell-amount="3"></label> -->
-        <label for="a3"></label>
-        <!-- <p class="slider-num3">3</p> -->
-        <input type="radio" name="smell_entry[accuracy_rating]" id="a4" value="4" required>
-        <!-- <label for="4" data-smell-amount="4"></label> -->
-        <label for="a4"></label>
-        <!-- <p class="slider-num4">4</p> -->
-        <input type="radio" name="smell_entry[accuracy_rating]" id="a5" value="5" required>
-        <!-- <label for="5" data-smell-amount="5"></label> -->
-        <label for="a5"></label>
-        <!-- <p class="slider-num5">5</p> -->
-        <div id="accuracy-rating-pos"></div>
-        <div class="slider-nr-labels d-flex justify-content-between">
-          <div class="slider-nr-label"><p>1</p></div>
-          <div class="slider-nr-label"><p>2</p></div>
-          <div class="slider-nr-label"><p>3</p></div>
-          <div class="slider-nr-label"><p>4</p></div>
-          <div class="slider-nr-label"><p>5</p></div>
-        </div>
-      </div>
-
-
       <div class="d-flex justify-content-center">
-        <button type="submit" class="btn-start-counter mt-64p"><%= @link_name %></button>
+        <p id="slider-title-accuracy">How close was the smell?</p>
+      </div>
+      <%= render "slider", locals: {type: "5-point", category: "accuracy"}  %>
+
+      <!-- submit button -->
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn-standard full p-1 mt-64p"><i class="fas fa-angle-double-right"></i> <%= @link_name %></button>
       </div>
     </form>
   </div>
