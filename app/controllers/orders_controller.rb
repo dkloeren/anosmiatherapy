@@ -25,6 +25,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    session = Stripe::Checkout::Session.retrieve(params[:session_id])
+    customer = Stripe::Customer.retrieve(session.customer)
     @order = current_user.orders.find(params[:id])
   end
 end
