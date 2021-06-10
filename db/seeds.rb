@@ -255,3 +255,7 @@ end
 puts "creating quotes finished"
 
 puts 'Finished!'
+
+
+
+
