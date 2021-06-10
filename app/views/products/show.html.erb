@@ -9,7 +9,7 @@
       <h2 id="show-header"><%= @product.name %></h2>
       <h3><%= humanized_money_with_symbol(@product.price) %></h3>
       <div class="show-text">
-      <p>
+      <p id="product-desc">
         <%= simple_format(@product.description) %>
       </p>
       </div>
