@@ -27,6 +27,7 @@ class ApplicationController < ActionController::Base
       "products#index" => "Anosmiatherapy",
       "products#show" => "Anosmiatherapy",
       "payments#new" => "Anosmiatherapy",
+      "orders#index" => "Anosmiatherapy",
       "orders#show" => "Anosmiatherapy"
     }
 

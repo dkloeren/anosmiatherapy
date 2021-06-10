@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row py-4">
     <div class="col">
-      <h2>Checkout summary</h2>
+      <h2 class="h-payment">Checkout summary</h2>
         <!-- <div class="col-md-3"> -->
       <p></p>
       <div class="p-image">
@@ -9,7 +9,7 @@
       </div>
         <!-- </div> -->
       <p></p>
-      <p>Purchase of <strong><%= @order.product.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
+      <p class="p-payment">Purchase of <strong><%= @order.product.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
       <div class="shop-payment">
       <button id="pay" class="btn-new-show">Pay now</button>
       <script src="https://js.stripe.com/v3/"></script>
