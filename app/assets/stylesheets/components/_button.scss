@@ -32,7 +32,7 @@ a:hover {
 .btn-standard{
   background: #1F1C1B;
   color: $background;
-  font-family: PT Sans, 'normal', bold;
+  font-family: $body-font, 'normal';
   height: 60px;
   border-radius: 0px;
   text-align: center;
@@ -45,7 +45,7 @@ a:hover {
   background: $background;
   color: black;
 
-  font-family: PT Sans, 'normal', bold;
+  font-family: $body-font, 'normal';
   height: 60px;
   border: solid;
   border-color: black;
@@ -155,14 +155,14 @@ a:hover {
   padding: 4px 32px;
   background: #1F1C1B;
   color: white;
-  font-family: PT Sans, 'normal', bold;
+  font-family: $body-font, 'normal';
 }
 
 .btn-new-show {
   padding: 8px 115px;
   background: #1F1C1B;
   color: white;
-  font-family: PT Sans, 'normal', bold;
+  font-family: $body-font, 'normal';
 }
 
 .btn-dropdown {

@@ -100,3 +100,24 @@
   }
 }
 
+.training-card-scent {
+  display: flex;
+  flex-direction: column;
+  justify-content: between;
+  width: 200px;
+  height: 150px;
+  padding: 19px;
+  border: none;
+  overflow: visible;
+}
+
+.card-image-container-scent {
+  // position: absolute;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  z-index: 3;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

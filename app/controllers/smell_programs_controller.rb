@@ -5,7 +5,7 @@ class SmellProgramsController < ApplicationController
     if params[:selection]
       @selection = params[:selection]
     else
-      @selection = "Category"
+      @selection = "category"
     end
 
     @scents = {}
@@ -24,7 +24,17 @@ class SmellProgramsController < ApplicationController
       end
     end
 
-    @smell_program_new = SmellProgram.new
+    if params[:scent_id]
+      training = SmellProgram.new(user: current_user, scent: Scent.find(params[:scent_id]))
+      training.status = "ready"
+      if training.save
+        @smell_program.status = "pending"
+        @smell_program.save
+        redirect_to smell_program_path(training)
+      else
+        render :show
+      end
+    end
   end
 
   def index
