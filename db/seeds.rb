@@ -19,6 +19,7 @@ Product.destroy_all
 ProductType.destroy_all
 User.destroy_all
 Scent.destroy_all
+ForumCategory.destroy_all
 
 # ID             0              1                   2                       3                       4                               5              6
 FIRSTNAMES  = %w[Admin          Luka                 Elisabeth      ABCDEFGHIJKLMNOPQRST]
@@ -29,12 +30,14 @@ EMAILS      = %w[admin@mail.com mvp.2021@dallas.com  elisa@mail.com abcdefghijkl
 
 p "creating user"
 FIRSTNAMES.each_with_index do |firstname, index|
-  user = User.create!(
-    first_name: firstname,
-    last_name: LASTNAMES[index],
-    email: EMAILS[index],
-    password: PASSWORDS[index])
-  p "  #{index}  =>  #{firstname} "
+  if !User.find_by(first_name: firstname)
+    user = User.create!(
+      first_name: firstname,
+      last_name: LASTNAMES[index],
+      email: EMAILS[index],
+      password: PASSWORDS[index])
+    p "  #{index}  =>  #{firstname} "
+  end
 end
 
 # Profile image
@@ -256,5 +259,11 @@ puts "creating quotes finished"
 puts 'Finished!'
 
 
+#############################
+# Forum Categrories
 
+if !ForumCategory.all.present?
+  ForumCategory.create( name: "General", color: "#94A2B3")
+  ForumCategory.create( name: "Feedback", color: "#94B3A2")
+end
 
