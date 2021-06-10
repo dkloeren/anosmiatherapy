@@ -8,9 +8,8 @@ $bg: $background ;
   left:0px;
 }
 
-
 .quote-container {
-  margin: 48px 0px 24px 0px;
+  margin: 24px 0px 24px 0px;
   position: relative;
 }
 
@@ -29,6 +28,7 @@ $bg: $background ;
   }
 
   cite {
+    margin-left: 24px;
     font-family: PT Sans;
     font-size: 16px;
     font-style: normal;

@@ -25,12 +25,12 @@ h1.test {
 }
 
 .scrolling-wrapper {
+  padding-top: 35px;
   position: relative;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 35px 24px 16px 24px;
 
   -webkit-overflow-scrolling: touch;
 
@@ -77,6 +77,8 @@ h1.test {
     padding: 0;
     font-family: $headers-font;
     font-size: 32px;
+    font-family: $headers-font;
+    font-size: 28px;
     font-style: lighter;
     font-weight: 400;
     line-height: 37px;
@@ -87,7 +89,7 @@ h1.test {
   .number {
     font-stretch: condensed;
     font-family: PT Sans;
-    font-size: 24px;
+    font-size: 22px;
     font-style: lighter;
     font-weight: 400;
     line-height: 31px;
@@ -109,7 +111,7 @@ h1.test {
   .label {
     font-stretch: condensed;
     font-family: PT Sans;
-    font-size: 16px;
+    font-size: 14px;
     font-style: lighter;
     font-weight: 400;
     line-height: 21px;
@@ -241,27 +243,67 @@ h1.test {
 
 
 #btn-start-training-session {
-  padding: 10px 15px 10px 15px;
-  height: 60px;
-  width: 338px;
-  left: 19px;
-  top: 405px;
-  border-radius: 0px;
   padding: 15px, 110px, 15px, 110px;
+  margin: 0;
+  height: 60px;
+  border-radius: 0px;
+  width: 338px;
+  &-narrow {
+    padding: 15px, 24px, 15px, 24px;
+    width: 38%;
+  }
 }
 
 #btn-new-training-session {
-  padding: 10px 15px 10px 15px;
-  height: 60px;
-  width: 35%;
-  left: 19px;
-  top: 405px;
-  border-radius: 0px;
   padding: 15px, 110px, 15px, 110px;
+  height: 60px;
+  width: 338px;
+  border-radius: 0px;
+  margin:0;
+  background: $background;
+  color: black;
+  border: solid;
+  border-color: black;
+  border-width: 1px;
+  &-narrow {
+    height: 60px;
+    border-radius: 0px;
+    margin: 0;
+    padding: 15px, 24px, 15px, 24px;
+    width: 38%;
+  }
 }
 
 #btn-start-training-counter {
-  padding: 10px 15px 10px 15px;
+  padding: 15px, 110px, 15px, 110px;
+  margin: 0;
+  height: 60px;
+  border-radius: 0px;
+  width: 338px;
+}
+
+#btn-start-training-counter-narrow {
+  height: 60px;
+  border-radius: 0px;
+  margin: 0;
+  padding: 15px, 24px, 15px, 24px;
+  width: 38%;
+}
+
+#btn-train-again {
+  padding: 15px, 110px, 15px, 110px;
+  margin: 0;
+  height: 60px;
+  border-radius: 0px;
+  width: 338px;
+}
+
+#btn-train-agai-narrow {
+  height: 60px;
+  border-radius: 0px;
+  margin: 0;
+  padding: 15px, 24px, 15px, 24px;
+  width: 38%;
 }
 
 .dashboard-tile-data {

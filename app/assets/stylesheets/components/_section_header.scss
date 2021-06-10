@@ -1,7 +1,8 @@
 .section {
   &-container {
-    margin: 56px 0 38px 0;
+    margin: 56px 16px 0px 16px;
     position: relative;
+    z-index: 5;
   }
   &-category {
     color: #94B3A2;
@@ -13,7 +14,7 @@
     letter-spacing: 0.02em;
     text-align: left;
     margin: 0px;
-    text-transform: uppercase;
+    //text-transform: uppercase;
   }
   &-positioning {
     position: absolute;
