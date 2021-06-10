@@ -1,6 +1,8 @@
 .p-image {
   display: flex;
   justify-content: center;
+  max-width: 100%;
+  height: auto;
 }
 
 #show-header {
@@ -10,6 +12,7 @@
 .show-button {
   display: flex;
   justify-content: center;
+  border-radius: 0%;
 }
 
 .shop-info {
