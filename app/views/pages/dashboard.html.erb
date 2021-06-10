@@ -32,11 +32,12 @@
   <div class="d-flex my-4 w-100 justify-content-around">
     <% if current_user.active.present? %>
       <div>
-        <%= link_to "Start Training", start_smell_program_smell_entries_path(current_user.active[0]), class: "btn-standard #{css_option}" %>
+        <%= link_to "Start Training", start_smell_program_smell_entries_path(current_user.active[0]), class: "btn-main m-0 #{css_option}" %>
       </div>
     <% else %>
       <div>
-        <%= link_to "Train again", dashboard_path(reset: true), class: "btn-standard #{css_option}" %>
+        <%#= link_to "Train again", dashboard_path(reset: true), class: "btn-standard #{css_option}" %>
+        <%= link_to "Train again", dashboard_path(reset: true), class: "btn-main m-0 #{css_option}" %>
       </div>
     <% end %>
     <!-- option: swtich programs -->
