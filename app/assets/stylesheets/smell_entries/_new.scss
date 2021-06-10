@@ -7,8 +7,10 @@
   }
 }
 
-#form-wrapper p {
-  font-size: 24px;
+
+
+#form-wrapper {
+  padding-top: 20px;
 }
 
 
@@ -38,13 +40,25 @@
   text-transform: capitalize;
 }
 
-
-
 .training-img {
   display: flex;
   justify-content: center;
   width: 100vw;
   height: 570px;
+}
+
+#slider-title-strength {
+  // margin-top: 40px;
+  font-size: 20px;
+  margin: 0px;
+  z-index: 5;
+}
+
+#slider-title-accuracy {
+  // margin-top: 40px;
+  font-size: 20px;
+  margin: 0px;
+  z-index: 5;
 }
 
 .container-evaluation {

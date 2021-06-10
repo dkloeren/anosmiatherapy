@@ -2,8 +2,27 @@ class SmellProgramsController < ApplicationController
   before_action :set_smell_program, only: [:show]
 
   def show
-    smell_program_history
-    same_category
+    if params[:selection]
+      @selection = params[:selection]
+    else
+      @selection = "Category"
+    end
+
+    @scents = {}
+    # options = ["Any category", "Category", "New category", "Same category", "Paused trainings"]
+    options = ["any", "category", "new", "same", "paused"]
+    options.each do |option|
+      case option
+      when "any"
+        @scents[option] = current_user.new_scents_all
+      when "new"
+        @scents[option] = current_user.new_scents_new_category
+      when "same"
+        @scents[option] = current_user.new_scents_by_category(@smell_program.scent.category)
+      when "paused"
+        @scents[option] = current_user.pending_scents
+      end
+    end
 
     @smell_program_new = SmellProgram.new
   end
@@ -47,20 +66,6 @@ class SmellProgramsController < ApplicationController
     @smell_program = SmellProgram.find(params[:id])
   end
 
-  def smell_program_history
-    @smell_training_log = @smell_program.smell_entries.map do |smell_entry|
-      {
-        strength: smell_entry.strength_rating,
-        accuracy: smell_entry.accuracy_rating,
-        date: smell_entry.created_at
-      }
-    end
-  end
-
-  def same_category
-    @category_scents = Scent.where(category: @smell_program.scent.category)
-  end
-
   def smell_programs_status
     @smell_programs_overview = @smell_programs.map do |smell_program|
       {
@@ -74,5 +79,4 @@ class SmellProgramsController < ApplicationController
       }
     end
   end
-
 end

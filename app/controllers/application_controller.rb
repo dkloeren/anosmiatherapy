@@ -32,4 +32,8 @@ class ApplicationController < ActionController::Base
 
     @navbar_title = titles[key]
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end

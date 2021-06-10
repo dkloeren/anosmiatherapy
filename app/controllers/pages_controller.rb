@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     # Reset button
     if params[:reset]
       reset_current_training_status
-      redirect_to :dashboard
+      render :dashboard
     end
 
     # Greetings

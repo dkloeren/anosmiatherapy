@@ -51,8 +51,8 @@ document.addEventListener('turbolinks:load', () => {
       setTimeout(() => {
         waitButtonToggle(btnEvalId)
         showButtonToggle(btnEvalId)
-      }, 3000);
-      setTimeout(waitButtonToggle(btnEvalId), 20000);
+      }, 1000);
+      setTimeout(waitButtonToggle(btnEvalId), 8000);
     })
   }
 
