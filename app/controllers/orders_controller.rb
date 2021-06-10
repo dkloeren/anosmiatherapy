@@ -16,9 +16,8 @@ class OrdersController < ApplicationController
         currency: 'eur',
         quantity: 1
       }],
-      # success_url: order_url(order),
-      # success_url: "http://yoursite.com/order/success",
-      success_url: "https:/anosmiatherapy.herokuapp.com/order/success?session_id={CHECKOUT_SESSION_ID}",
+      success_url: order_url(order),
+      # success_url: "https:/anosmiatherapy.herokuapp.com/order/success?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: order_url(order)
     )
 
