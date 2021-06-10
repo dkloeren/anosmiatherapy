@@ -2,7 +2,7 @@ $tile-border-radius: 0px;
 $color-shadow: rgba(0,0,0,0.7);
 
 h1.test {
-  font-family: "Keroine TRIAL";
+  font-family: $headers-font;
   font-weight: 400;
   font-style: normal;
   font-size: 40px;
@@ -75,7 +75,7 @@ h1.test {
     font-stretch: condensed;
     margin: 0 0 16px 0;
     padding: 0;
-    font-family: "Keroine TRIAL";
+    font-family: $headers-font;
     font-size: 32px;
     font-style: lighter;
     font-weight: 400;
