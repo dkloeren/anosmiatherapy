@@ -51,7 +51,6 @@ class User < ApplicationRecord
     scent_array.map do |scent|
       smell_programs.find_by(scent: scent)
     end
-    raise
   end
 
   def new_scents_new_category
