@@ -43,18 +43,18 @@
     color: #fff;
     background-color: black;
     border-color: black;
-    font-family: "Keroine TRIAL",
+    font-family: $headers-font;
 }
 
 h1, .h1 {
     font-size: 2.5rem;
-    font-family: "Keroine TRIAL",
+    font-family: $headers-font;
 }
 
 .btn-outline-primary {
     color: black;
     border-color: black;
-    font-family: "Keroine TRIAL",
+    font-family: $headers-font;
 }
 
 a {
