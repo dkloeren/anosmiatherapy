@@ -33,16 +33,16 @@
     <!-- Labels -->
     <% if locals[:category] == "strength" %>
     <div class="slider-nr-labels d-flex justify-content-between">
-      <div class="slider-nr-label" id="<%= category %>-1"><p>No smell</p></div>
+      <div class="slider-nr-label" id="<%= category %>-1"><p>absent</p></div>
 <!--       <div class="slider-nr-label" id="<%= category %>-2"><p>2</p></div>
       <div class="slider-nr-label" id="<%= category %>-3"><p>3</p></div>
       <div class="slider-nr-label" id="<%= category %>-4"><p>4</p></div> -->
-      <div class="slider-nr-label" id="<%= category %>-5"><p>Normal</p></div>
+      <div class="slider-nr-label" id="<%= category %>-5"><p>strong</p></div>
     </div>
     <% else %>
     <div class="slider-nr-labels d-flex justify-content-between">
-      <div class="slider-nr-label" id="<%= category %>-1"><p>Totally different</p></div>
-      <div class="slider-nr-label" id="<%= category %>-5"><p>Normal</p></div>
+      <div class="slider-nr-label" id="<%= category %>-1"><p>inaccurate</p></div>
+      <div class="slider-nr-label" id="<%= category %>-5"><p>accurate</p></div>
     </div>
     <% end %>
 

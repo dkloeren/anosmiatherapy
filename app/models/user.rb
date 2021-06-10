@@ -47,6 +47,13 @@ class User < ApplicationRecord
     Scent.where(category: category) - scents
   end
 
+  def scents_to_program(scent_array)
+    scent_array.map do |scent|
+      smell_programs.find_by(scent: scent)
+    end
+    raise
+  end
+
   def new_scents_new_category
     categories = Scent.all.map(&:category).uniq!
     current_categories = self.current.map { |program| program.scent.category }
