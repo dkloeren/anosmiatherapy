@@ -14,7 +14,7 @@
     letter-spacing: 0.02em;
     text-align: left;
     margin: 0px;
-    text-transform: uppercase;
+    //text-transform: uppercase;
   }
   &-positioning {
     position: absolute;
@@ -23,6 +23,6 @@
   }
 
   &-title {
-    font-family: Keroine TRIAL;
+    font-family: $headers-font;
   }
 }
