@@ -23,17 +23,21 @@
 
       <!-- Slider Strength -->
       <div class="hr" id="evaluation-separator"></div>
-      <p id="slider-title-strength">How strong was the smell?</p>
+      <div class="d-flex justify-content-center">
+        <p id="slider-title-strength">How strong was the smell?</p>
+      </div>
       <%= render "slider", locals: {type: "5-point", category: "strength"}  %>
 
       <!-- Slider Accuracy -->
       <div class="hr" id="evaluation-separator"></div>
-      <p id="slider-title-accuracy">How close was the smell?"</p>
+      <div class="d-flex justify-content-center">
+        <p id="slider-title-accuracy">How close was the smell?</p>
+      </div>
       <%= render "slider", locals: {type: "5-point", category: "accuracy"}  %>
 
       <!-- submit button -->
       <div class="d-flex justify-content-center">
-        <button type="submit" class="btn-start-counter mt-64p"><%= @link_name %></button>
+        <button type="submit" class="btn-standard full p-1 mt-64p"><i class="fas fa-angle-double-right"></i> <%= @link_name %></button>
       </div>
     </form>
   </div>

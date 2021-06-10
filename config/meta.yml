@@ -1,0 +1,5 @@
+meta_product_name: "Anosmiatherapy"
+meta_title: "Anosmiatherapy - Restore your sense of smell."
+meta_description: "Relevant description"
+meta_image: "dashboard_image.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
