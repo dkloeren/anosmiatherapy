@@ -12,6 +12,16 @@
           <% @scents[locals[:category]].each do |scent|%>
             <%= scent.name %> <br>
           <% end %>
+
+          <p>sdfsdfsdfdsf</p>
+          <div class="scrolling-wrapper">
+            <% current_user.scents_to_program(@scents[locals[:category]]).each do |program| %>
+            <% raise %>
+            <%= render "sliding_card", locals: {training_id: program.id}  %>
+            <% end %>
+          </div>
+          <p>sdfsfsdfsdf</p>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
