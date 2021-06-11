@@ -16,8 +16,8 @@ class OrdersController < ApplicationController
         currency: 'eur',
         quantity: 1
       }],
-      success_url: order_url(order),
-      cancel_url: order_url(order)
+      success_url: "http://anosmiatherapy.herokuapp.com/order/success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "http://anosmiatherapy.herokuapp.com/order/cancel?session_id={CHECKOUT_SESSION_ID}"
     )
 
     order.update(checkout_session_id: session.id)
@@ -25,6 +25,8 @@ class OrdersController < ApplicationController
   end
 
   def show
+    session = Stripe::Checkout::Session.retrieve(params[:session_id])
+    customer = Stripe::Customer.retrieve(session.customer)
     @order = current_user.orders.find(params[:id])
   end
 end

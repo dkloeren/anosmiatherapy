@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+    dashboard_path
+  end
+
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :avatar])
@@ -28,7 +32,10 @@ class ApplicationController < ActionController::Base
       "products#show" => "Anosmiatherapy",
       "payments#new" => "Anosmiatherapy",
       "orders#index" => "Anosmiatherapy",
-      "orders#show" => "Anosmiatherapy"
+      "orders#show" => "Anosmiatherapy",
+      "simple_discussion/forum_threads#index" => "Anosmiatherapy",
+      "simple_discussion/forum_threads#new" => "Anosmiatherapy",
+      "simple_discussion/forum_threads#show" => "Anosmiatherapy"
     }
 
     @navbar_title = titles[key]
@@ -37,4 +44,5 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
+
 end

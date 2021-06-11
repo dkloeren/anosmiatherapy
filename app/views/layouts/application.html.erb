@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag "favicon.ico", type: 'image/png' %>
 
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
@@ -25,7 +26,7 @@
     <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <% favicon_link_tag(source = "favicon.ico") %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 

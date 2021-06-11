@@ -35,7 +35,8 @@ Rails.application.configure do
   # config.active_storage.service = :local
   config.active_storage.service = :cloudinary
 
-  config.hosts << "1cca23cf2204.ngrok.io"
+  # config.hosts = 6d356a57562d.ngrok.io
+  config.hosts << "6d356a57562d.ngrok.io"
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
