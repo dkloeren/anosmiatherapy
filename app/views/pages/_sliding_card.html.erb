@@ -1,6 +1,7 @@
   <% training = current_user.smell_programs.find( locals[:training_id] ) %>
   <div class="card">
-    <%= link_to smell_program_path(training, class: "link_tile") do %>
+    <%#= link_to smell_program_path(training, class: "link_tile") do %>
+    <%= link_to dashboard_path(class: "link_tile") do %>
       <div class="training-card">
         <div class="d-flex flex-column justify-content-between">
           <h3 class="card-title p-0 m-0"><%= training.scent.name.capitalize %></h3>
