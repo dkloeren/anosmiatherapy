@@ -22,10 +22,16 @@ Scent.destroy_all
 ForumCategory.destroy_all
 
 # ID             0              1                   2                       3                       4                               5              6
-FIRSTNAMES  = %w[Admin          Luka                 Elisabeth      ABCDEFGHIJKLMNOPQRST]
-LASTNAMES   = %w[Administer     Doncic               Shaduw         ABCDEFGHIJKLMNOPQRST]
+FIRSTNAMES  = %w[David          Julian                 Elisabeth    Nayeun]
+LASTNAMES   = %w[Reuter         Doncic               Shaduw         Montana]
 PASSWORDS   = %w[111111         111111               111111         111111 ]
-EMAILS      = %w[admin@mail.com mvp.2021@dallas.com  elisa@mail.com abcdefghijklmnopqrst@alphabet.com]
+EMAILS      = %w[admin@mail.com mvp.2021@dallas.com  elisa@mail.com nayeun@montana.com]
+AVATAR  = [
+  "https://res.cloudinary.com/dmak3udzc/image/upload/v1623405492/Anosmiatherapy/Avatar/david_biyyio.jpg",
+  "https://res.cloudinary.com/dmak3udzc/image/upload/v1623405492/Anosmiatherapy/Avatar/julian_vqne02.jpg",
+  "https://res.cloudinary.com/dmak3udzc/image/upload/v1623405492/Anosmiatherapy/Avatar/elisa_nkhha9.jpg",
+  "https://res.cloudinary.com/dmak3udzc/image/upload/v1623405492/Anosmiatherapy/Avatar/nayeun_b2r9cr.jpg"
+]
 
 
 p "creating user"
@@ -36,15 +42,12 @@ FIRSTNAMES.each_with_index do |firstname, index|
       last_name: LASTNAMES[index],
       email: EMAILS[index],
       password: PASSWORDS[index])
+
+    file = URI.open(AVATAR[index])
+    user.avatar.attach(io: file, filename: "avatar", content_type: 'image/jpg')
     p "  #{index}  =>  #{firstname} "
   end
 end
-
-# Profile image
-# User.all.each do |user|
-#   file = URI.open(Faker::LoremFlickr.image(size: "200x200", search_terms: ['sports']))
-#   user.avatar.attach(io: file, filename: "avatar", content_type: 'image/jpg')
-# end
 p "#{User.count} users were created"
 
 ################################################################################
