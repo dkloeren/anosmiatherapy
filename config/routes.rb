@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root to: 'products#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get '/order/success', to: 'orders#show'
+  get '/order/:id/success', to: 'orders#show'
 
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
   get '/info', to: 'pages#info', as: 'info'
