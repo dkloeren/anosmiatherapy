@@ -22,7 +22,7 @@
 
     <div>
       <% if forum_post.user.avatar.attached? %>
-      <%= cl_image_tag(forum_post.user.avatar.key, width: 60, height: 60, crop: :thumb, gravity: :face) %>
+      <%= cl_image_tag(forum_post.user.avatar.key,  class: "avatar-round", width: 60, height: 60, crop: :thumb, gravity: :face) %>
       <% end %>
 
       <strong class="forum-post-user">
