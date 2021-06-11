@@ -16,8 +16,8 @@ class OrdersController < ApplicationController
         currency: 'eur',
         quantity: 1
       }],
-      success_url: "http://anosmiatherapy.herokuapp.com/order/success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "http://anosmiatherapy.herokuapp.com/order/cancel?session_id={CHECKOUT_SESSION_ID}"
+      success_url: "http://www.anosmiatherapy.com/order/#{order.id}/success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "http://www.anosmiatherapy.com/order/#{order.id}/cancel?session_id={CHECKOUT_SESSION_ID}"
     )
 
     order.update(checkout_session_id: session.id)
