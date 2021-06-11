@@ -2,7 +2,7 @@
   <div class="forum-thread">
     <div class="row">
 
-      <div class="col-sm-1 text-center">
+      <div class="col-sm-1 text-center pt-2">
         <% if forum_thread.user.avatar.attached? %>
           <%= cl_image_tag(forum_thread.user.avatar.key, width: 60, height: 60, crop: :thumb, gravity: :face) %>
         <% end %>
