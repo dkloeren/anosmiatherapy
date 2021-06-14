@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   after_commit :ini_programs, on: [ :create ]
 
+  # SCOPEs. ... used only in controllers
   def name
     "#{first_name} #{last_name}"
   end
@@ -29,7 +30,7 @@ class User < ApplicationRecord
     smell_programs.where(status: ["backlog", "pending"])
   end
 
-  def current
+  def started_programs #  only "current" naming is confusing ... what does current refers to?? CHANGE .. make clear
     smell_programs.where(status: ["pause","ready"])
   end
 
@@ -46,18 +47,21 @@ class User < ApplicationRecord
   def new_scents_by_category(category)
     Scent.where(category: category) - scents
   end
-
-  def scents_to_program(scent_array)
-    scent_array.map do |scent|
-      smell_programs.find_by(scent: scent)
-    end
+# ############################################
+# FIX
+  ## change naes
+  def scents_programs(scent_ids)
+    # catch if scent = empty
+    scent_programs.where(id: scent_ids)
+      # where id in [1,2,3,4,5,6,7]
   end
+  # ############################################
 
   def new_scents_new_category
-    categories = Scent.all.map(&:category).uniq!
-    current_categories = self.current.map { |program| program.scent.category }
+    categories = Scent.categories
+    current_categories = current.map { |program| program.scent.category }
     new_categories = categories - current_categories
-    new_categories.map { |category| self.new_scents_by_category(category) }.flatten
+    new_categories.map { |category| new_scents_by_category(category) }.flatten
   end
 
   def pending_scents

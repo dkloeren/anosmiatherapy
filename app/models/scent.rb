@@ -4,3 +4,9 @@ class Scent < ApplicationRecord
 
   validates :name, presence: true
 end
+
+def self.categories
+  #  ...
+  # [ cat1 cat 2 ...] ... if predefined
+  Scent.all.map(&:category).uniq!
+end
