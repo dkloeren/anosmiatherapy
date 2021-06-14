@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     redirect_to new_order_payment_path(order)
   end
 
-  def show
+  def success
     session = Stripe::Checkout::Session.retrieve(params[:session_id])
     customer = Stripe::Customer.retrieve(session.customer)
     @order = current_user.orders.find(params[:id])
