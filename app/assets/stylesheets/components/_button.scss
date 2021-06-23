@@ -8,13 +8,13 @@
   color: #FFF4ED;
   font-size: 16px;
   box-shadow: 2px 2px lightgrey;
-}
 
-a:hover {
-  text-decoration: none;
-  transition: 0.5s 20%;
-  background: $btn-dark-main;
-  color: $btn-light-main;
+  &:hover {
+    text-decoration: none;
+    transition: 0.5s 20%;
+    background: $btn-dark-main;
+    color: $btn-light-main;
+  }
 }
 
 .btn-submit {
@@ -54,7 +54,17 @@ a:hover {
   text-align: center;
   vertical-align: center;
   // margin: 8px;
+
+  &:hover {
+    text-decoration: none;
+    transition: 0.5s 20%;
+    background: $btn-dark-main;
+    color: $btn-light-main;
+  }
 }
+
+
+.btn-inverse
 
 .full {
     width: 300px;
@@ -62,8 +72,9 @@ a:hover {
 }
 
 .half {
-    width: 40%;
+    width: 50%;
     padding: 15px 24px 15px 24px;
+    margin: 0 8px 0 8px;
 }
 
 

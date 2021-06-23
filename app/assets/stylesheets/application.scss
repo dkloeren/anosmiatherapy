@@ -13,11 +13,8 @@
 @import "pages/index";
 
 // Smell Entries
-@import "smell_entries/index";
-
-
 @import "smell_entries/new";
-@import "smell_entries/start";
+@import "smell_entries/countdown";
 @import "smell_entries/show";
 
 // Smell Programs
@@ -33,3 +30,7 @@
 // orders
 @import "orders/show";
 @import "orders/index";
+
+a:hover {
+  text-decoration: none;
+}

@@ -1,39 +1,23 @@
 class SmellProgramsController < ApplicationController
   before_action :set_smell_program, only: [:show]
 
+  # keep actions short .. < 10 lines for example .. actual line of code
+  #  ... private functions
   def show
-    if params[:selection]
-      @selection = params[:selection]
-    else
-      @selection = "category"
-    end
+    @selection = params[:selection] || "category"
 
-    @scents = {}
-    # options = ["Any category", "Category", "New category", "Same category", "Paused trainings"]
-    options = ["any", "category", "new", "same", "paused"]
-    options.each do |option|
-      case option
-      when "any"
-        @scents[option] = current_user.new_scents_all
-      when "new"
-        @scents[option] = current_user.new_scents_new_category
-      when "same"
-        @scents[option] = current_user.new_scents_by_category(@smell_program.scent.category)
-      when "paused"
-        @scents[option] = current_user.pending_scents
-      end
-    end
+    @scents = scents_dropdown
 
-    if params[:scent_id]
-      training = SmellProgram.new(user: current_user, scent: Scent.find(params[:scent_id]))
-      training.status = "ready"
+    # format nicely
+    if params[:scent_id].present?
+      training = SmellProgram.new(user: current_user,
+                                  scent: Scent.find(params[:scent_id]),
+                                  status: "ready")
       if training.save
-        @smell_program.status = "pending"
-        @smell_program.save
+        @smell_program.update(status: "pending")
         redirect_to smell_program_path(training)
-      else
-        render :show
       end
+
     end
   end
 
@@ -60,8 +44,6 @@ class SmellProgramsController < ApplicationController
 
     if @smell_program.save
       redirect_to dashboard_path
-    else
-      render :show
     end
   end
 
@@ -87,6 +69,24 @@ class SmellProgramsController < ApplicationController
         date_end: smell_program.smell_entries.last.created_at,
         status: smell_program.status
       }
+    end
+  end
+
+  def scents_dropdown
+        # options = ["Any category", "Category", "New category", "Same category", "Paused trainings"]
+    # ... Just define hash .. hardcode!!
+    options = i%(any category new same paused)  # sybmols
+    options.each do |option|
+      case option
+      when :any
+        @scents[option] = current_user.new_scents_all
+      when :new
+        @scents[option] = current_user.inactive_scents
+      when :same
+        @scents[option] = Scent.where(category: @smell_program.scent.category) - current_user.scents
+      when :paused
+        @scents[option] = current_user.pending_scents
+      end
     end
   end
 end

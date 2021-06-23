@@ -17,12 +17,15 @@ SmellProgram.destroy_all
 Order.destroy_all
 Product.destroy_all
 ProductType.destroy_all
+ForumPost.destroy_all
+ForumThread.destroy_all
 User.destroy_all
 Scent.destroy_all
 ForumCategory.destroy_all
 
+
 # ID             0              1                   2                       3                       4                               5              6
-FIRSTNAMES  = %w[David          Julian                 Elisabeth    Nayeun]
+FIRSTNAMES  = %w[David          Julian               Elisabeth      Nayeun]
 LASTNAMES   = %w[Reuter         Doncic               Shaduw         Montana]
 PASSWORDS   = %w[111111         111111               111111         111111 ]
 EMAILS      = %w[admin@mail.com mvp.2021@dallas.com  elisa@mail.com nayeun@montana.com]
@@ -32,7 +35,6 @@ AVATAR  = [
   "https://res.cloudinary.com/dmak3udzc/image/upload/v1623405492/Anosmiatherapy/Avatar/elisa_nkhha9.jpg",
   "https://res.cloudinary.com/dmak3udzc/image/upload/v1623405492/Anosmiatherapy/Avatar/nayeun_b2r9cr.jpg"
 ]
-
 
 p "creating user"
 FIRSTNAMES.each_with_index do |firstname, index|

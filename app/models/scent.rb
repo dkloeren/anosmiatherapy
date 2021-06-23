@@ -3,4 +3,8 @@ class Scent < ApplicationRecord
   has_one_attached :photo
 
   validates :name, presence: true
+
+  def self.categories
+    Scent.all.map(&:category).uniq!
+  end
 end
