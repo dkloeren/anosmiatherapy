@@ -16,8 +16,10 @@ class PagesController < ApplicationController
     current_user.replace_completed_programs if params[:replace_trainings]
     reset_current_training_status if params[:reset]
 
-    #button size
+    # button size
     set_dashboard_button_width
+    # quote
+    @quote = Quote.quote_of_day
   end
 
   def info

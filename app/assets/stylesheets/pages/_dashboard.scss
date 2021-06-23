@@ -241,13 +241,12 @@ h1.test {
   @extend .text-white-text-shadow;
 }
 
-
 #btn-start-training-session {
+  align-items: center;
   padding: 15px, 110px, 15px, 110px;
-  margin: 0;
+  margin: 16x 0 16px 0;
   height: 60px;
   border-radius: 0px;
-  width: 338px;
   &-narrow {
     padding: 15px, 24px, 15px, 24px;
     width: 38%;
@@ -255,6 +254,7 @@ h1.test {
 }
 
 #btn-new-training-session {
+  align-items: center;
   padding: 15px, 110px, 15px, 110px;
   height: 60px;
   width: 338px;

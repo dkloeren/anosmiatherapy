@@ -1,4 +1,4 @@
-<% console %>
+
 <!--  personal Greeting -->
 <!-- <div class="container dashboard">
   <div id="greeting">
@@ -27,22 +27,22 @@
 
 
 <!-- Buttons -->
-<div class="container w-100 d-flex justify-content-center" id="btn-start-training-session">
-  <div class="d-flex my-4 w-100 justify-content-around">
+<div class="d-flex justify-content-center" id="btn-start-training-session">
+  <div class="d-flex justify-content-around">
     <% if current_user.smell_programs.active.present? %>
       <div>
-        <%= link_to "Start Training", countdown_smell_program_smell_entries_path(current_user.smell_programs.active[0]), class: "btn-main m-0 #{@button_width_css_class}" %>
+        <%= link_to "Start Training", countdown_smell_program_smell_entries_path(current_user.smell_programs.active[0]), class: "btn-main #{@button_width_css_class}" %>
       </div>
     <% else %>
       <div>
-        <%= link_to "Train again", dashboard_path(reset: true), class: "btn-main m-0 #{@button_width_css_class}" %>
+        <%= link_to "Train again", dashboard_path(reset: true), class: "btn-main #{@button_width_css_class}" %>
       </div>
     <% end %>
     <!-- option: swtich programs -->
     <% if current_user.smell_programs.current.sufficently_trained.present? && current_user.remaining_scents.present? %>
       <div>
         <%= link_to "New Scent", dashboard_path(replace_trainings: true),
-            class: "btn-inverse m-0 #{@button_width_css_class}" %>
+            class: "btn-inverse #{@button_width_css_class}" %>
       </div>
     <% end %>
   </div>
@@ -66,12 +66,13 @@
 </div>
 
 
+<!-- Quotes -->
 <div class="container">
   <div class="quote-container d-flex justify-content-end">
     <div class= "quote-block">
       <blockquote>
-        <p>What’s in a name? <br> That which we call a rose by any other name would smell as sweet.</p>
-        <cite>- William Shakespeare</cite>
+        <p><%= @quote.text %></p>
+        <cite>- <%= @quote.author %></cite>
       </blockquote>
     </div>
     <div class="quotation-mark">
