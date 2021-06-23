@@ -3,57 +3,60 @@ class SmellProgram < ApplicationRecord
   belongs_to :user
   has_many :smell_entries, dependent: :destroy
 
-  enum status: %i[pending ready pause completed backlog]
+  enum status: %i[pending ready pause completed]
 
   validates :scent_id, :user_id, :status, presence: true
   validates :user_id, uniqueness: { scope: :scent_id, message: "Smell training for this scent already exists!" }
 
-  def ts_block_width(total_width_px, margin = 1, n_blocks = nil )
-    #ts => time series
-    n_blocks = self.smell_entries.length unless n_blocks.present?
-    if n_blocks < 5
-      (total_width_px / 5.to_f - margin).floor
-    elsif n_blocks < 25
-      (total_width_px / n_blocks.to_f - margin).floor
-    else
-      (total_width_px / n_blocks.to_f).floor
-    end
-  end
+  scope :completed, -> { where(status: "completed") }
+  scope :active, -> { where(status: "ready") }
+  scope :halted, -> { where(status: ["backlog", "pending"]) }
+  scope :current, -> { where(status: ["pause", "ready"]) }
+  scope :waiting, -> { where(status: "pause") }
+  scope :started, -> { where(status: ["pause", "ready", "completed"]) }
+  scope :sufficently_trained, lambda {
+    includes(:smell_entries)
+      .where(smell_entries: { strength_rating: [4, 5], accuracy_rating: [4, 5] })
+  }
+
+  # =================
+  # Training Progress
+  # =================
 
   def new?
-    smell_entries.all.present? ? false : true
+    !smell_entries.all.present?
   end
 
-  def progress_percentage
-    self.new? ? 0 : 100 * (smell_entries.last.strength_rating + smell_entries.last.accuracy_rating) / 10
+  def progress
+    new? ? 0 : 100 * (smell_entries.last.strength_rating + smell_entries.last.accuracy_rating) / 10
   end
 
   def perfect?
-    self.new? ? false : smell_entries.last.strength_rating + smell_entries.last.accuracy_rating == 10
+    new? ? false : smell_entries.last.strength_rating + smell_entries.last.accuracy_rating == 10
   end
 
   def completed?
-    self.new? ? false : smell_entries.last.strength_rating > 3 && smell_entries.last.accuracy_rating > 3
+    new? ? false : smell_entries.last.strength_rating > 3 && smell_entries.last.accuracy_rating > 3
   end
 
+  # ======================
+  # Change Training Status
+  # ======================
+
   def complete!
-    self.status = "complete"
-    self.save
+    update(status: "complete")
   end
 
   def halt!
-    self.status = "pending"
-    self.save
+    update(status: "pending")
   end
 
   def wait!
-    self.status = "pause"
-    self.save
+    update(status: "pause")
   end
 
   def ready!
-    self.status = "ready"
-    self.save
+    update(status: "ready")
   end
 
   def logs
@@ -66,7 +69,18 @@ class SmellProgram < ApplicationRecord
     end
   end
 
-  def comments
-  end
+  # =========================================================
+  # Adaptive css block width for Progression css block graph
+  # =========================================================
 
+  def ts_block_width(total_width_px, margin = 1, n_blocks = nil)
+    n_blocks = smell_entries.length unless n_blocks.present?
+    if n_blocks < 5
+      (total_width_px / 5.to_f - margin).floor
+    elsif n_blocks < 25
+      (total_width_px / n_blocks.to_f - margin).floor
+    else
+      (total_width_px / n_blocks.to_f).floor
+    end
+  end
 end

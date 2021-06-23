@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  background: #FFF4ED;
+  background: #background;
   margin: 24px 0 0 0;
   padding: 0;
   width: 100vw;
@@ -10,7 +10,7 @@
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: #FFF4ED;
+  background: #background;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -39,6 +39,9 @@
 }
 
 .navbar-btn {
+  position: absolute;
+  top: -5px;
+  right: 4px;
   margin: 0;
   padding: 0;
   width: 40px;

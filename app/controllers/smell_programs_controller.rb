@@ -8,6 +8,7 @@ class SmellProgramsController < ApplicationController
 
     @scents = scents_dropdown
 
+    # format nicely
     if params[:scent_id].present?
       training = SmellProgram.new(user: current_user,
                                   scent: Scent.find(params[:scent_id]),
@@ -80,9 +81,9 @@ class SmellProgramsController < ApplicationController
       when :any
         @scents[option] = current_user.new_scents_all
       when :new
-        @scents[option] = current_user.new_scents_new_category
+        @scents[option] = current_user.inactive_scents
       when :same
-        @scents[option] = current_user.new_scents_by_category(@smell_program.scent.category)
+        @scents[option] = Scent.where(category: @smell_program.scent.category) - current_user.scents
       when :paused
         @scents[option] = current_user.pending_scents
       end

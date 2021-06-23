@@ -1,56 +1,55 @@
+<% console %>
 <!--  personal Greeting -->
 <!-- <div class="container dashboard">
   <div id="greeting">
     <p><%#= @greeting %>, <strong><%#= current_user.first_name %></strong>!</p>
   </div>
 </div> -->
-<div class="container" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.0) 30%);">
-  <div class="section-container">
-    <p class="section-category">TRAINING</p>
-    <h1 class="section-title">Unrecovered scent</h1>
+
+
+<!-- Section Title -->
+<div class="w-100" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.0) 30%);">
+  <div class="container">
+    <div class="section-container">
+      <p class="section-category">TRAINING</p>
+      <h1 class="section-title">Unrecovered scent</h1>
+    </div>
   </div>
 </div>
 
 
 <!-- Slider active-->
 <div class="scrolling-wrapper" style="padding-top:35px">
-  <% current_user.current.each do |program| %>
+  <% current_user.smell_programs.current.each do |program| %>
   <%= render "sliding_card", locals: {training_id: program.id}  %>
   <% end %>
 </div>
 
 
-<!-- >> Button -->
-<% if current_user.completed_candidates.present? %>
-  <%  css_option = "half" %>
-<% else %>
-  <%  css_option = "full" %>
-<% end %>
-
-
+<!-- Buttons -->
 <div class="container w-100 d-flex justify-content-center" id="btn-start-training-session">
   <div class="d-flex my-4 w-100 justify-content-around">
-    <% if current_user.active.present? %>
+    <% if current_user.smell_programs.active.present? %>
       <div>
-        <%= link_to "Start Training", start_smell_program_smell_entries_path(current_user.active[0]), class: "btn-main m-0 #{css_option}" %>
+        <%= link_to "Start Training", countdown_smell_program_smell_entries_path(current_user.smell_programs.active[0]), class: "btn-main m-0 #{@button_width_css_class}" %>
       </div>
     <% else %>
       <div>
-        <%#= link_to "Train again", dashboard_path(reset: true), class: "btn-standard #{css_option}" %>
-        <%= link_to "Train again", dashboard_path(reset: true), class: "btn-main m-0 #{css_option}" %>
+        <%= link_to "Train again", dashboard_path(reset: true), class: "btn-main m-0 #{@button_width_css_class}" %>
       </div>
     <% end %>
     <!-- option: swtich programs -->
-    <% if current_user.completed_candidates.present? %>
+    <% if current_user.smell_programs.current.sufficently_trained.present? && current_user.remaining_scents.present? %>
       <div>
         <%= link_to "New Scent", dashboard_path(replace_trainings: true),
-            class: "btn-inverse #{css_option}" %>
+            class: "btn-inverse m-0 #{@button_width_css_class}" %>
       </div>
     <% end %>
   </div>
 </div>
 
-<!-- Section -->
+
+<!-- Section Title -->
 <div class="container">
   <div class="section-container">
     <p class="section-category">TRAINING</p>
@@ -61,7 +60,7 @@
 
 <!-- Slider completed -->
 <div class="scrolling-wrapper">
-  <% current_user.completed.each do |program| %>
+  <% current_user.smell_programs.completed.each do |program| %>
   <%= render "sliding_card", locals: {training_id: program.id}  %>
   <% end %>
 </div>

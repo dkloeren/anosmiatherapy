@@ -11,99 +11,156 @@ class User < ApplicationRecord
   has_many :orders
   has_one_attached :avatar
 
-  after_commit :ini_programs, on: [ :create ]
+  after_commit :ini_programs, on: [:create]
 
-  # SCOPEs. ... used only in controllers
   def name
     "#{first_name} #{last_name}"
   end
 
-  def completed
-    smell_programs.where(status: "completed")
-  end
-
-  def active
-    smell_programs.where(status: "ready")
-  end
-
-  def halted
-    smell_programs.where(status: ["backlog", "pending"])
-  end
-
-  def started_programs #  only "current" naming is confusing ... what does current refers to?? CHANGE .. make clear
-    smell_programs.where(status: ["pause","ready"])
-  end
-
-  def waiting
-    smell_programs.where(status: "pause")
-  end
-
-  def completed_candidates
-    current.select do |program|
-      program.completed?
+  def replace_completed_programs
+    # --------------------------------------------------------------------------
+    # Currently trained programs (up to 4) with ratings of at least 4/5 for both
+    # accuracy and strength will be replaced with new training programs.
+    # For the priority for new scents see "new_scents" method
+    # --------------------------------------------------------------------------
+    count = 0
+    smell_programs.current.each do |training|
+      scent = next_scent(training)
+      precondition = scent.present? && training.completed?
+      count += 1 if precondition && replace_program(training, scent)
     end
+    return count
   end
 
-  def new_scents_by_category(category)
-    Scent.where(category: category) - scents
-  end
-# ############################################
-# FIX
-  ## change naes
-  def scents_programs(scent_ids)
-    # catch if scent = empty
-    scent_programs.where(id: scent_ids)
-      # where id in [1,2,3,4,5,6,7]
-  end
-  # ############################################
-
-  def new_scents_new_category
-    categories = Scent.categories
-    current_categories = current.map { |program| program.scent.category }
-    new_categories = categories - current_categories
-    new_categories.map { |category| new_scents_by_category(category) }.flatten
-  end
-
-  def pending_scents
-    self.halted.map(&:scent)
-  end
-
-  def new_scents_all
+  def remaining_scents
     Scent.all - scents
   end
 
-  def current_proram_info
-    smell_programs.map do |program|
-      if program.smell_entries.present?
-        {
-          scent: program.scent.name,
-          strength: program.smell_entries.last.strength_rating,
-          accuracy: program.smell_entries.last.accuracy_rating,
-          tries: program.smell_entries.length,
-          status: program.status,
-          date: program.smell_entries.last.created_at
-        }
-      else
-        {
-          scent: program.scent.name,
-          strength: 0,
-          accuracy: 0,
-          tries: 0,
-          status: program.status,
-          date: program.created_at
-        }
-      end
-    end
-  end
+  # def current_proram_info
+  #   smell_programs.map do |program|
+  #     if program.smell_entries.present?
+  #       {
+  #         scent: program.scent.name,
+  #         strength: program.smell_entries.last.strength_rating,
+  #         accuracy: program.smell_entries.last.accuracy_rating,
+  #         tries: program.smell_entries.length,
+  #         status: program.status,
+  #         date: program.smell_entries.last.created_at
+  #       }
+  #     else
+  #       {
+  #         scent: program.scent.name,
+  #         strength: 0,
+  #         accuracy: 0,
+  #         tries: 0,
+  #         status: program.status,
+  #         date: program.created_at
+  #       }
+  #     end
+  #   end
+  # end
 
   private
 
+  # Create 4 empty programs when a new user is created
   def ini_programs
-    # creating empty programs with the 4 initial seeds
     Scent.all[0..3].each do |scent|
       SmellProgram.create!(user: self, scent: scent, status: 1)
     end
   end
+
+  # ============================================================================
+  #   Replace completed Trainings with New/Paused Trainings
+  # ============================================================================
+
+  # Find next scent according to priority
+  def next_scent(completed_training)
+    # -----------------------
+    # returns: Scent instance
+    # -----------------------
+    priority = 0
+    scent_candidates = []
+    until scent_candidates.present? || priority == 6
+      priority += 1
+      scent_candidates = get_next_scent_candidates(priority, completed_training)
+    end
+    scent_candidates.present? ? scent_candidates.flatten[0] : false
+  end
+
+  # Get scent candidates for next training program based on current training programs
+  def get_next_scent_candidates(priority, completed_training)
+    # ------------------------------------------------------------------
+    # priority          : Integer, option parameter
+    # completed_training: Smell_Program instance which is being replaced
+    #
+    # Priority for automatic selection of new scents:
+    #   1 - new scents in a different category
+    #   2 - new scents in the same category
+    #   3 - new scents in any category
+    #   4 - paused scents in different category
+    #   5 - paused scents in same category
+    #   6 - paused scents in any category
+    #
+    # returns           : Array of Scent instances
+    # ------------------------------------------------------------------
+    case priority
+    when 1 then inactive_scents_by_category(inactive_scent_categories)
+    when 2 then inactive_scents_by_category(completed_training.scent.category)
+    when 3 then Scent.all - scents
+    when 4 then scents_by_category_and_status(inactive_scent_categories, "pending")
+    when 5 then scents_by_category_and_status(completed_training.scent.category, "pending")
+    when 6 then scents_by_category_and_status(Scent.categories, "pending")
+    else []
+    end
+  end
+
+  # Replace a completed scent training with a training of a given scent
+  def replace_program(completed_training, next_scent)
+    # ----------------------------------------------------
+    # a) Replace completed training with a paused training
+    # b) Replace completed training with a new training
+    # ----------------------------------------------------
+    # returns: Boolean
+    # ----------------------------------------------------
+    if smell_programs.where(scent: next_scent).present?
+      # PAUSED TRAINING
+      next_training = SmellProgram.find_by(scent: next_scent)
+      next_training.ready!
+      completed_training.completed!
+    elsif SmellProgram.create!(user: self, scent: next_scent, status: "ready")
+      # NEW TRAINING
+      completed_training.completed!
+    else
+      false
+    end
+  end
+
+  # ============================================================================
+  #    User scents/program information
+  # ============================================================================
+
+  def scents_by_category_and_status(categories, status)
+    # --------------------------------------------------------------------
+    # Find user scents that matches a combination of categories and status
+    # --------------------------------------------------------------------
+    categories = [categories] if categories.instance_of?(String)
+    status = [status] if status.instance_of?(String)
+    smell_programs.includes(:scent)
+                  .where(scent: { category: categories })
+                  .where(status: status)
+                  .all.map(&:scent)
+  end
+
+  def current_scent_categories
+    smell_programs.current.map { |program| program.scent.category }
+  end
+
+  def inactive_scent_categories
+    Scent.categories - current_scent_categories
+  end
+
+  def inactive_scents_by_category(categories)
+    categories = [categories] if categories.instance_of?(String)
+    categories.map { |category| Scent.where(category: category) - scents }.flatten
+  end
 end
-
-
