@@ -30,3 +30,25 @@
   background-color: #210908;
   color: $background;
 }
+
+.devise_container {
+  margin: 24px auto;
+  .simple_form.new_user {
+    width: 300px;
+  }
+}
+
+input#file_upload_button {
+  background: black;
+  width: 300px;
+}
+
+.devise_image_preview {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+.hide {
+  display: hide;
+}

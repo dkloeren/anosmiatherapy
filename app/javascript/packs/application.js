@@ -21,45 +21,32 @@ ActiveStorage.start()
 import "bootstrap";
 
 // Internal imports, e.g:
-import {startChrono, waitButtonToggle, showButtonToggle} from '../components/init_countdown';
+import {initCountdown} from '../components/init_countdown';
 import {initStackedAreaChart} from '../components/init_stacked_area_chart'
 import {iniRadialGraphChart} from '../components/init_radial_graph_chart'
-// import {chartLineWithBullets} from '../components/init_line_with_custom_bullets_chart'
+import {controlSmellEvalSubmitBtn} from '../components/smell_training'
+import {initAvatarImgPreview} from '../components/devise'
 
 document.addEventListener('turbolinks:load', () => {
-
-  // Check Selectors
+  // Selectors
   const btnTimer = document.getElementById("btn-start-training-counter")
   const progChartContainer= document.getElementById(".amcharts-progress-chart-container")
+  const formInputAvatar = document.getElementById("avatar_image_upload")
+  const formEvaluation = document.getElementById("form_smell_entry")
 
-  const jstTestButton = document.getElementById("btn-js-start")
-
-  // Timer
+  // Countdown
   if (btnTimer) {
-    const chrono = document.getElementById("starting_chrono")
-    btnTimer.addEventListener("click",(e) => {
-      e.preventDefault()
-      chrono.innerHTML = ""
-      startChrono()
-      const btnEvalId = "btn-next-training"
-      btnTimer.classList.toggle("btn-disappear");
-
-      setTimeout(() => {
-        waitButtonToggle(btnEvalId)
-        showButtonToggle(btnEvalId)
-      }, 1000);
-      setTimeout(waitButtonToggle(btnEvalId), 8000);
-    })
+    initCountdown(btnTimer)
   }
-
+  // Login: Image Preview
+  if (formInputAvatar) {
+    initAvatarImgPreview(formInputAvatar)
+  }
+  // Assert Strength and Accuracy rating have been evaluated
+  if (formEvaluation) {
+    controlSmellEvalSubmitBtn(formEvaluation)
+  }
   // Charts
   initStackedAreaChart()
   iniRadialGraphChart()
-
-  // if (jstTestButton) {
-  //   const progressCharts = document.Element.querySelectorAll(".progress_chart_container")
-  //   button.addEventListener("click",(e) => {
-  //     // chartPrgressChart();
-  //   })
-  // }
 });

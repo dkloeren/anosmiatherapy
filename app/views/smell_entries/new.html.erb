@@ -17,7 +17,7 @@
 
 <!-- Form for smell evaluation -->
   <div id="form-wrapper">
-    <form accept-charset="UTF-8" action="/smell_programs/<%= @smell_program.id %>/smell_entries" method="POST">
+    <form id="form_smell_entry" accept-charset="UTF-8" action="/smell_programs/<%= @smell_program.id %>/smell_entries" method="POST">
       <input name="utf8" type="hidden" value="&#x2713;" />
       <input name="authenticity_token" type="hidden" value=<%= form_authenticity_token %> />
 
@@ -37,7 +37,7 @@
 
       <!-- submit button -->
       <div class="d-flex justify-content-center">
-        <button type="submit" class="btn-main padding-15-40 full mt-64p"><i class="fas fa-angle-double-right"></i> <%= @link_name %></button>
+        <button type="submit" id="btn-submit-evaluation" class="btn-main hide padding-15-40 full mt-64p"><i class="fas fa-angle-double-right"></i> <%= @link_name %></button>
       </div>
     </form>
   </div>

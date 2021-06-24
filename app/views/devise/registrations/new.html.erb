@@ -1,4 +1,4 @@
-<div class="container ml-3">
+<div class="devise_container">
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -24,9 +24,12 @@
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :avatar, as: :file,
                   # hint: "optional",
-                  required: false %>
+                  required: false,
+                  input_html: { id: "avatar_image_upload" } %>
     </div>
-
+    <div>
+      <img class="image_preview hide" id="image_preview" src="#" alt="your image" />
+    </div>
     <div class="form-actions btn-main btn-form-submit">
       <%= f.button :submit, "Sign up" %>
     </div>
