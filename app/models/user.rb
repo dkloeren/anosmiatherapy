@@ -23,13 +23,12 @@ class User < ApplicationRecord
     # accuracy and strength will be replaced with new training programs.
     # For the priority for new scents see "new_scents" method
     # --------------------------------------------------------------------------
-    count = 0
     smell_programs.current.each do |training|
       scent = next_scent(training)
-      precondition = scent.present? && training.completed?
-      count += 1 if precondition && replace_program(training, scent)
+      if training.completed?
+        scent.present? ? replace_program(training, scent) : training.completed!
+      end
     end
-    return count
   end
 
   def remaining_scents
