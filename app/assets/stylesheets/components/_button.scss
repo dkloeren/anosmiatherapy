@@ -1,4 +1,5 @@
 .btn-main {
+  max-width: 450px;
   padding: 8px 14px;
   margin: 12px;
   text-align: center;
@@ -17,6 +18,10 @@
   }
 }
 
+.padding-15-40 {
+  padding: 15px 40px 15px 40px;
+}
+
 .btn-submit {
   padding: 8px 14px;
   margin: 12px;
@@ -27,7 +32,6 @@
   font-size: 16px;
   box-shadow: 2px 2px lightgrey;
 }
-
 
 .btn-standard{
   background: #1F1C1B;
@@ -42,6 +46,7 @@
 }
 
 .btn-inverse{
+  max-width: 420px;
   background: $background;
   color: black;
 
@@ -63,24 +68,16 @@
   }
 }
 
-
-.btn-inverse
-
 .full {
     width: 300px;
-    padding: 15px 110px 15px 110px;
+    // padding: 15px 110px 15px 110px;
 }
 
 .half {
-    width: 50%;
-    padding: 15px 24px 15px 24px;
+    width: 150px;
+    // padding: 15px 24px 15px 24px;
     margin: 0 8px 0 8px;
 }
-
-
-
-
-
 
 .btn-small {
   padding: 8px 16px 8px 16px;
@@ -118,7 +115,6 @@
   z-index: 5;
 }
 
-
 .btn-disappear {
   display: none;
 }
@@ -134,6 +130,7 @@
 }
 
 .btn-home-login {
+  max-width: 450px;
   padding: 8px 14px;
   margin: 12px;
   text-align: center;
@@ -145,6 +142,7 @@
 }
 
 .btn-home-sign {
+  max-width: 450px;
   padding: 8px 24px;
   margin: 15px;
   text-align: center;

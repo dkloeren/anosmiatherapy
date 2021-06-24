@@ -12,14 +12,16 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    # Check user interactivity/buttonpresses
+    # execute user interactivity/buttonpresses
     current_user.replace_completed_programs if params[:replace_trainings]
     reset_current_training_status if params[:reset]
 
-    # button size
-    set_dashboard_button_width
-    # quote
+    # load data
+    @smell_programs = current_user.smell_programs.includes(:smell_entries)
     @quote = Quote.quote_of_day
+
+    # set dynamic css classes
+    set_dashboard_button_width
   end
 
   def info

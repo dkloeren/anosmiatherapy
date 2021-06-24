@@ -21,11 +21,7 @@ ActiveStorage.start()
 import "bootstrap";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
-// import { initCountdown } from '../components/init_countdown';
-// import { startTimer} from '../components/init_countdown';
 import {startChrono, waitButtonToggle, showButtonToggle} from '../components/init_countdown';
-// import chart from '../components/init_progress_chart'
 import {initStackedAreaChart} from '../components/init_stacked_area_chart'
 import {iniRadialGraphChart} from '../components/init_radial_graph_chart'
 // import {chartLineWithBullets} from '../components/init_line_with_custom_bullets_chart'
@@ -56,16 +52,14 @@ document.addEventListener('turbolinks:load', () => {
     })
   }
 
-
+  // Charts
   initStackedAreaChart()
   iniRadialGraphChart()
 
-  // //
   // if (jstTestButton) {
   //   const progressCharts = document.Element.querySelectorAll(".progress_chart_container")
   //   button.addEventListener("click",(e) => {
   //     // chartPrgressChart();
   //   })
   // }
-
 });

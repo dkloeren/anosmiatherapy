@@ -120,9 +120,6 @@ h1.test {
   }
 }
 
-
-
-
 .flex-tiles {
   padding-left: 4px;
   padding-right: 4px;
@@ -215,11 +212,9 @@ h1.test {
   }
 
   .program-title {
-  @extend .text-white-text-shadow;
-  font-size: 32px;
-}
-
-
+    @extend .text-white-text-shadow;
+    font-size: 32px;
+  }
 }
 
 .link_tile {
@@ -233,15 +228,7 @@ h1.test {
   background-position: center;
 }
 
-.program-info {
-
-  }
-
-.program-title {
-  @extend .text-white-text-shadow;
-}
-
-#btn-start-training-session {
+#dash_board_btn_container {
   align-items: center;
   padding: 15px, 110px, 15px, 110px;
   margin: 16x 0 16px 0;
@@ -251,59 +238,6 @@ h1.test {
     padding: 15px, 24px, 15px, 24px;
     width: 38%;
   }
-}
-
-#btn-new-training-session {
-  align-items: center;
-  padding: 15px, 110px, 15px, 110px;
-  height: 60px;
-  width: 338px;
-  border-radius: 0px;
-  margin:0;
-  background: $background;
-  color: black;
-  border: solid;
-  border-color: black;
-  border-width: 1px;
-  &-narrow {
-    height: 60px;
-    border-radius: 0px;
-    margin: 0;
-    padding: 15px, 24px, 15px, 24px;
-    width: 38%;
-  }
-}
-
-#btn-start-training-counter {
-  padding: 15px, 110px, 15px, 110px;
-  margin: 0;
-  height: 60px;
-  border-radius: 0px;
-  width: 338px;
-}
-
-#btn-start-training-counter-narrow {
-  height: 60px;
-  border-radius: 0px;
-  margin: 0;
-  padding: 15px, 24px, 15px, 24px;
-  width: 38%;
-}
-
-#btn-train-again {
-  padding: 15px, 110px, 15px, 110px;
-  margin: 0;
-  height: 60px;
-  border-radius: 0px;
-  width: 338px;
-}
-
-#btn-train-agai-narrow {
-  height: 60px;
-  border-radius: 0px;
-  margin: 0;
-  padding: 15px, 24px, 15px, 24px;
-  width: 38%;
 }
 
 .dashboard-tile-data {
@@ -337,7 +271,6 @@ h1.test {
 }
 
 .db-progress-disp-opt {
-
 }
 
 .mt-4 {

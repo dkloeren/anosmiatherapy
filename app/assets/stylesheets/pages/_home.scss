@@ -17,14 +17,21 @@
 
 #landing-desc {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-bottom: 10px;
+
+  .text-desc {
+    margin: auto 20px;
+    font-size: 16px;
+  }
 }
 
 .landing-btn {
   padding: 15px;
 
   > a {
+    margin: 8px auto;
+    max-width: 450px;
     font-family: 'PT sans', 'sans-serif';
     display: flex;
     justify-content: center;
@@ -32,12 +39,10 @@
   }
 }
 
-.text-desc{
-  font-size: 16px;
-}
-
 #home-img {
-  margin: auto;
+  max-width: 450px;
+  max-height: 310px;
+  margin: 10px auto;
   display: block;
 
   img {

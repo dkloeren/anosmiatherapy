@@ -16,8 +16,13 @@ class SmellProgram < ApplicationRecord
   scope :started, -> { where(status: ["pause", "ready", "completed"]) }
   scope :sufficently_trained, lambda {
     includes(:smell_entries)
-      .where(smell_entries: { strength_rating: [4, 5], accuracy_rating: [4, 5] })
+      .where(smell_entries: { strength_rating: 4.., accuracy_rating: 4.. })
   }
+  # scope :sufficently_trained, lambda {
+  #   joins(:smell_entries)
+  #     .where("smell_entries.strength_rating > ?", 3)
+  #     .and(where("smell_entries.accuracy_rating > ?", 3))
+  # }
 
   # =================
   # Training Progress
