@@ -2,15 +2,33 @@ import * as css from './css_helper'
 
 const initAvatarImgPreview = (formInputAvatar) => {
   const formInputAvatarPreview = document.getElementById("image_preview")
-  formInputAvatar.addEventListener('change', ()=> {
+
+  // formInputAvatar.addEventListener('change', ()=> {
+  //   const [file] = formInputAvatar.files
+  //   if (file) {
+  //     formInputAvatarPreview.src = URL.createObjectURL(file)
+  //     css.removeHide(formInputAvatarPreview);
+  //   }
+  //   else {
+  //     css.addHide(formInputAvatarPreview);
+  //   }
+  // });
+
+  formInputAvatar.addEventListener('mouseover', () => {
     const [file] = formInputAvatar.files
     if (file) {
       formInputAvatarPreview.src = URL.createObjectURL(file)
-      css.removeHide(formInputAvatarPreview.classList.remove("hide"));
+      css.removeHide(formInputAvatarPreview);
     }
     else {
-      css.addHide(formInputAvatarPreview.classList.add("hide"));
+      css.addHide(formInputAvatarPreview);
     }
+
+  });
+
+  formInputAvatar.addEventListener('mouseout', () => {
+    const [file] = formInputAvatar.files
+    if (file) css.addHide(formInputAvatarPreview);
   });
 }
 
