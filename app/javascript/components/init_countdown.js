@@ -1,4 +1,4 @@
-import {hideToggle} from './helper'
+import * as css from './css_helper'
 
 const initCountdown = (btnTimer) => {
   const chrono = document.getElementById("starting_chrono")
@@ -7,9 +7,9 @@ const initCountdown = (btnTimer) => {
     e.preventDefault()
     chrono.innerHTML = ""
     startChrono()
-    hideToggle(btnTimer)
+    css.addHide(btnTimer)
     setTimeout(() => {
-      hideToggle(btnEval)
+      css.removeHide(btnEval)
     }, 1000);
   })
 }
@@ -73,9 +73,15 @@ const startChrono = () => {
     timerInterval = setInterval(() => {
       timePassed = timePassed += 1;
       timeLeft = TIME_LIMIT - timePassed;
-      document.getElementById("base-timer-label").innerHTML = formatTime(
-        timeLeft
-      );
+      try {
+        document.getElementById("base-timer-label").innerHTML = formatTime(
+          timeLeft
+        );
+      }
+      catch(ex) {
+        clearInterval(timerInterval);
+        return false;
+      }
       setCircleDasharray();
       setRemainingPathColor(timeLeft);
 

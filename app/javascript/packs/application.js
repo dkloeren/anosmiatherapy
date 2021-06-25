@@ -22,10 +22,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import {initCountdown} from '../components/init_countdown';
-import {initStackedAreaChart} from '../components/init_stacked_area_chart'
-import {iniRadialGraphChart} from '../components/init_radial_graph_chart'
 import {controlSmellEvalSubmitBtn} from '../components/smell_training'
 import {initAvatarImgPreview} from '../components/devise'
+// import {initStackedAreaChart} from '../components/init_stacked_area_chart'
+// import {iniRadialGraphChart} from '../components/init_radial_graph_chart'
 
 document.addEventListener('turbolinks:load', () => {
   // Selectors
@@ -46,7 +46,8 @@ document.addEventListener('turbolinks:load', () => {
   if (formEvaluation) {
     controlSmellEvalSubmitBtn(formEvaluation)
   }
+
   // Charts
-  initStackedAreaChart()
-  iniRadialGraphChart()
+  // initStackedAreaChart()
+  // iniRadialGraphChart()
 });
